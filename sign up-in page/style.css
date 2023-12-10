@@ -12,7 +12,7 @@ body{
 
 
 h1,h2,h3,h4,h5{
-    font-family: Helvetica,sans-serif !important;;
+    font-family: Helvetica,sans-serif !important;
 }
 .tophead{
     height: 30px;
@@ -45,12 +45,57 @@ h1,h2,h3,h4,h5{
     width: 100%;
     border-bottom: solid #f4ba33 5px;
 }
+
+
+.beta{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: auto;
+    z-index: 25;
+    border: solid 2px #f4bb34;
+    background-color: #022c56;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    box-shadow: #000 0px 0px 20px 5px;
+    animation: appear 0.5s ease-in;
+}
+.beta p{
+    width: 90%;
+    text-align: center;
+    font-family: poppins;
+    font-size: 18px;
+}
+.buttonbeta{
+    width: 96%;
+    margin-right: 2%;
+    margin-left: 2%;
+    color: #000;
+    background-color: #f4bb34;
+    border: 2px solid #03213e;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: Arial, sans-serif;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    height: 40px;
+}
+.buttonbeta:hover{
+    cursor: pointer;
+    outline: solid 2px #fff;
+}
+
+
 .menu{
     display: flex;
     justify-content: flex-end;
     list-style: none;
     font-weight: bold;
-    margin-right: 10 px;
     padding-bottom: 5px;
     border-bottom: solid 2px darkblue;
     list-style-type: none;
@@ -64,34 +109,75 @@ h1,h2,h3,h4,h5{
     width: 100%;
 }
 /* FIXED MENU END */
-.menu li{
+.menu .it{
     color: white;
     padding: 10px 20px;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     border: 2px transparent solid;
+    position: relative;
+    font-family: poppins;
+    font-size: 15px;
+    text-transform: uppercase;
 }
-ul.menu li:hover {
+ul.menu .it:hover {
     color: #212121;
     cursor: pointer;
     background-color:#f4bb33;
     outline: black 2px;
     border: solid #000 2px;
-  }
-  .home{
+}
+
+.studentslist div{
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    width: 200%;
+    z-index: 10;
+    background-color: #f4bb34;
+    box-shadow: #000 0px 0px 5px 2px;
+    display: none;
+    transition: 0.2s linear;
+    border: solid 1px #2e2d2d;
+}
+
+.studentslist:hover div{
+    display: block;
+}
+.studentslist a{
+    text-decoration: none;
+    color: #fff;
+}
+.studentslist div a{
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Poppins;
+    border: 2px solid #323232;
+    text-decoration: none;
+    color: #0f0f0f;
+}
+.studentslist a:hover{
+    border-color: #fff;
+    text-decoration: underline solid 1px #000;
+}
+
+
+.home{
     color: rgb(177, 177, 177);
     text-decoration: underline solid rgb(177, 177, 177);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
-  }
-  .home:hover{
+}
+.home:hover{
     text-decoration: none;
-  }
+}
 
-  .gg-home-alt{
+.gg-home-alt{
     color: white;
   }
 .logo{
@@ -122,7 +208,7 @@ ul.menu li:hover {
     font-family: sans-serif;
     color: white;
     position: absolute;
-    font-size: x-large;
+    font-size: 22px;
     font-weight:bolder;
     left: 180px;
     width: 100%;
@@ -162,6 +248,7 @@ ul.menu li:hover {
     padding: 10px;
     color: black;
     font-size: 16;
+    margin-right: 2%;
     transition: 0.1s ease-in-out;
     background-color: #dbd5d5;
     margin-right: 0.2%;
@@ -232,6 +319,56 @@ ul.menu li:hover {
 .fa-arrow-up{
     color: #03213e;
 }
+
+.searchnew{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: solid 2px #f4bb33;
+    transition: 0.5s ease-in-out;
+    display: none;
+}
+.searchnew input{
+    width: 50%;
+    height: 90%;
+    background-color: #dad8d8;
+    border: 2px solid #000000;
+    font-size: large;
+    transition: 0.2s ease-in-out;
+    padding: 5px;
+    outline: none;
+    margin-right: 2px;
+}
+.searchnew input:hover{
+    border-color: #efb52e;
+    cursor: pointer;
+}
+.searchnew input:focus{
+    border: solid black 2px;
+    cursor: text;
+    outline: solid #efb52e 2px;
+}
+.searchnew button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 90%;
+    text-align: center;
+    background-color: #03213e;
+    padding: 5px;
+    border: solid 2.5px #001;
+    transition: 0.21s ease-in-out;
+}
+.searchnew button:hover{
+    cursor: pointer;
+    background-color: #f4bb33;
+    .gg-search{
+        color: black;
+    }
+}
 .mainnews{
     position: relative;
     background-image: url(inelec_news.jpg);
@@ -260,11 +397,11 @@ ul.menu li:hover {
     left: 0;
 }
 .mainbox p{
-    font-family: Helvetica, sans-serif;
-    font-size: 15;
+    font-family: sans-serif;
+    font-size: 16;
     letter-spacing: 0.2px;
     font-weight: bold;
-    text-shadow: 0px 1px 1px black;
+    text-shadow: 0px 1px 1px 1px black;
 }
 .mainbox h1{
     font-weight: bold;
@@ -311,7 +448,7 @@ ul.menu li:hover {
 }
 .titlenews{
     display: flex;
-    height: 150px;
+    height: 140px;
     justify-content: center;
     align-items: center;
 }
@@ -322,34 +459,40 @@ ul.menu li:hover {
 .latest{
     display: flex;
     width: 100%;
-    height: 300px;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #022c56;
 }
 .latest div{
     position: relative;
-    width: 30%;
-    height: 92%;
-    padding: 1px;
-    background-color: #3481ce;
-    border: solid 2px #caca20 ;
-    transition: 0.5s linear;
+    width: 35%;
+    height: fit-content;
+    background-color: #ffffff;
+    border: solid 3px #f4bb33;
+    box-shadow: #000 0px 0px 10px 2px;
+    transition: 0.2s linear;
+    margin: 20px;
 }
 .latest div:hover{
-    background-color: #1a528a;
+    background-color: #858383;
+    cursor: pointer;
+}
+.latest div:hover p{
+    color: #fff;
 }
 .latest div img{
     width: 100%;
     height: 75%;
+    border-bottom: solid 5px #f4bb34;
 }
 
 .latest p{
-    font-weight: 700;
-    font-size: 17;
-    font-family: sans-serif;
-    color: white;
+    font-weight: 650;
+    font-size: 18;
+    font-family: Poppins;
+    color: #000;
     padding-left: 5px;
+    text-align: center;
 }
 .latest p:hover{
     cursor: pointer;
@@ -538,6 +681,7 @@ ul.menu li:hover {
 .elearning button{
     height: 60px;
 }
+
 
 .guidecert img{
     border-top: solid 2px #000;
@@ -829,6 +973,50 @@ ul.menu li:hover {
     text-decoration: underline solid 1px #a4a4a4;
 }
 
+
+/* FOR TABLETS */
+
+@media screen and (min-width: 700px) and (max-width: 1000px){
+    .searchbar{
+        display: none;
+    }
+    .searchbtn{
+        border-color: #f4bb33;
+        transform: scale(120%);
+    }
+    
+    .scclubs {
+        flex-wrap: wrap;
+    }
+    .scclubs div{
+        width: 35%;
+        margin: 10px;
+    }
+
+    .tiitle{
+        font-size: 17px;
+    }
+    
+    .searchnew{
+        display: none;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+    }
+    .top{
+        transform: scale(80%);
+    }
+    .upcomingevents .parentevent{
+        width: 65%;
+    }
+    .percentage{
+        font-size: 60px;
+    }
+    .percentp{
+        font-size: 18px;
+    }
+}
+
+
 /* FOR MOBILE PHONES */
 
 @media screen and (max-width: 700px) {
@@ -840,13 +1028,31 @@ ul.menu li:hover {
         text-align: center;
         font-size: 40px;
     }
+    .tophead{
+        display: none;
+    }
     .menu{
         justify-content: center;
         z-index: +7;
+        padding: 2px;
     }
-    .menu li{
+
+    .searchnew{
+        display: none;
+    }
+
+    .beta{
+        width: 60%;
+    }
+
+    
+    .menu .it{
         padding: 10px 2.5%;
     }
+    .studentslist div{
+        display: none;
+    }
+    
     .logo{
         height: 60%;
         top: 45px;
@@ -869,7 +1075,7 @@ ul.menu li:hover {
         width: 20%;
     }
     .mainnews{
-        height: 500px;
+        height: 70dvh;
     }
     .latest{
         flex-direction: column;
@@ -922,7 +1128,7 @@ ul.menu li:hover {
         padding: 10px;
     }
     .club{
-        width: 65%;
+        width: 70vw;
         margin: 10px 0 10px 0;
     }
     .clubbut{
@@ -951,6 +1157,36 @@ ul.menu li:hover {
     }
 }
 
+
+/* FOR SMALL WIDTH  */
+@media screen and (max-width: 450px){
+    .beta{
+        width: 80%;
+    }
+    .menu .it{
+        font-size: 12px;
+    }
+    .searchbar{
+        max-width: 60%;
+        font-size: 15px;
+    }
+    .stdlist{
+        top: 105%;
+    }
+    .stdlist a{
+        font-size: 10px;
+    }
+
+    .infofooter{
+        font-size: 0.8rem;
+        width: 80vw;
+        color: #ccc;
+    }
+
+    .performance{
+        width: 56%;
+    }
+}
 /* animations */
 
 @keyframes moveRight{
@@ -968,4 +1204,25 @@ ul.menu li:hover {
     100%{
         rotate: 40deg;
     }
+}
+@keyframes appear{
+    0%{
+        opacity: 0%;
+        visibility: hidden;
+    }
+    100%{
+        opacity: 100%;
+        visibility: visible;
+    }
+}
+@keyframes disappear {
+    0%{
+        opacity: 100%;
+        visibility: visible;
+    }
+    100%{
+        opacity: 0%;
+        visibility: hidden;
+    }
+    
 }
