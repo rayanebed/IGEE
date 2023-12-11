@@ -378,7 +378,7 @@
         color: #fff;
         border-bottom: solid #c5ceca;
         margin: 0px;
-        font-family: poppins;
+        font-family: Poppins;
         background-image: linear-gradient(#0f4a7e 65%, #020202 );
     }
 
@@ -566,6 +566,13 @@
         font-size: 0.8rem;
         width: 80vw;
         color: #ccc;
+    }
+    
+    .semester{
+        display: flex;
+    }
+    .semester p{
+        display: block;
     }
 }
 

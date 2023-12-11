@@ -1,3 +1,8 @@
+window.onload = function(){
+  window.scrollTo(0,0);
+};
+
+
 window.addEventListener('scroll', function(){
   let y = window.scrollY;
   var toop = document.querySelector('.top');
@@ -6,6 +11,7 @@ if (y >= 800){
 }else{
   toop.style.display = 'none';
 }
+
 })
 
 var buttontop = document.getElementById('top');
@@ -82,7 +88,7 @@ News.addEventListener('click', function(){
 })
 
 Contact.addEventListener('click', function(){
-  window.location.href = 'https://google.com';
+  window.location.href = 'contact/contact.html';
 })
 
 About.addEventListener('click', function(){

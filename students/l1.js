@@ -119,7 +119,7 @@ window.addEventListener('scroll', function(){
   })
   
   Contact.addEventListener('click', function(){
-    window.location.href = 'https://google.com';
+    window.location.href = '../contact/contact.html';
   })
   
   About.addEventListener('click', function(){

@@ -561,6 +561,12 @@
         text-align: center;
         font-size: 20px;
     }
+    .semester{
+        display: flex;
+    }
+    .semester p{
+        display: block;
+    }
 
     .infofooter{
         font-size: 0.8rem;

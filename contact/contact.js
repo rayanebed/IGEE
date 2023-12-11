@@ -62,7 +62,12 @@ window.addEventListener('scroll', function(){
       })
 
 
-      // ATTACHING LINKS TO THE MENU LIST ITEMS
+      
+
+
+  
+  
+  // ATTACHING LINKS TO THE MENU LIST ITEMS
   var Home = document.getElementById('home');
   var News = document.getElementById('news');
   var Students = document.getElementById('students');
@@ -74,7 +79,7 @@ window.addEventListener('scroll', function(){
   })
   
   Students.addEventListener('click', function(){
-    window.location.href = 'students.html';
+    window.location.href = '../students/students.html';
   })
   
   News.addEventListener('click', function(){
@@ -103,4 +108,3 @@ window.addEventListener('scroll', function(){
       }
     })
 }
-
