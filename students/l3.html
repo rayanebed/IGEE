@@ -7,7 +7,7 @@
     
     <title>IGEE</title>
     <link rel="icon" href="../logo_nobg.png">
-    <link rel="stylesheet" href="l2.css">
+    <link rel="stylesheet" href="l3.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -65,7 +65,7 @@
         <input placeholder="Search on IGEE"></input>
         <button><i class="gg-search"></i></button>
         </div>
-        <h1 class="maintitle">L2 Grade Calculator</h1>
+        <h1 class="maintitle">L3 Grade Calculator</h1>
         <div class="semester">
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
@@ -82,67 +82,70 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Physics III</td>
-                    <td><input id="phy3c" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="phy3e" max="20" class="s1input" type="number"></input></td>
-                    <td id="phy3avg"></td>
-                    <td id="phy3coeff" class="coeff">2</td>
+                    <td title="Linear Systems II">Linear Systems II</td>
+                    <td><input id="ls2c" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ls2e" max="20" class="s1input" type="number"></input></td>
+                    <td id="ls2avg"></td>
+                    <td id="ls2coeff" class="coeff">3</td>
+                </tr>
+
+                <!-- em refers to pricniples of communication -->
+                <tr>
+                    <td title="Principles of Communication">Principles of Communication</td>
+                    <td><input id="emc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="eme" max="20" class="s1input" type="number"></input></td>
+                    <td id="emavg"></td>
+                    <td id="emcoeff" class="coeff">3</td>
                 </tr>
                 <tr>
-                    <td>Active Devices I</td>
-                    <td><input id="ad1c" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="ad1e" max="20" class="s1input" type="number"></input></td>
-                    <td id="ad1avg"></td>
-                    <td id="ad1coeff" class="coeff">3</td>
+                    <td title="Computer Architecture">Computer Architecture</td>
+                    <td><input id="cac" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="cae" max="20" class="s1input" type="number"></input></td>
+                    <td id="caavg"></td>
+                    <td id="cacoeff" class="coeff">3</td>
                 </tr>
                 <tr>
-                    <td>Digital Systems I</td>
-                    <td><input id="ds1c" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="ds1e" max="20" class="s1input" type="number"></input></td>
-                    <td id="ds1avg"></td>
-                    <td id="ds1coeff" class="coeff">3</td>
+                    <td title="Power Electronics">Power Electronics</td>
+                    <td><input id="pec" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="pee" max="20" class="s1input" type="number"></input></td>
+                    <td id="peavg"></td>
+                    <td id="pecoeff" class="coeff">3</td>
                 </tr>
                 <tr>
-                    <td>Electrical Engineering II</td>
-                    <td><input id="ee2c" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="ee2e" max="20" class="s1input" type="number"></input></td>
-                    <td id="ee2avg"></td>
-                    <td id="ee2coeff" class="coeff">3</td>
+                    <td title="Process Control and Instrumentation">Process Control and Instrumentation</td>
+                    <td><input id="proc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="proe" max="20" class="s1input"  type="number"></input></td>
+                    <td id="proavg"></td>
+                    <td id="procoeff" class="coeff">3</td>
+                </tr>
+                
+                <tr>
+                    <td title="Micro Processor System Design">Micro Processor</td>
+                    <td><input id="mpc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="mpe" max="20" class="s1input" type="number"></input></td>
+                    <td id="mpavg"></td>
+                    <td id="mpcoeff" class="coeff">3</td>
                 </tr>
                 <tr>
-                    <td>Linear Algebra II</td>
-                    <td><input id="lac" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="lae" max="20" class="s1input"  type="number"></input></td>
-                    <td id="laavg"></td>
-                    <td id="lacoeff" class="coeff">2</td>
+                    <td title="Power Electronics Lab">Power Electronics Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
+                    <td id="pelabavg"></td>
+                    <td id="pelabcoeff" class="coeff">1</td>
                 </tr>
                 <tr>
-                    <td>Active Devices I Lab</td>
-                    <td></td>
-                    <td><input id="ad1lab" max="20" class="s1input" type="number"></input></td>
-                    <td id="ad1labavg"></td>
-                    <td id="ad1labcoeff" class="coeff">1</td>
+                    <td title="Telecom Lab">Telecom Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="prolab" max="20" class="s1input" type="number"></input></td>
+                    <td id="prolabavg"></td>
+                    <td id="prolabcoeff" class="coeff">1</td>
                 </tr>
                 <tr>
-                    <td>EE II Lab</td>
-                    <td></td>
-                    <td><input id="ee2lab" max="20" class="s1input" type="number"></input></td>
-                    <td id="ee2labavg"></td>
-                    <td id="ee2labcoeff" class="coeff">1</td>
-                </tr>
-                <tr>
-                    <td>Digital Systems I Lab</td>
-                    <td></td>
-                    <td><input id="ds1lab" max="20" class="s1input" type="number"></input></td>
-                    <td id="ds1labavg"></td>
-                    <td id="ds1labcoeff" class="coeff">1</td>
-                </tr>
-                <tr>
-                    <td>Physics III Lab</td>
-                    <td></td>
-                    <td><input id="phy3lab" max="20" class="s1input" type="number"></input></td>
-                    <td id="phy3labavg"></td>
-                    <td id="phy3labcoeff" class="coeff">1</td>
+                    <td title="Micro Processor System Design Lab">Micro Processor Design Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="mplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="mplabavg"></td>
+                    <td id="mplabcoeff" class="coeff">1</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -216,7 +219,7 @@
         </div>
     
     
-        <script src="l2.js"></script>
+        <script src="l3.js"></script>
     </body>
 
 

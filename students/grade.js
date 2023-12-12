@@ -78,7 +78,7 @@ window.addEventListener('scroll', function(){
   })
   
   News.addEventListener('click', function(){
-    window.location.href = 'https://google.com';
+    window.location.href = '../error.html';
   })
   
   Contact.addEventListener('click', function(){
@@ -86,7 +86,7 @@ window.addEventListener('scroll', function(){
   })
   
   About.addEventListener('click', function(){
-    window.location.href = 'https://google.com';
+    window.location.href = '../error.html';
   })
   
   
