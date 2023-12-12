@@ -6,6 +6,7 @@
         overflow-x: hidden;
         background-color: #022c56;
         position: relative;
+        margin: 0px;
     }
     
     
@@ -247,7 +248,7 @@
         font-size: 16;
         transition: 0.1s ease-in-out;
         background-color: #dbd5d5;
-        margin-right: 0.2%;
+        margin-right: 0.3%;
     }
     .searchbar:hover{
         cursor: pointer;
@@ -370,7 +371,6 @@
 
 
 .error{
-    width: 100%;
     background-color: #fff;
     padding-bottom: 50px;
 }
