@@ -84,7 +84,7 @@ Students.addEventListener('click', function(){
 })
 
 News.addEventListener('click', function(){
-  window.location.href = 'https://google.com';
+  window.location.href = 'error.html';
 })
 
 Contact.addEventListener('click', function(){
@@ -92,7 +92,7 @@ Contact.addEventListener('click', function(){
 })
 
 About.addEventListener('click', function(){
-  window.location.href = 'https://google.com';
+  window.location.href = 'error.html';
 })
 
 
