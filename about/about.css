@@ -384,7 +384,7 @@
     }
 
     .logoabout{
-        width: 300px;
+        max-width: 200px;
     }
 
     .titleandlogo{
@@ -573,6 +573,13 @@
     .content div p{
         font-size: 14px;
     }
+    .logoabout{
+        max-width: 150px;
+    }
+    .imggcontainer{
+        width: 90%;
+    }
+
 }
 
 .footer{
