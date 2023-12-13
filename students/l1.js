@@ -123,7 +123,7 @@ window.addEventListener('scroll', function(){
   })
   
   About.addEventListener('click', function(){
-    window.location.href = '../error.html';
+    window.location.href = '../about/about.html';
   })
   
   
