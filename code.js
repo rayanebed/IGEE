@@ -36,7 +36,7 @@ let menu = document.getElementById('menu');
           menu.style.position = 'fixed';
           menu.style.width = '100%';
           menu.style.top = '0px';
-          menu.style.transform = 'translate(-1%,-16px)';
+          menu.style.transform = 'translate(0%,-16px)';
           menu.style.borderBottom = 'solid 3px #f4bb33';
           menu.style.zIndex = '10';
           }
@@ -92,7 +92,7 @@ Contact.addEventListener('click', function(){
 })
 
 About.addEventListener('click', function(){
-  window.location.href = 'error.html';
+  window.location.href = 'about/about.html';
 })
 
 

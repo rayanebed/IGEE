@@ -1,9 +1,4 @@
-window.onload = function(){
-    window.scrollTo(0,0);
-  };
-  
-  
-  window.addEventListener('scroll', function(){
+window.addEventListener('scroll', function(){
     let y = window.scrollY;
     var toop = document.querySelector('.top');
   if (y >= 800){
@@ -11,7 +6,6 @@ window.onload = function(){
   }else{
     toop.style.display = 'none';
   }
-  
   })
   
   var buttontop = document.getElementById('top');
@@ -24,7 +18,7 @@ window.onload = function(){
   
   var loogo = document.getElementById('mainlogo');
       loogo.addEventListener('click', function() {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
       });
   
   let menu = document.getElementById('menu');
@@ -36,7 +30,7 @@ window.onload = function(){
             menu.style.position = 'fixed';
             menu.style.width = '100%';
             menu.style.top = '0px';
-            menu.style.transform = 'translate(0%,-16px)';
+            menu.style.transform = 'translate(-1%,-16px)';
             menu.style.borderBottom = 'solid 3px #f4bb33';
             menu.style.zIndex = '10';
             }
@@ -66,9 +60,9 @@ window.onload = function(){
         let beta = document.getElementById('beta');
         beta.style.display = 'none';
       })
-  
-  
-  // ATTACHING LINKS TO THE MENU LIST ITEMS
+
+
+      // ATTACHING LINKS TO THE MENU LIST ITEMS
   var Home = document.getElementById('home');
   var News = document.getElementById('news');
   var Students = document.getElementById('students');
@@ -76,23 +70,23 @@ window.onload = function(){
   var About = document.getElementById('about');
   
   Home.addEventListener('click', function(){
-    window.location.href = 'index.html';
+    window.location.href = '../index.html';
   })
   
   Students.addEventListener('click', function(){
-    window.location.href = 'students/students.html';
+    window.location.href = '../students/students.html';
   })
   
   News.addEventListener('click', function(){
-    window.location.href = 'error.html';
+    window.location.href = '../error.html';
   })
   
   Contact.addEventListener('click', function(){
-    window.location.href = 'contact/contact.html';
+    window.location.href = '../contact/contact.html';
   })
   
   About.addEventListener('click', function(){
-    window.location.href = 'about/about.html';
+    window.location.href = 'about.html';
   })
   
   
@@ -108,4 +102,5 @@ window.onload = function(){
         searchbar.style.animation = 'appear 1s forwards';
       }
     })
-  }
+}
+
