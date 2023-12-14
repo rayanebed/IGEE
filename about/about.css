@@ -574,7 +574,8 @@
         font-size: 14px;
     }
     .logoabout{
-        max-width: 150px;
+        max-width: 160px;
+        max-height: 160px;
     }
     .imggcontainer{
         width: 90%;
