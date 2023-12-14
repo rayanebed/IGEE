@@ -693,6 +693,9 @@ ul.menu .it:hover {
     .contactschool td{
         font-size: 0.7rem;
     }
+    .teacherscontact table{
+        width: 95%;
+    }
 }
 
 /* FOR MOBILE PHONES */
