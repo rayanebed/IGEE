@@ -397,7 +397,7 @@
         background-color: #fff;
         position: relative;
     }
-    .container h1{
+    .titleandlogo h1{
         font-family: poppins;
         font-size: 4rem;
         padding: 10px;
@@ -416,6 +416,15 @@
     }
     .imggcontainer img{
         width: 100%;
+    }
+
+    .administration{
+        font-size: 2rem;
+        text-align: center;
+        font-family: Poppins;
+        margin-top: 20px;
+        color: #13497c;
+        text-decoration: underline 1px #f4bb34;
     }
 
 
@@ -579,6 +588,10 @@
     }
     .imggcontainer{
         width: 90%;
+    }
+    
+    .administration{
+        font-size: 1rem;
     }
 
 }
