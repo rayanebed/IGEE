@@ -540,6 +540,13 @@
     .admincontainer p{
         font-size: 16px;
     }
+
+    .imgcnt{
+        padding: 0px;
+    }
+    .flowchart{
+        width: 100%;
+    }
 }
 
 /* FOR MOBILE PHONES */
