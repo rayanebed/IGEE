@@ -784,9 +784,9 @@ ul.menu .it:hover {
     font-family: poppins;
 }
 .club span{
-    font-weight: bold;
+    font-weight: 600;
     border-top: solid 4px #efb52e;
-    font-family: sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     padding: 10px;
     height: 60%;
     text-align: center;
