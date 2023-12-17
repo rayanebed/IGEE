@@ -110,6 +110,22 @@ if(window.innerWidth>= 700 && window.innerWidth<= 1000){
   })
 }
 
+var news1 = document.getElementById('news1');
+var news2 = document.getElementById('news2');
+var news3 = document.getElementById('news3');
+
+news1.addEventListener('click', function(){
+  window.location.href = 'error.html';
+})
+
+news2.addEventListener('click', function(){
+  window.location.href = 'error.html';
+})
+
+news3.addEventListener('click', function(){
+  window.location.href = 'error.html';
+})
+
 
 
 
