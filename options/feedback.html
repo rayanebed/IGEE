@@ -10,7 +10,7 @@
     
     <title>IGEE</title>
     <link rel="icon" href="../logo_nobg.png">
-    <link rel="stylesheet" href="privacy.css">
+    <link rel="stylesheet" href="feedback.css">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -73,31 +73,21 @@
     <button><i class="gg-search"></i></button>
 </div>
 
-<h1 class="maintitle">Privacy</h1>
-
+<h1 class="maintitle">Feedback</h1>
 <div class="container">
-    <p class="intro">The institute of Electronics and Electrical Engineering IGEE is committed to protecting the privacy and accuracy of confidential information to the extent possible. Other than as required by laws that guarantee public access to certain types of information, or in response to other legal instruments that authorize access, personal information is not actively shared. In particular, we do not re-distribute or sell personal information collected on our web servers.</p>
-    <h1>Information Collected:</h1>
-    <p>Our web servers log the following information:
-        <br>
-        <br>Internet Protocol (IP) address of computer being used.
-        <br>Web pages requested.
-        <br>Referring web page.
-        <br>Browser used.
-        <br>Date and time.
-        <br>This website does not associate this data with individual user identities.</p>
-    <h1>Analytics partners:</h1>
-    <p>We collaborate with various third-party analytics providers to gain insights into how visitors use our sites. This information is instrumental in enhancing both our content and your overall browsing experience. To gather this data, our analytics partners may deploy their own cookies. It's important to note that we do not share any personally identifying information about users with our partners.</p>
-    <p><label>Google Analytics:</label>  Google does not combine, match or cross-reference information from Google Analytics with any other user information. <br> <a href="https://policies.google.com/technologies/partner-sites" target="_blank">  See how Google uses the information collected from websites that use Google Analytics.</a></p>
-    <h1>Responsibility for External Sites:</h1>
-    <p>Our website may include links to other websites, some of which are operated by third parties. These links are provided for your convenience, but it's important to note that we do not actively review, control, or monitor the privacy practices of these external websites. We cannot be held responsible for the performance of websites operated by third parties or for any business dealings you may have with them. As you navigate away from our site, we advise you to assess the privacy practices of each respective website and form your own conclusions regarding the adequacy of these practices.</p>
-    <h1>Privacy Statement Revisions:</h1>
-    <p>We may change this Privacy Statement at any time and for any reason. We recommend that you revisit this statement each time you visit our website. If we make a significant change to our Privacy Statement, we will post a notice on the homepage of our web site for a period of time after the change is made. <br>
-        <br>This privacy statement was last updated on December 16th, 2023.</p>
-    <h1>Contact Us:</h1>
-    <p style="margin-left: 20px;">The developer email: <br>
-        <a style="color: #d4d4e3" href="mailto:beddrayane@gmail.com">beddrayane@gmail.com</a></p>
-        <p>Please contact the developer in case of any problem or if you want to suggest something for the website.</p>
+
+    <p>Send your Feedback, suggestions, report or anything to the developer. We will read all of your messages !</p>
+
+    <form onsubmit="sendEmail(); reset(); return false;">
+        <p>Your Name: *</p>
+        <input required placeholder="Enter Your Name" id="name">
+        <p>Your Email:</p>
+        <input type="email" placeholder="example@email.com" id="email">
+        <p>Your Message: *</p>
+        <textarea class="inputarea" required placeholder="Write Your Message" id="message"></textarea>
+        <button type="submit">Submit</button>
+        <label>* : required</label>
+    </form>
 </div>
 
 
@@ -147,7 +137,8 @@
     <p class="rights">Copyright © 2023. All Rights Reserved</p>
 </div>
 
-<script src="privacy.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="feedback.js"></script>
 
 </body>
 

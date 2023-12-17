@@ -415,6 +415,7 @@ ul.menu .it:hover {
 .contactschool table{
     width: 60%;
     margin: auto;
+    box-shadow: #000 0px 0px 5px 2px;
 }
 .contactschool td{
     color: #fff;
@@ -425,9 +426,14 @@ ul.menu .it:hover {
     border: solid 2px #efad13;
 }
 
+.teacherscontact{
+    margin-bottom: 50px;
+}
+
 .teacherscontact table{
     margin: auto;
     border-collapse: collapse;
+    box-shadow: #000 0px 0px 10px 1px;
 }
 
 .teacherscontact thead td{

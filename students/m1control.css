@@ -660,8 +660,11 @@
         width: 70%;
     }
 
-    .table{
+    table{
         width: 95dvw;
+    }
+    table td{
+        font-size: 11px;
     }
     tfoot td{
         font-size: 0.8rem;

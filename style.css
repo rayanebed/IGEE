@@ -3,7 +3,7 @@ body{
     padding: none;
     margin: 0px 2px 2px 2px;
     border: 1px solid white;
-    border-radius: 0.2%;
+    border-radius: 0.6%;
     overflow-x: hidden;
     background-color: #022c56;
     position: relative;
@@ -16,9 +16,10 @@ h1,h2,h3,h4,h5{
 }
 .tophead{
     height: 30px;
-    background-color: #0909d2;
+    background-color: #0b253e;
     display: flex;
     justify-content: center;
+    border-bottom: solid 2px #f4bb34;
     max-width: 100%;
 }
 .tophead a{
@@ -26,7 +27,7 @@ h1,h2,h3,h4,h5{
 }
 .homelink{
     color: white;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Poppins;
     border: none;
     margin: 5px 0px;
     position: absolute;
