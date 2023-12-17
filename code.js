@@ -126,6 +126,22 @@ news3.addEventListener('click', function(){
   window.location.href = 'error.html';
 })
 
+let certificate = document.getElementById('cert');
+let guide = document.getElementById('guiide');
+let elearning = document.getElementById('elearning');
+
+certificate.addEventListener('click', function(){
+  window.open('error.html');
+})
+
+guide.addEventListener('click', function(){
+  window.open('error.html');
+})
+
+elearning.addEventListener('click', function(){
+  window.open('https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9');
+})
+
 
 
 
