@@ -653,7 +653,7 @@ ul.menu .it:hover {
 /* FOR SMALL WIDTH  */
 @media screen and (max-width: 450px){
     .beta{
-        width: 80%;
+        width: 90%;
     }
     .menu .it{
         font-size: 12px;
