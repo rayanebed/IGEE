@@ -509,14 +509,14 @@ s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
 
-mplabcontrol.addEventListener('input', function(){
+mplab.addEventListener('input', function(){
 ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 
 
-mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplabexam.value));
+mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(pelab.value);
 
 
