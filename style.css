@@ -564,6 +564,11 @@ ul.menu .it:hover {
     display: block;
     background-color: white;
 }
+
+.upcomingevents a{
+    text-decoration: none;
+    color: #000;
+}
 .upcomingevents .parentevent{
     width: 50%;
     padding: 2px;
