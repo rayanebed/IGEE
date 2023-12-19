@@ -131,7 +131,7 @@ let guide = document.getElementById('guiide');
 let elearning = document.getElementById('elearning');
 
 certificate.addEventListener('click', function(){
-  window.open('error.html');
+  window.location.href = 'error.html';
 })
 
 guide.addEventListener('click', function(){
