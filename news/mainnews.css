@@ -439,6 +439,7 @@
 .tips h1{
     color: #f4bb33;
     text-decoration: underline 2px solid #e0a910;
+    font-family: sans-serif;
 }
 
 .tips p{
