@@ -74,7 +74,7 @@ window.addEventListener('scroll', function(){
   })
   
   Students.addEventListener('click', function(){
-    window.location.href = 'students.html';
+    window.location.href = '../students/students.html';
   })
   
   News.addEventListener('click', function(){
