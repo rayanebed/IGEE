@@ -835,7 +835,7 @@ ul.menu .it:hover {
 
 
 
-/* .swiper{
+.swiper{
     position: relative;
     min-height: 550px;
     margin: 0px auto 20px auto;
@@ -962,7 +962,7 @@ ul.menu .it:hover {
         font-size: 15px;
     }
 
-} */
+}
 
 .performance{
     display: flex;
