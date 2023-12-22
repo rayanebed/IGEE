@@ -741,15 +741,19 @@ ul.menu .it:hover {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.clubsectiontitle{
+/* .clubsectiontitle{
     color: #092992;
     text-decoration: underline #caca20;
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
     margin: 30px 0px 30px 0px;
-}
-/* .clubs h1{
+} */
+
+
+
+
+.clubs h1{
     color: #092992;
     text-decoration: underline #caca20;
     margin: 20px auto;
@@ -820,9 +824,18 @@ ul.menu .it:hover {
     border: solid 2px #efb52e;
     background-color: #0c3359;
     font-size: 102%;
-} */
+}
 
-.swiper{
+
+
+
+
+
+
+
+
+
+/* .swiper{
     position: relative;
     min-height: 550px;
     margin: 0px auto 20px auto;
@@ -949,7 +962,7 @@ ul.menu .it:hover {
         font-size: 15px;
     }
 
-}
+} */
 
 .performance{
     display: flex;
