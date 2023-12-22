@@ -1,0 +1,116 @@
+*{
+    font-family: Poppins;
+}
+
+.swiper{
+    position: relative;
+    min-height: 550px;
+
+}
+.clubcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    margin: auto;
+}
+.clubcard h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+    height: 30px;
+}
+.imgcontainer{
+    background-color: #f4bb34;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px 25px 0px 0px;
+    padding: 5px;
+}
+.clubcontainer{
+    width: 80%;
+    max-width: 600px;
+    background-color: blue;
+    border-radius: 0px 0px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 300px;
+}
+.clubcard p{
+    padding: 15px;
+    text-align: center;
+    margin: 0px;
+    min-height: 150px;
+}
+.clubcontainer button{
+    width: 80%;
+    max-height: 45px;
+    max-width: 400px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: #1a528a;
+    margin: 20px auto;
+    border: solid 2px #ccc;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.clubcontainer button:hover{
+    color: #ccc;
+    background-color: #1f1c7e;
+    border: solid 2px #f4bb34;
+}
+
+.imgcontainer img{
+    width: 160px;
+    height: fit-content;
+    margin: auto;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    margin: 15px;
+    transition: all 0.2s linear;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+    color: #fff;
+}
+.swiper-pagination{
+    width: fit-content;
+}
+.swiper-pagination-bullet{
+    background-color: #3335cb;
+}
+.swiper-pagination-bullet-active{
+    background-color: #1f1c7e
+}
+
+@media screen and (max-width: 700px){
+    .swiper{
+        height: fit-content;
+    }
+    
+    .swiper-button-prev, .swiper-button-next{
+        margin: 0px;
+    }
+    .swiper-button-prev{
+        transform: translateX(-7px);
+    }
+    .swiper-button-next{
+        transform: translateX(7px);
+    }
+    .clubcontainer{
+        height: auto;
+    }
+    .clubcard p{
+        font-size: 15px;
+    }
+
+}

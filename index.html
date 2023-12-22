@@ -23,6 +23,9 @@
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/youtube.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/instagram.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/phone.css' rel='stylesheet'>
+    <!-- Slider -->
+    <link href="assets/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Slider End -->
     <script src="https://kit.fontawesome.com/ea415020df.js" crossorigin="anonymous"></script>
 </head>
 
@@ -168,49 +171,113 @@
         </div>
     </div>
 
-    <div class="clubs">
+    <h1 class="clubsectiontitle">Student Scientific Clubs</h1>
+
+    <!-- <div class="clubs">
         <div class="clubs-title">
         <h1>Student Scientific Clubs</h1>
         </div>
-        <div class="scclubs">
-            <div class="club">
-                <img class="isc" title="ISC" src="isc.png">
-                <p>INELECTRONICS</p>
-                <span>ISC is the oldest club in IGEE, known for being a hub of dynamic events from workshops to hakathons. Learn more about this club !</span>
-                <div class="clubbut">
-                    <a href="error.html"><button class="clubbutton">Discover</button></a>
+        <div class="clubscontainer swiper">
+            <div class="scclubs swiper-wrapper">
+                <div class="club swiper-slide">
+                    <img class="isc" title="ISC" src="isc.png">
+                    <p>INELECTRONICS</p>
+                    <span>ISC is the oldest club in IGEE, known for being a hub of dynamic events from workshops to hakathons. Learn more about this club !</span>
+                    <div class="clubbut">
+                        <a href="error.html"><button class="clubbutton">Discover</button></a>
+                    </div>
                 </div>
-            </div>
-            <div class="club">
-                <img class="wameedh" src="wameedh.png" title="Wameedh"></img>
-                <p>Wameedh SC</p>
-                <span>A scientific club that focuses on the practical side of electronics and electrical engineering, including robotics, computer..
-                    <br>Check the Club page to uncover the vibrant world of Wameedh SC !
-                </span>
-                <div class="clubbut">
-                    <a href="error.html"><button class="clubbutton">Discover</button></a>
+                <div class="club swiper-slide">
+                    <img class="wameedh" src="wameedh.png" title="Wameedh"></img>
+                    <p>Wameedh SC</p>
+                    <span>A scientific club that focuses on the practical side of electronics and electrical engineering, including robotics, computer..
+                        <br>Check the Club page to uncover the vibrant world of Wameedh SC !
+                    </span>
+                    <div class="clubbut">
+                        <a href="error.html"><button class="clubbutton">Discover</button></a>
+                    </div>
                 </div>
-            </div>
-            <div class="club">
-                <img class="ieee" title="IEEE" src="ieee.jpg"></img>
-                <p>IEEE Student Branch</p>
-                <span>IEEE Student Branch University of Boumerdes is the first and the only IEEE Student organization in Algeria, located in IGEE.
-                    <br>Discover more about IEEE and its opportunities !</span>
-                <div class="clubbut">
-                    <a href="error.html"><button class="clubbutton">Discover</button></a>
+                <div class="club swiper-slide">
+                    <img class="ieee" title="IEEE" src="ieee.png"></img>
+                    <p>IEEE Student Branch</p>
+                    <span>IEEE Student Branch University of Boumerdes is the first and the only IEEE Student organization in Algeria, located in IGEE.
+                        <br>Discover more about IEEE and its opportunities !</span>
+                    <div class="clubbut">
+                        <a href="error.html"><button class="clubbutton">Discover</button></a>
+                    </div>
                 </div>
-            </div>
-            <div class="club">
-                <img class="intellect" title="INTELLECT" src="intellect.png"></img>
-                <p>Intellect</p>
-                <span>The newest club in IGEE, founded in early 2023. A club that is interested in electronics and artificial intelligence and their uses in start-ups and companies. Learn more about this club here !
-                </span>
-                <div class="clubbut">
-                <a href="error.html"><button class="clubbutton">Discover</button></a>
+                <div class="club swiper-slide">
+                    <img class="intellect" title="INTELLECT" src="intellect.png"></img>
+                    <p>Intellect</p>
+                    <span>The newest club in IGEE, founded in early 2023. A club that is interested in electronics and artificial intelligence and their uses in start-ups and companies. Learn more about this club here !
+                    </span>
+                    <div class="clubbut">
+                        <a href="error.html"><button class="clubbutton">Discover</button></a>
+                    </div>
                 </div>
+                <div class="swiper-pagination"></div>
+                
             </div>
         </div>
-    </div>
+    </div> -->
+    <div style="height: 50px; width: 100%; background-color: #ebe7e7;"></div>
+
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide clubcard">
+            <div class="imggcontainer iscimgcontainer">
+              <img src="isc.png" title="ISC">
+            </div>
+            <div class="clubcontainer">
+              <h1>INELECTRONICS</h1>
+              <p>ISC is the oldest club in IGEE, known for being a hub of dynamic events from workshops to hakathons. Learn more about this club !</p>
+              <button class="clubbtn" onclick="window.location.href = 'error.html';">Discover</button>
+            </div>
+          </div>
+          <div class="swiper-slide clubcard">
+            <div class="imggcontainer wameedhimgcontainer">
+              <img src="wameedh.png" title="Wameedh">
+            </div>
+            <div class="clubcontainer">
+              <h1>Wameedh SC</h1>
+              <p>A scientific club that focuses on the practical side of electronics and electrical engineering, including robotics, computer..
+                <br>Check the Club page to uncover the vibrant world of Wameedh SC !</p>
+              <button class="clubbtn" onclick="window.location.href = 'error.html';">Discover</button>
+            </div>
+          </div>
+          <div class="swiper-slide clubcard">
+            <div class="imggcontainer ieeeimgcontainer">
+              <img src="ieee.png" title="IEEE">
+            </div>
+            <div class="clubcontainer">
+              <h1>IEEE Student Branch</h1>
+              <p>IEEE Student Branch University of Boumerdes is the first and the only IEEE Student organization in Algeria, located in IGEE.
+                <br>Discover more about IEEE and its opportunities !</p>
+              <button class="clubbtn" onclick="window.location.href = 'error.html';">Discover</button>
+            </div>
+          </div>
+          <div class="swiper-slide clubcard">
+            <div class="imggcontainer intellectimgcontainer">
+              <img src="intellect.png" title="Intellect">
+            </div>
+            <div class="clubcontainer">
+              <h1>INTELLECT</h1>
+              <p>The newest club in IGEE, founded in early 2023. A club that is interested in electronics and artificial intelligence and their uses in start-ups and companies.<br>Learn more about this club here!</p>
+              <button class="clubbtn" onclick="window.location.href = 'error.html';">Discover</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      
+      </div>
+
+
+
     <div class="performance-title">
         <h1>Performance Rates</h1>
         </div>
@@ -269,6 +336,10 @@
     <p class="credits">Website fully developed by Rayane Beddou</p>
     <p class="rights">Copyright © 2023. All Rights Reserved</p>
 </div>
+
+<!-- Slider -->
+<script src="assets/swiper-bundle.min.js"></script>
+<!-- Slider End -->
 <script src="code.js"></script>
 
 </body>

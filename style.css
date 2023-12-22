@@ -741,7 +741,15 @@ ul.menu .it:hover {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.clubs h1{
+.clubsectiontitle{
+    color: #092992;
+    text-decoration: underline #caca20;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+    margin: 30px 0px 30px 0px;
+}
+/* .clubs h1{
     color: #092992;
     text-decoration: underline #caca20;
     margin: 20px auto;
@@ -812,7 +820,137 @@ ul.menu .it:hover {
     border: solid 2px #efb52e;
     background-color: #0c3359;
     font-size: 102%;
+} */
+
+.swiper{
+    position: relative;
+    min-height: 550px;
+    margin: 0px auto 20px auto;
+    background-color: #ebe7e7;
+
 }
+.clubcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    margin: auto;
+}
+.clubcard h1{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+    height: 30px;
+    font-family: Poppins !important;
+    color: #fff;
+}
+.imggcontainer{
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 25px 25px 0px 0px;
+    padding: 5px;
+}
+.iscimgcontainer{
+    background-color: #4cb7f5;
+}
+.wameedhimgcontainer{
+    background-color: #f4c14b;
+}
+.intellectimgcontainer{
+    background-color: #f8bbc5;
+}
+.clubcontainer{
+    width: 80%;
+    max-width: 600px;
+    background-color: #022c56;
+    border-radius: 0px 0px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    height: 300px;
+}
+.clubcard p{
+    padding: 15px;
+    text-align: center;
+    margin: 0px;
+    color: #fff;
+    min-height: 150px;
+    font-family: Poppins;
+}
+.clubcontainer button{
+    width: 80%;
+    height: 60px;
+    max-width: 400px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    background-color: #1a528a;
+    font-family: Poppins;
+    margin: 20px auto;
+    border: solid 2px #ccc;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.clubcontainer button:hover{
+    color: #ccc;
+    background-color: #1f1c7e;
+    border: solid 2px #f4bb34;
+}
+
+.imggcontainer img{
+    width: 160px;
+    height: fit-content;
+    margin: auto;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    margin: 15px;
+    transition: all 0.2s linear;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover{
+    color: #d5d4d2;
+}
+.swiper-pagination{
+    width: fit-content;
+}
+.swiper-pagination-bullet{
+    background-color: #3335cb;
+}
+.swiper-pagination-bullet-active{
+    background-color: #1f1c7e
+}
+
+@media screen and (max-width: 700px){
+    .swiper{
+        height: fit-content;
+    }
+    
+    .swiper-button-prev, .swiper-button-next{
+        margin: 0px;
+    }
+    .swiper-button-prev{
+        transform: translateX(-7px);
+    }
+    .swiper-button-next{
+        transform: translateX(7px);
+    }
+    .clubcontainer{
+        height: auto;
+    }
+    .clubcard p{
+        font-size: 15px;
+    }
+
+}
+
 .performance{
     display: flex;
     justify-content: center;
