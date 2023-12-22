@@ -1277,7 +1277,7 @@ ul.menu .it:hover {
     .spacebutton{
         background-color: #022c56;
     }
-    .clubs-title{
+    /* .clubs-title{
         margin-top: 5px;
     }
     .scclubs{
@@ -1296,7 +1296,7 @@ ul.menu .it:hover {
     }
     .clubbut button{
         width: 100%;
-    }
+    } */
 
     .performance{
         flex-direction: column;
@@ -1343,7 +1343,7 @@ ul.menu .it:hover {
     }
 
     .performance{
-        width: 56%;
+        width: 65%;
         margin: auto;
     }
 }
