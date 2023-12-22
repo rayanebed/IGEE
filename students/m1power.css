@@ -427,7 +427,7 @@
 
 
 
-    /* table{
+    table{
         border: 3px solid #f4bb34;
         max-width: 95vw;
         margin: auto;
@@ -463,7 +463,7 @@
         border-top: solid 2px #f4ba33;
         background-color: #03386d;
         color: #c5ceca;
-    } */
+    }
     .avg{
         color: #000;
         background-color: #efc157;
