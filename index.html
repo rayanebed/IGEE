@@ -124,30 +124,30 @@
             <div class="parentevent">
                 <div class="eventdateparent">
                     <i class="fa-solid fa-calendar-days"></i>
-                <p class="eventdate">03-12-2023</p>
+                <p class="eventdate">20-01-2024</p>
                 </div>
                 <div class="divevents">
-                <p class="event">Conference on Artificial Intelligence</p>
+                <p class="event">Fall Replacement Exams</p>
                 <a href="error.html"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
             </div>
             </div>
             <div class="parentevent">
                 <div class="eventdateparent">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <p class="eventdate">21-12-2023</p>
+                    <p class="eventdate">25/29-01-2024</p>
                 </div>
                 <div class="divevents">
-                    <p class="event">Winter Vacation</p>
+                    <p class="event">S1 Deliberations (Grades)</p>
                     <a href="error.html"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                 </div>
             </div>
             <div class="parentevent">
                 <div class="eventdateparent">
                     <i class="fa-solid fa-calendar-days"></i>
-                    <p class="eventdate">09-01-2024</p>
+                    <p class="eventdate">27-01-2024</p>
                 </div>
                 <div class="divevents">
-                <p class="event">Fall Final Exams</p>
+                <p class="event">Start of Spring Semester (S2)</p>
                 <a href="news/mainnews.html"><i class="fa-solid fa-arrow-right-to-bracket"></i></a>
                 </div>
             </div>
@@ -343,7 +343,12 @@
     <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
         of harassment and discrimination.</p>
     <p class="credits">Website fully developed by Rayane Beddou</p>
-    <p class="rights">Copyright © 2023. All Rights Reserved</p>
+    <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
 </div>
 
 <!-- Slider -->
