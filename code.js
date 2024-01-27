@@ -115,7 +115,7 @@ var news2 = document.getElementById('news2');
 var news3 = document.getElementById('news3');
 
 news1.addEventListener('click', function(){
-  window.location.href = 'error.html';
+  window.location.href = 'news/L3-demands.html';
 })
 
 news2.addEventListener('click', function(){
