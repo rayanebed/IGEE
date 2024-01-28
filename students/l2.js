@@ -97,7 +97,7 @@ window.addEventListener('scroll', function(){
         }
         else{
           s2.style.display = 'none';
-          invalid.style.display = 'none';
+          invalid.style.opacity = '0';
         }
       })
 
@@ -206,10 +206,10 @@ phy3control.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(phy3control.value) < 0 || Number(phy3control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
@@ -241,10 +241,10 @@ phy3exam.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(phy3exam.value) < 0 || Number(phy3exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -277,10 +277,10 @@ ad1control.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ad1control.value) < 0 || Number(ad1control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -315,10 +315,10 @@ ad1exam.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ad1exam.value) < 0 || Number(ad1exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -353,10 +353,10 @@ ds1control.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ds1control.value) < 0 || Number(ds1control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -391,10 +391,10 @@ ds1exam.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ds1exam.value) < 0 || Number(ds1exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -421,10 +421,10 @@ ee2control.addEventListener('input', function(){
   ee2avg.innerHTML = Number(calcAvg(ee2control.value,ee2exam.value));
 
   if(Number(ee2control.value) < 0 || Number(ee2control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -460,10 +460,10 @@ ee2exam.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ee2exam.value) < 0 || Number(ee2exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -498,10 +498,10 @@ lacontrol.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(lacontrol.value) < 0 || Number(lacontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -536,10 +536,10 @@ laexam.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(laexam.value) < 0 || Number(laexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -572,10 +572,10 @@ ad1lab.addEventListener('input', function(){
   phy3labavg.innerHTML = Number(phy3lab.value);
 
   if(Number(ad1lab.value) < 0 || Number(ad1lab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -609,10 +609,10 @@ ds1lab.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ds1lab.value) < 0 || Number(ds1lab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -646,10 +646,10 @@ phy3lab.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(phy3lab.value) < 0 || Number(phy3lab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));
@@ -683,10 +683,10 @@ ee2lab.addEventListener('input', function(){
   laavg.innerHTML = Number(calcAvg(lacontrol.value,laexam.value));
 
   if(Number(ee2lab.value) < 0 || Number(ee2lab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(phy3avg.innerText * phy3coeff.innerText) + Number(ad1avg.innerText * ad1coeff.innerText) + Number(ds1avg.innerText * ds1coeff.innerText) + Number(ee2avg.innerText * ee2coeff.innerText) + Number(laavg.innerText * lacoeff.innerText) + Number(ad1labavg.innerText * ad1labcoeff.innerText) + Number(ds1labavg.innerText * ds1labcoeff.innerText) + Number(ee2labavg.innerText * ee2labcoeff.innerText)+ Number(phy3labavg.innerText * phy3labcoeff.innerText));

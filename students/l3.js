@@ -97,7 +97,7 @@ window.addEventListener('scroll', function(){
         }
         else{
           s2.style.display = 'none';
-          invalid.style.display = 'none';
+          invalid.style.opacity = '0';
         }
       })
 
@@ -208,10 +208,10 @@ ls2control.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(ls2control.value) < 0 || Number(ls2control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -241,10 +241,10 @@ ls2exam.addEventListener('input', function(){
 
 
   if(Number(ls2exam.value) < 0 || Number(ls2exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -275,10 +275,10 @@ emcontrol.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(emcontrol.value) < 0 || Number(emcontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -313,10 +313,10 @@ emexam.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(emexam.value) < 0 || Number(emexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -352,10 +352,10 @@ cacontrol.addEventListener('input', function(){
  
 
   if(Number(cacontrol.value) < 0 || Number(cacontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   if(Number(avg(s1sum,s1coeffs))<10){
@@ -385,10 +385,10 @@ caexam.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(caexam.value) < 0 || Number(caexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -422,10 +422,10 @@ pecontrol.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(pecontrol.value) < 0 || Number(pecontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -460,10 +460,10 @@ peexam.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(peexam.value) < 0 || Number(peexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -497,10 +497,10 @@ procontrol.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(procontrol.value) < 0 || Number(procontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -533,10 +533,10 @@ proexam.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(proexam.value) < 0 || Number(proexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -571,10 +571,10 @@ mpcontrol.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(mpcontrol.value) < 0 || Number(mpcontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -599,10 +599,10 @@ mpexam.addEventListener('input', function(){
 
 
   if(Number(mpexam.value) < 0 || Number(mpexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
 
@@ -646,10 +646,10 @@ prolab.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(prolab.value) < 0 || Number(prolab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -682,10 +682,10 @@ pelab.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(pelab.value) < 0 || Number(pelab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -718,10 +718,10 @@ mplab.addEventListener('input', function(){
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(mplab.value) < 0 || Number(mplab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
   s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));

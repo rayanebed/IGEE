@@ -92,7 +92,7 @@ let menu = document.getElementById('menu');
       }
       else{
         s2.style.display = 'none';
-        invalid.style.display = 'none';
+        invalid.style.opacity = '0';
       }
     })
 
@@ -195,10 +195,10 @@ mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(ls2control.value) < 0 || Number(ls2control.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -228,10 +228,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(ls2exam.value) < 0 || Number(ls2exam.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -261,10 +261,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(emcontrol.value) < 0 || Number(emcontrol.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -299,10 +299,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(emexam.value) < 0 || Number(emexam.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -338,10 +338,10 @@ s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.inne
 
 
 if(Number(cacontrol.value) < 0 || Number(cacontrol.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -371,10 +371,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(caexam.value) < 0 || Number(caexam.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -408,10 +408,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(pecontrol.value) < 0 || Number(pecontrol.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -446,10 +446,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(peexam.value) < 0 || Number(peexam.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -485,10 +485,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(pelab.value) < 0 || Number(pelab.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
@@ -521,10 +521,10 @@ pelabavg.innerHTML = Number(pelab.value);
 
 
 if(Number(mplab.value) < 0 || Number(mplab.value)>20){
-  invalid.style.display = 'block';
+  invalid.style.opacity = '1';
 }
 else{
-  invalid.style.display = 'none';
+  invalid.style.opacity = '0';
 }
 
 s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
