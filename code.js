@@ -3,6 +3,8 @@ window.onload = function(){
 };
 
 
+
+
 window.addEventListener('scroll', function(){
   let y = window.scrollY;
   var toop = document.querySelector('.top');
@@ -60,11 +62,16 @@ let menu = document.getElementById('menu');
         menu.style.width = 'auto';
         menu.style.borderBottom = 'solid 2px darkblue';
     }})
-
+    
+    let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
     let betabutton = document.getElementById('buttonbeta');
     betabutton.addEventListener('click', function(){
       let beta = document.getElementById('beta');
       beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
     })
 
 
