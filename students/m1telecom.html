@@ -143,7 +143,20 @@
     
     
         <script src="m1telecom.js"></script>
-    </body>
+    <script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
+
+</body>
 
 
 
