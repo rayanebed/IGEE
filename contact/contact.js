@@ -113,3 +113,23 @@ window.addEventListener('scroll', function(){
       }
     })
 }
+
+function search(){
+  let table = document.getElementById('teacherstable');
+  let columns = table.getElementsByTagName('tr');
+  let inputraw = document.getElementById('srchcontactvalue');
+  let input = inputraw.value.toUpperCase();
+  let i =0;
+  let reference1, reference2;
+  for(i = 0;i< columns.length; i++){
+    reference1 = columns[i].getElementsByTagName('td')[0];
+    reference2 = columns[i].getElementsByTagName('td')[1];
+    if(reference1.innerText.toUpperCase().indexOf(input) > -1){
+      columns[i].style.display = 'table-row';
+    }else{
+      columns[i].style.display = 'none';
+    }
+  }
+
+
+}
