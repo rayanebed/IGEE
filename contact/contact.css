@@ -608,8 +608,11 @@ ul.menu .it:hover {
     color: #ffffff;
     text-decoration: underline solid #fff;
 }
+
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;
@@ -720,13 +723,13 @@ ul.menu .it:hover {
     }
 
     .teacherscontact td{
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     .contactschool table{
         width: 90%;
     }
     .contactschool td{
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     .teacherscontact table{
         width: 95%;
