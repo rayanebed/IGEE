@@ -123,7 +123,7 @@ function search(){
   let reference1, reference2;
   for(i = 0;i< columns.length; i++){
     reference1 = columns[i].getElementsByTagName('td')[0];
-    reference2 = columns[i].getElementsByTagName('td')[1];
+    // reference2 = columns[i].getElementsByTagName('td')[1];
     if(reference1.innerText.toUpperCase().indexOf(input) > -1){
       columns[i].style.display = 'table-row';
     }else{
