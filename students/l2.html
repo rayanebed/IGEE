@@ -168,8 +168,107 @@
 
         </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
+        <table id="s2" class="s2">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td title="Active Devices II">Active Devices II</td>
+                    <td><input id="ad1c" max="20" class="s1input ad2" type="number"></input></td>
+                    <td><input id="ad1e" max="20" class="s1input ad2" type="number"></input></td>
+                    <td class="ad2 modavg"></td>
+                    <td class="coeff ad2">3</td>
+                </tr>
+                <tr>
+                    <td title="Probability and Statistics">Probability and Statistics</td>
+                    <td><input max="20" class="s1input prob" type="number"></input></td>
+                    <td><input max="20" class="s1input prob" type="number"></input></td>
+                    <td class="prob modavg"></td>
+                    <td class="prob coeff">3</td>
+                </tr>
+                    <tr>
+                        <td title="Digital Systems II with VHDL">Digital Systems II</td>
+                        <td><input max="20" class="s1input ds2" type="number"></input></td>
+                        <td><input max="20" class="s1input ds2" type="number"></input></td>
+                        <td class="ds2 modavg"></td>
+                        <td class="coeff ds2">2</td>
+                    </tr>
+                    <tr>
+                        <td title="Electric Machines">Electric Machines</td>
+                        <td><input max="20" class="s1input em" type="number"></input></td>
+                        <td><input max="20" class="s1input em" type="number"></input></td>
+                        <td class="em modavg"></td>
+                        <td class="coeff em">3</td>
+                    </tr>
+                    <tr>
+                        <td title="Linear Systems I">Linear Systems I</td>
+                        <td><input max="20" class="s1input ls1" type="number"></input></td>
+                        <td><input max="20" class="s1input ls1"  type="number"></input></td>
+                        <td class="ls1 modavg"></td>
+                        <td class="coeff ls1">3</td>
+                    </tr>
+                    <tr>
+                        <td title="Communication and Principles">Communication and Principles</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input com"  type="number"></input></td>
+                        <td class="com modavg"></td>
+                        <td class="coeff com">1</td>
+                    </tr>
+                    <tr>
+                        <td title="Active Devices II Lab">Active Devices II Lab</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input ad2lab" type="number"></input></td>
+                        <td class="ad2lab modavg"></td>
+                        <td class="coeff ad2lab">1</td>
+                    </tr>
+                    <tr>
+                        <td title="Electric Machines Lab">Electric Machines Lab</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input emlab" type="number"></input></td>
+                        <td class="emlab modavg"></td>
+                        <td class="coeff emlab">1</td>
+                    </tr>
+                    <tr>
+                        <td title="Digital Systems II With VHDL Lab">Digital Systems II Lab</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input ds2lab" type="number"></input></td>
+                        <td class="ds2lab modavg"></td>
+                        <td class="coeff ds2lab">1</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Your S2 Grade:</td>
+                        <td id="s2avg" class="avg"></td>
+                        <td></td>
+                    </tr>
+            </tfoot>    
+        </table>
+        <div id="s22" class="final">
+            <div class="savg">
+                <p>S1 Average:</p>
+                <input type="number" id="s1manual">
+            </div>
+            <div class="savg">
+                <p>S2 Average:</p>
+                <input type="number" id="s2manual">
+                <input type="checkbox" id="checks2" onclick="ToggleMode();" style="width: 15px;height: 15px;">
+                <label for="s2mode">Fill S2 average automatically</label>
+            </div>
+            <div class="avgcontainer">
+                <p>Year Average:</p>
+                <div class="finalavg">
+                </div>
+            </div>
         </div>
 
         <div class="upfooter">

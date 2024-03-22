@@ -472,8 +472,8 @@
 
     .s2{
         display: none;
+        width: fit-content;
     }
-
     .s2 p{
         font-size: 25px;
         font-weight: bolder;
@@ -483,6 +483,75 @@
         font-family: Poppins;
         letter-spacing: 2px;
         margin: 30px;
+    }
+
+    .final{
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        padding-top: 30px;
+    }
+    .final p{
+        color: #fff;
+        font-family: Poppins;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+    .checkfinal{
+        display: block;
+        width: 5px;
+        height: 5px;
+        margin: 2px;
+        border: #ccc 1px solid;
+    }
+    .avgcontainer{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        align-items: center;
+        background-color: #ecae1e;
+        box-shadow: #000 0px 0px 2px 3px;
+    }
+    .avgcontainer p{
+        color: #000;
+        font-size: 22px;
+    }
+    .final label{
+        color: #fff;
+        font-family: Poppins;
+        font-size: 18px;
+    }
+    .savg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .finalavg{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        width: 80px;
+        height: 30px;
+        background-color: #ccc;
+        color: #000;
+        font-family: Poppins;
+        font-size: 22px;
+        font-weight: bold;
+        margin-left: 10px;
+        border: 2px #323232 solid;
+    }
+    .final input{
+        height: 30px;
+        width: 70px;
+        margin-left: 10px;
+        outline: none;
+        border: 2px #f4ba33 solid;
     }
 
     .upfooter{
@@ -573,6 +642,18 @@
     }
     .semester p{
         display: block;
+    }
+    .savg{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+    }
+    .final label{
+        width: 40%;
+    }
+    .avgcontainer{
+        width: 90%;
+        height: 40px;
     }
 }
 

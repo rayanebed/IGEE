@@ -71,6 +71,8 @@ window.addEventListener('scroll', function(){
       let s1select = document.getElementById('s1choose');
       let s2select = document.getElementById('s2choose');
       let s2 = document.getElementById('s2');
+      let s22 = document.getElementById('s22');
+      s22.style.display = 'none';
       
       s1.style.display = 'none';
       s1select.addEventListener('click',function(){
@@ -79,6 +81,7 @@ window.addEventListener('scroll', function(){
           invalid.style.display = '';
           if(s2.style.display != 'none'){
             s2.style.display = 'none';
+            s22.style.display = 'none';
           }
         }
         else{
@@ -90,6 +93,7 @@ window.addEventListener('scroll', function(){
       s2select.addEventListener('click', function(){
         if(s2.style.display === 'none'){
           s2.style.display = 'block';
+          s22.style.display = 'flex';
           invalid.style.display = '';
           if(s1.style.display != 'none'){
             s1.style.display = 'none';
@@ -97,6 +101,7 @@ window.addEventListener('scroll', function(){
         }
         else{
           s2.style.display = 'none';
+          s22.style.display = 'none';
           invalid.style.opacity = '0';
         }
       })
@@ -708,6 +713,384 @@ ee2lab.addEventListener('input', function(){
 
 })
 
+// S2 Calculator
+
+let ad2 = document.querySelectorAll('.ad2');
+let proba = document.querySelectorAll('.prob');
+let ds2 = document.querySelectorAll('.ds2');
+let em = document.querySelectorAll('.em');
+let ls1 = document.querySelectorAll('.ls1');
+let com = document.querySelectorAll('.com');
+let ad2lab = document.querySelectorAll('.ad2lab');
+let ds2lab = document.querySelectorAll('.ds2lab');
+let emlab = document.querySelectorAll('.emlab');
+let sum = 0;
+let s2avg = document.getElementById('s2avg');
+let finalavg = document.querySelector('.finalavg');
+let s1manual = document.getElementById('s1manual');
+let s2manual = document.getElementById('s2manual');
+let checks2 = document.getElementById('checks2');
+let coeffs2 = Number(ad2[3].innerText)+Number(proba[3].innerText)+Number(ds2[3].innerText)+Number(em[3].innerText)+Number(ls1[3].innerText)+Number(com[2].innerText)+Number(ad2lab[2].innerText)+Number(emlab[2].innerText)+Number(ds2lab[2].innerText);
+let modavg = document.querySelectorAll('.modavg');
+
+for(let i = 0; i<modavg.length; i++){
+  modavg[i].innerHTML = '0.00';
+}
+
+
+
+checks2.addEventListener('change', function(){
+  if(checks2.checked){
+    s2manual.value = s2avg.innerText;
+    finalavg.innerHTML = Number(Number(s1manual.value)+Number(s2manual.value))/2;
+  }else{
+    s2manual.value = '0.00';
+    finalavg.innerHTML = Number(Number(s1manual.value)+Number(s2manual.value)/2).toFixed(2);
+  }
+}
+)
+
+s1manual.addEventListener('input', function(){
+  finalavg.innerHTML = Number(s1manual.value * 0.5 + s2manual.value *0.5);
+})
+s2manual.addEventListener('input', function(){
+  finalavg.innerHTML = Number(s1manual.value * 0.5 + s2manual.value *0.5);
+})
+
+
+ad2[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ad2[2].innerHTML = calcAvg(ad2[0].value,ad2[1].value);
+  sum = Number(Number(ad2[2].innerText * ad2[3].innerText)+ Number(ds2[2].innerText * ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20 ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+    checks2.addEventListener('change', function(){
+      if(checks2.checked){
+        s2manual.value = s2avg.innerText;
+        finalavg.innerHTML = Number(Number(s1manual.value)+Number(s2manual.value)/2).toFixed(2);
+      }else{
+        s2manual.value = '0.00';
+      }
+    }
+    )
+
+
+  }
+});
+ad2[1].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ad2[2].innerHTML = calcAvg(ad2[0].value,ad2[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+proba[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{sum,coeffs2
+    invalid.style.opacity = '0';
+  }
+  proba[2].innerHTML = calcAvg(proba[0].value,proba[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+proba[1].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  proba[2].innerHTML = calcAvg(proba[0].value,proba[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ds2[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ds2[2].innerHTML = calcAvg(ds2[0].value,ds2[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ds2[1].addEventListener("input",function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ds2[2].innerHTML = calcAvg(ds2[0].value,ds2[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+em[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  em[2].innerHTML = calcAvg(em[0].value,em[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+em[1].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  em[2].innerHTML = calcAvg(em[0].value,em[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ls1[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ls1[2].innerHTML = calcAvg(ls1[0].value,ls1[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ls1[1].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ls1[2].innerHTML = calcAvg(ls1[0].value,ls1[1].value);
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+com[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  com[1].innerHTML = com[0].value;
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ad2lab[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ad2lab[1].innerHTML = ad2lab[0].value;
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+ds2lab[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  ds2lab[1].innerHTML = ds2lab[0].value;
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
+emlab[0].addEventListener("input", function(){
+  if(this.value < 0 || this.value > 20){
+    invalid.style.opacity = '1';
+  }else{
+    invalid.style.opacity = '0';
+  }
+  emlab[1].innerHTML = emlab[0].value;
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  if(isNaN(sum)){
+    s2avg.innerHTML = '0.00';
+  }else{
+    s2avg.innerHTML = avg(sum,coeffs2);
+    if(Number(avg(sum,coeffs2))<10){
+      s2avg.style.color = 'red';
+    }else{
+      if(Number(avg(sum,coeffs2))>=10  && Number(avg(sum,coeffs2))<=20  ){
+        s2avg.style.color = 'green';
+      }else{
+        s2avg.style.color = 'black';
+      }
+    }
+  }
+});
 
 
 
