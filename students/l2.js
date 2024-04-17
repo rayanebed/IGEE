@@ -799,7 +799,7 @@ ad2[1].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ad2[2].innerHTML = calcAvg(ad2[0].value,ad2[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -818,11 +818,11 @@ ad2[1].addEventListener("input", function(){
 proba[0].addEventListener("input", function(){
   if(this.value < 0 || this.value > 20){
     invalid.style.opacity = '1';
-  }else{sum,coeffs2
+  }else{
     invalid.style.opacity = '0';
   }
   proba[2].innerHTML = calcAvg(proba[0].value,proba[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -845,7 +845,7 @@ proba[1].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   proba[2].innerHTML = calcAvg(proba[0].value,proba[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -868,7 +868,7 @@ ds2[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ds2[2].innerHTML = calcAvg(ds2[0].value,ds2[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -891,7 +891,7 @@ ds2[1].addEventListener("input",function(){
     invalid.style.opacity = '0';
   }
   ds2[2].innerHTML = calcAvg(ds2[0].value,ds2[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -914,7 +914,7 @@ em[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   em[2].innerHTML = calcAvg(em[0].value,em[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -937,7 +937,7 @@ em[1].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   em[2].innerHTML = calcAvg(em[0].value,em[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -960,7 +960,7 @@ ls1[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ls1[2].innerHTML = calcAvg(ls1[0].value,ls1[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -983,7 +983,7 @@ ls1[1].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ls1[2].innerHTML = calcAvg(ls1[0].value,ls1[1].value);
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -1006,7 +1006,7 @@ com[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   com[1].innerHTML = com[0].value;
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -1029,7 +1029,7 @@ ad2lab[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ad2lab[1].innerHTML = ad2lab[0].value;
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -1052,7 +1052,7 @@ ds2lab[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ds2lab[1].innerHTML = ds2lab[0].value;
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -1075,7 +1075,7 @@ emlab[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   emlab[1].innerHTML = emlab[0].value;
-  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText)*Number(ad2[3].innerText)+ Number(ds2[2].innerText)*Number(ds2[3].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText)+ Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[ 2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
