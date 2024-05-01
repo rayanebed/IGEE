@@ -490,6 +490,24 @@ ul.menu .it:hover {
     background-color: #dadada;
 }
 
+.alert{
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+    min-width: 200px;
+    background-color: #d52d0fc4;
+    border-radius: 10px;
+}
+.alert h3{
+    color: #fff;
+    font-size: 20px;
+}
+.alert p{
+    color: #fff;
+    font-size: 16px;
+    font-family: Poppins;
+}
+
 
 
 

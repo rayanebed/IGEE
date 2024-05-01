@@ -472,6 +472,7 @@
 
     .s2{
         display: none;
+        width: fit-content;
     }
 
     .s2 p{
