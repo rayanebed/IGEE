@@ -557,6 +557,9 @@
     .calculator{
         margin: none;
     }
+    thead td{
+        font-size: 10px;
+    }
     
     .maintitle{
         text-align: center;

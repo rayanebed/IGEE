@@ -440,8 +440,6 @@
     thead td{
         border-bottom: #f4ba33 solid 2px;
         margin: 1px;
-    }
-    thead td{
         color: #f4ba33;
         background-color: #03386d;
     }
@@ -625,7 +623,9 @@
     .calculator{
         margin: none;
     }
-    
+    thead td{
+        font-size: 10px;
+    }
     .maintitle{
         text-align: center;
         font-size: 20px;
