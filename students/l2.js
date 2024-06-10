@@ -765,7 +765,7 @@ ad2[0].addEventListener("input", function(){
     invalid.style.opacity = '0';
   }
   ad2[2].innerHTML = calcAvg(ad2[0].value,ad2[1].value);
-  sum = Number(Number(ad2[2].innerText * ad2[3].innerText)+ Number(ds2[2].innerText * ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
+  sum = Number(Number(ad2[2].innerText * ad2[3].innerText)+ Number(ds2[2].innerText * ds2[3].innerText) + Number(em[2].innerText)*Number(em[3].innerText) + Number(ls1[2].innerText)*Number(ls1[3].innerText) + Number(com[1].innerText)*Number(com[2].innerText) + Number(proba[2].innerText)*Number(proba[3].innerText) + Number(ad2lab[1].innerText)*Number(ad2lab[2].innerText) + Number(ds2lab[1].innerText)*Number(ds2lab[2].innerText) + Number(emlab[1].innerText)*Number(emlab[2].innerText));
   if(isNaN(sum)){
     s2avg.innerHTML = '0.00';
   }else{
@@ -779,15 +779,12 @@ ad2[0].addEventListener("input", function(){
         s2avg.style.color = 'black';
       }
     }
-    checks2.addEventListener('change', function(){
       if(checks2.checked){
         s2manual.value = s2avg.innerText;
         finalavg.innerHTML = Number(Number(s1manual.value)+Number(s2manual.value)/2).toFixed(2);
       }else{
         s2manual.value = '0.00';
       }
-    }
-    )
 
 
   }
