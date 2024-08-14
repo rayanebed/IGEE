@@ -126,7 +126,45 @@ window.addEventListener('scroll', function(){
       sessionStorage.setItem('beta', 'done');
     })
 
-    var loogo = document.getElementById('mainlogo');
-    loogo.addEventListener('click', function() {
-      window.location.href = '../index.html';
-    });
+   
+    // ATTACHING LINKS TO THE MENU LIST ITEMS
+var Home = document.getElementById('home');
+var News = document.getElementById('news');
+var Students = document.getElementById('students');
+var Contact = document.getElementById('contact');
+var About = document.getElementById('about');
+
+Home.addEventListener('click', function(){
+  window.location.href = '../index.html';
+})
+
+Students.addEventListener('click', function(){
+  window.location.href = 'students.html';
+})
+
+News.addEventListener('click', function(){
+  window.location.href = '../error.html';
+})
+
+Contact.addEventListener('click', function(){
+  window.location.href = '../contact/contact.html';
+})
+
+About.addEventListener('click', function(){
+  window.location.href = '../about/about.html';
+})
+
+
+let searchbar = document.getElementById('searchnew');
+if(window.innerWidth>= 700 && window.innerWidth<= 1000){
+  let srchbtn = document.getElementById('sbtn');
+  srchbtn.addEventListener('click', function(){
+    if(searchbar.style.display === 'flex'){
+      searchbar.style.display ='none';
+      searchbar.style.animation = 'disappear 1s forwards';
+    }else{
+      searchbar.style.display ='flex';
+      searchbar.style.animation = 'appear 1s forwards';
+    }
+  })
+}
