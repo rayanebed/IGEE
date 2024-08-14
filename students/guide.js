@@ -125,3 +125,8 @@ window.addEventListener('scroll', function(){
       beta.style.display = 'none';
       sessionStorage.setItem('beta', 'done');
     })
+
+    var loogo = document.getElementById('mainlogo');
+    loogo.addEventListener('click', function() {
+      window.location.href = '../index.html';
+    });
