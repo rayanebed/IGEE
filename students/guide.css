@@ -450,9 +450,10 @@
         padding-bottom: 5px;
     }
     .dropfaq{
-        width: 80%;
+        width: 85%;
         margin: auto;
         padding-bottom: 30px;
+        position: relative;
     }
     .dropbtnfaq{
         background-color: #efcc1e;
@@ -460,10 +461,10 @@
         padding: 10px;
         display: flex;
         justify-content: space-between;
+        gap: 5px;
         align-items: center;
         border: solid 1px #03213e;
         cursor: pointer;
-        width: 100%;
         border-radius: 5px;
     }
     .dropbtnfaq p{
@@ -472,7 +473,6 @@
         font-family: Poppins;
     }
     .dropdown-contentfaq{
-        width: 100%;
         background-color: #e6e5e5;
         height: 0px;
         padding-right: 10px;
@@ -481,6 +481,10 @@
         position: relative;
         transition: 0.4s ease-in-out;
         overflow-y: hidden;
+    }
+    .dropdown-contentfaq p{
+        font-family: Poppins;
+        font-size: 20px;
     }
 
 
@@ -561,24 +565,6 @@
         color: #ccc;
     }
     
-    .semester{
-        display: flex;
-    }
-    .semester p{
-        display: block;
-    }
-    .savg{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-content: center;
-    }
-    .final label{
-        width: 40%;
-    }
-    .avgcontainer{
-        width: 90%;
-        height: 40px;
-    }
 }
 
 /* FOR MOBILE PHONES */
@@ -676,6 +662,12 @@
     }
     .drop{
         width: 90%;
+    }
+    .dropbtnfaq p{
+        font-size: 12px;
+    }
+    .dropdown-contentfaq p{
+        font-size: 12px;
     }
 
     

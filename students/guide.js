@@ -65,16 +65,93 @@ window.addEventListener('scroll', function(){
     });
 
     let dropfaq1 = document.getElementById('dropbtnfaq1');
+    let dropfaq2 = document.getElementById('dropbtnfaq2');
+    let dropfaq3 = document.getElementById('dropbtnfaq3');
+    let dropfaq4 = document.getElementById('dropbtnfaq4');
+    let dropfaq5 = document.getElementById('dropbtnfaq5');
+    let dropfaq6 = document.getElementById('dropbtnfaq6');
+    let dropfaq7 = document.getElementById('dropbtnfaq7');
+    let dropfaq8 = document.getElementById('dropbtnfaq8');
+    let dropfaq9 = document.getElementById('dropbtnfaq9');
     let droplistfaq = document.querySelectorAll('.dropdown-contentfaq');
-
+    
+    
     dropfaq1.addEventListener('click', function(){
         if(droplistfaq[0].style.height == '0px'){
-            droplistfaq[0].style.height = 'auto';
+            droplistfaq[0].style.height = '260px';
         }
         else{
             droplistfaq[0].style.height = '0px';
         }
     });
+
+    dropfaq2.addEventListener('click', function(){
+        if(droplistfaq[1].style.height == '0px'){
+            droplistfaq[1].style.height = '140px';
+        }
+        else{
+            droplistfaq[1].style.height = '0px';
+        }
+    });
+    dropfaq3.addEventListener('click', function(){
+      if(droplistfaq[2].style.height == '0px'){
+          droplistfaq[2].style.height = '100px';
+      }
+      else{
+          droplistfaq[2].style.height = '0px';
+      }
+  });
+  dropfaq4.addEventListener('click', function(){
+    if(droplistfaq[3].style.height == '0px'){
+        droplistfaq[3].style.height = '160px';
+    }
+    else{
+        droplistfaq[3].style.height = '0px';
+    }
+});
+  dropfaq5.addEventListener('click', function(){
+    if(droplistfaq[4].style.height == '0px'){
+        droplistfaq[4].style.height = '100px';
+    }
+    else{
+        droplistfaq[4].style.height = '0px';
+    }
+  });
+  dropfaq6.addEventListener('click', function(){
+    if(droplistfaq[5].style.height == '0px'){
+        droplistfaq[5].style.height = '150px';
+    }
+    else{
+        droplistfaq[5].style.height = '0px';
+    }
+  });
+  dropfaq7.addEventListener('click', function(){
+    if(droplistfaq[6].style.height == '0px'){
+        droplistfaq[6].style.height = '180px';
+    }
+    else{
+        droplistfaq[6].style.height = '0px';
+    }
+  });
+  dropfaq8.addEventListener('click', function(){
+    if(droplistfaq[7].style.height == '0px'){
+        droplistfaq[7].style.height = '140px';
+    }
+    else{
+        droplistfaq[7].style.height = '0px';
+    }
+  });
+  dropfaq9.addEventListener('click', function(){
+    if(droplistfaq[8].style.height == '0px'){
+        droplistfaq[8].style.height = '120px';
+    }
+    else{
+        droplistfaq[8].style.height = '0px';
+    }
+  });
+
+    
+
   
   var loogo = document.getElementById('mainlogo');
       loogo.addEventListener('click', function() {
@@ -168,3 +245,5 @@ if(window.innerWidth>= 700 && window.innerWidth<= 1000){
     }
   })
 }
+
+
