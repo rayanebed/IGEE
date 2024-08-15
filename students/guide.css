@@ -456,7 +456,7 @@
         position: relative;
     }
     .dropbtnfaq{
-        background-color: #efcc1e;
+        background-color: #e8c721;
         color: white;
         padding: 10px;
         display: flex;
@@ -468,6 +468,8 @@
         border-radius: 5px;
     }
     .dropbtnfaq p{
+        color: #393636;
+        font-weight: 500;
         font-size: 22px;
         margin: 0;
         font-family: Poppins;
@@ -664,7 +666,7 @@
         width: 90%;
     }
     .dropbtnfaq p{
-        font-size: 12px;
+        font-size: 14px;
     }
     .dropdown-contentfaq p{
         font-size: 12px;
