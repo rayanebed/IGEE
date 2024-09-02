@@ -73,6 +73,7 @@ window.addEventListener('scroll', function(){
     let dropfaq7 = document.getElementById('dropbtnfaq7');
     let dropfaq8 = document.getElementById('dropbtnfaq8');
     let dropfaq9 = document.getElementById('dropbtnfaq9');
+    let dropfaq10 = document.getElementById('dropbtnfaq10');
     let droplistfaq = document.querySelectorAll('.dropdown-contentfaq');
     
     
@@ -149,6 +150,14 @@ window.addEventListener('scroll', function(){
         droplistfaq[8].style.height = '0px';
     }
   });
+  dropfaq10.addEventListener('click', function(){
+    if(droplistfaq[9].style.height == '0px'){
+        droplistfaq[9].style.height = '180px';
+    }
+    else{
+        droplistfaq[9].style.height = '0px';
+    }
+});
 
     
 
