@@ -194,8 +194,8 @@ if (isNaN(Number(s1average.innerText)) || s1average.innerText ==''){
 let invalid = document.getElementById('invalid');
 
 
-let s1coeffs = parseInt(Number(phy1coeff.innerText) + Number(calc1coeff.innerText) + Number(chem1coeff.innerText) + Number(algocoeff.innerText) + Number(lscoeff.innerText) + Number(rwcoeff.innerText) + Number(estcoeff.innerText) + Number(ethicscoeff.innerText) + Number(phy1labcoeff.innerText)) ;
-let s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+let s1coeffs = parseInt(Number(phy1coeff.innerText) + Number(calc1coeff.innerText) + Number(chem1coeff.innerText) + Number(algocoeff.innerText) + Number(lscoeff.innerText) + Number(rwcoeff.innerText) + Number(ethicscoeff.innerText) + Number(phy1labcoeff.innerText)) ;
+let s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 phy1control.addEventListener('keyup', function(){
   phy1avg.innerHTML = Number(calcAvg(phy1control.value,phy1exam.value));
   calc1avg.innerHTML = Number(calcAvg(calc1control.value,calc1exam.value));
@@ -203,7 +203,7 @@ phy1control.addEventListener('keyup', function(){
   algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
   ethicsavg.innerHTML = Number(ethicsexam.value);
   lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-  estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+  
   rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
   phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -215,7 +215,7 @@ phy1control.addEventListener('keyup', function(){
   }
 
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -237,7 +237,7 @@ phy1exam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -249,7 +249,7 @@ phy1exam.addEventListener('keyup', function(){
   }
 
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -271,7 +271,7 @@ calc1control.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -282,7 +282,7 @@ calc1control.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -304,7 +304,7 @@ calc1exam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -315,7 +315,7 @@ calc1exam.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -342,7 +342,7 @@ chem1control.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -368,7 +368,7 @@ chem1exam.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -394,7 +394,7 @@ algocontrol.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -420,7 +420,7 @@ algoexam.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -436,58 +436,6 @@ algoexam.addEventListener('keyup', function(){
 })
 
 
-
-estcontrol.addEventListener('keyup', function(){
-  estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
-
-  if(Number(estcontrol.value) < 0 || Number(estcontrol.value)>20){
-    invalid.style.opacity = '1';
-  }
-  else{
-    invalid.style.opacity = '0';
-  }
-
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
-
-estexam.addEventListener('keyup', function(){
-
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
-    
-
-  if(Number(estexam.value) < 0 || Number(estexam.value)>20){
-    invalid.style.opacity = '1';
-  }
-  else{
-    invalid.style.opacity = '0';
-  }
-
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
 
 lscontrol.addEventListener('keyup', function(){
 
@@ -500,7 +448,7 @@ lscontrol.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -522,7 +470,7 @@ lsexam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -533,7 +481,7 @@ lsexam.addEventListener('keyup', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -555,7 +503,7 @@ rwcontrol.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -566,7 +514,7 @@ rwcontrol.addEventListener('input', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -588,7 +536,7 @@ rwexam.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -599,7 +547,7 @@ rwexam.addEventListener('input', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -623,7 +571,7 @@ phy1lab.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -634,7 +582,7 @@ phy1lab.addEventListener('input', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -656,7 +604,7 @@ ethicsexam.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
@@ -667,7 +615,7 @@ ethicsexam.addEventListener('input', function(){
     invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
