@@ -170,7 +170,6 @@ var procontrol = document.getElementById('proc');
 var proexam = document.getElementById('proe');
 var proavg = document.getElementById('proavg');
 var procoeff = document.getElementById('procoeff');
-var mpcontrol = document.getElementById('mpc');
 var mpexam = document.getElementById('mpe');
 var mpavg = document.getElementById('mpavg');
 var mpcoeff = document.getElementById('mpcoeff');
@@ -199,7 +198,7 @@ ls2control.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -231,7 +230,7 @@ ls2exam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -266,7 +265,7 @@ emcontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -304,7 +303,7 @@ emexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -340,7 +339,7 @@ cacontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -376,7 +375,7 @@ caexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -413,7 +412,7 @@ pecontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -451,7 +450,7 @@ peexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -488,7 +487,7 @@ procontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -524,7 +523,7 @@ proexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -554,50 +553,13 @@ proexam.addEventListener('input', function(){
 
 })
 
-mpcontrol.addEventListener('input', function(){
-  ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
-  emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
-  caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
-  peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  pelabavg.innerHTML = Number(pelab.value);
-  prolabavg.innerHTML = Number(prolab.value);
-
-
-  if(Number(mpcontrol.value) < 0 || Number(mpcontrol.value)>20){
-    invalid.style.opacity = '1';
-  }
-  else{
-    invalid.style.opacity = '0';
-  }
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
-
-  
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-
-
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
-
 mpexam.addEventListener('input', function(){
   ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
   emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -636,7 +598,7 @@ prolab.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
@@ -672,7 +634,7 @@ pelab.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
+  mpavg.innerHTML = Number(mpexam.value);
   
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
