@@ -671,8 +671,11 @@
         width: 70%;
     }
 
-    .table{
+    table{
         width: 95dvw;
+    }
+    table td{
+        font-size: 10px;
     }
     tfoot td{
         font-size: 0.8rem;
@@ -713,6 +716,13 @@
         width: 200px;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .ad img{
+        width: 200px;
+    }
+}
+
 .ineleclogo:hover{
     cursor: pointer;
     border: white solid 1px;

@@ -979,6 +979,12 @@ ul.menu .it:hover {
     }
 }
 
+@media screen and (max-width: 320px) {
+    .ad img{
+        width: 250px;
+    }
+}
+
 .performance{
     display: flex;
     justify-content: center;

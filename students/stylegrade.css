@@ -687,6 +687,13 @@ ul.menu .it:hover {
         width: 200px;
     }
 }
+
+@media screen and (max-width: 420px) {
+    .ad img{
+        width: 220px;
+    }
+}
+
 .ineleclogo:hover{
     cursor: pointer;
     border: white solid 1px;

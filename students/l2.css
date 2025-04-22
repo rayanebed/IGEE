@@ -389,6 +389,7 @@
         box-shadow: #000 0px 0px 5px 1px;
     }
 
+
     .semester{
         width: fit-content;
         margin: 20px auto;
@@ -749,8 +750,11 @@
         width: 70%;
     }
 
-    .table{
-        width: 95dvw;
+    table{
+        width: 100dvw;
+    }
+    table td{
+        font-size: 10px;
     }
     tfoot td{
         font-size: 0.8rem;
@@ -791,6 +795,13 @@
         width: 200px;
     }
 }
+
+@media screen and (max-width: 350px) {
+    .ad img{
+        width: 200px;
+    }
+}
+
 .ineleclogo:hover{
     cursor: pointer;
     border: white solid 1px;
