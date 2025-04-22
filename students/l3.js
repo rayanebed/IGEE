@@ -147,6 +147,37 @@ window.addEventListener('scroll', function(){
 }
 
 
+// the ad
+const ads = [
+  {
+      gif: "../assets/gifs/ivolunteer-ad.gif",
+      url: "https://instagram.com/i.volunteer.dz/",
+      alt: "I Volunteer"
+  },
+  {
+      gif: "../assets/gifs/iscraft-ad.gif",
+      url: "https://iscraft.site/",
+      alt: "ISCraft"
+  },
+  {
+      gif: "../assets/gifs/onlinebazardz-ad.gif",
+      url: "https://instagram.com/online_bazar_dz/",
+      alt: "Online Bazar DZ"
+  }
+]
+const ad = document.getElementById("ad");
+const adImg = document.getElementById("adimg");
+const adText = document.getElementById("adtext");
+const adLink = document.getElementById("adlink");
+
+function showGif(){
+  const randomIndex = Math.floor(Math.random() * ads.length);
+  ad.innerHTML = `<a href="${ads[randomIndex].url}" target="_blank"><img src="${ads[randomIndex].gif}" alt="${ads[randomIndex].alt}"></a>`;
+}
+
+
+window.addEventListener('DOMContentLoaded', showGif());
+
 
 // GRADE CALCULATOR FOR S1
 
@@ -666,6 +697,520 @@ pelab.addEventListener('input', function(){
 
 
 
+// Grade calculator for S2
+
+let comcontrol = document.getElementById('comc');
+let comexam = document.getElementById("come");
+let comaverage = document.getElementById("comavg");
+let comcoeff = document.getElementById("comcoeff");
+let lcscontrol = document.getElementById("lcsc");
+let lcsexam = document.getElementById("lcse");
+let lcsaverage = document.getElementById("lcsavg");
+let lcscoeff = document.getElementById("lcscoeff");
+let z80control = document.getElementById("z80c");
+let z80exam = document.getElementById("z80e");
+let z80average = document.getElementById("z80avg");
+let z80coeff = document.getElementById("z80coeff");
+let encontrol = document.getElementById("enc");
+let enexam = document.getElementById("ene");
+let enaverage = document.getElementById("enavg");
+let encoeff = document.getElementById("encoeff");
+let manexam = document.getElementById("mane");
+let manaverage = document.getElementById("manavg");
+let mancoeff = document.getElementById("mancoeff");
+let z80lab = document.getElementById("z80lab");
+let z80labaverage = document.getElementById("z80labavg");
+let z80labcoeff = document.getElementById("z80labcoeff");
+let lcslab = document.getElementById("lcslab");
+let lcslabaverage = document.getElementById("lcslabavg");
+let lcslabcoeff = document.getElementById("lcslabcoeff");
+let comlab = document.getElementById("comlab");
+let comlabaverage = document.getElementById("comlabavg");
+let comlabcoeff = document.getElementById("comlabcoeff");
+let projectcontrol = document.getElementById("projc");
+let projectexam = document.getElementById("proje");
+let projectaverage = document.getElementById("projavg");
+let projectcoeff = document.getElementById("projcoeff");
+let s2sum;
+let s2coeffs;
+
+let s2average = document.getElementById("s2avg");
+if (isNaN(Number(s2average.innerText)) || s2average.innerText ==''){
+  s2average.innerHTML = '0.00';
+}
+
+if(!s2average.textContent.trim()){
+  s2average.textContent = '0.00';
+}
+
+s2coeffs = parseInt(Number(comcoeff.innerText) + Number(lcscoeff.innerText) + Number(z80coeff.innerText) + Number(encoeff.innerText) + Number(mancoeff.innerText) + Number(projectcoeff.innerText) + Number(comlabcoeff.innerText) + Number(lcslabcoeff.innerText) + Number(z80labcoeff.innerText));
+comcontrol.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML= Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(comcontrol.value) < 0 || Number(comcontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+
+})
+
+comexam.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(comexam.value) < 0 || Number(comexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+
+})
+
+lcscontrol.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcscontrol.value) < 0 || Number(lcscontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+
+})
+
+lcsexam.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcsexam.value) < 0 || Number(lcsexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80control.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80control.value) < 0 || Number(z80control.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80exam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80exam.value) < 0 || Number(z80exam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+encontrol.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(encontrol.value) < 0 || Number(encontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+enexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(enexam.value) < 0 || Number(enexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+manexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(manexam.value) < 0 || Number(manexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80lab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80lab.value) < 0 || Number(z80lab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+comlab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(comlab.value) < 0 || Number(comlab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+lcslab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcslab.value) < 0 || Number(lcslab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+
+projectexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+  projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(projectexam.value) < 0 || Number(projectexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+
+
+
+// grade visualization
+
+  // function updateVisualization() {
+  //   const container = document.querySelector('.grade-bars');
+  //   container.innerHTML = '';
+    
+  //   const subjects = {
+  //     'Communication': Number(comaverage.innerHTML),
+  //     'Control Systems': Number(lcsaverage.innerHTML),
+  //     'Z80': Number(z80average.innerHTML),
+  //     'English': Number(enaverage.innerHTML),
+  //     'Project': Number(projectaverage.innerHTML),
+  //     'Management': Number(manaverage.innerHTML),
+
+  //   };
+    
+  //   for (const [subject, grade] of Object.entries(subjects)) {
+  //     const bar = document.createElement('div');
+  //     bar.className = 'grade-bar';
+  //     bar.innerHTML = `
+  //       <div class="subject">${subject}</div>
+  //       <div class="bar-container">
+  //         <div class="bar" style="width: ${grade * 5}%; background: ${grade >= 10 ? '#4CAF50' : '#F44336'}"></div>
+  //       </div>
+  //       <div class="grade">${grade.toFixed(2)}</div>
+  //     `;
+  //     container.appendChild(bar);
+  //   }
+  // }
+  
+  // updateVisualization();
+
 
 
 
@@ -678,6 +1223,6 @@ function calcAvg(control,exam){
     return result.toFixed(2);
 }
 function avg(a,b){
-    average = a/b;
-    return Number(average.toFixed(2));
+    s1average = a/b;
+    return Number(s1average.toFixed(2));
 }

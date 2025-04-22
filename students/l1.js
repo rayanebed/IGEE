@@ -146,6 +146,37 @@ window.addEventListener('scroll', function(){
     })
 }
 
+// the ad
+const ads = [
+  {
+      gif: "../assets/gifs/ivolunteer-ad.gif",
+      url: "https://instagram.com/i.volunteer.dz/",
+      alt: "I Volunteer"
+  },
+  {
+      gif: "../assets/gifs/iscraft-ad.gif",
+      url: "https://iscraft.site/",
+      alt: "ISCraft"
+  },
+  {
+      gif: "../assets/gifs/onlinebazardz-ad.gif",
+      url: "https://instagram.com/online_bazar_dz/",
+      alt: "Online Bazar DZ"
+  }
+]
+const ad = document.getElementById("ad");
+const adImg = document.getElementById("adimg");
+const adText = document.getElementById("adtext");
+const adLink = document.getElementById("adlink");
+
+function showGif(){
+  const randomIndex = Math.floor(Math.random() * ads.length);
+  ad.innerHTML = `<a href="${ads[randomIndex].url}" target="_blank"><img src="${ads[randomIndex].gif}" alt="${ads[randomIndex].alt}"></a>`;
+}
+
+
+window.addEventListener('DOMContentLoaded', showGif());
+
 
 
 // GRADE CALCULATOR FOR S1

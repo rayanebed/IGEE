@@ -508,6 +508,14 @@ ul.menu .it:hover {
     font-family: Poppins;
 }
 
+.ad{
+    width: fit-content;
+    margin: 35px auto;
+    display: block;
+    background-color: #03213e;
+    border: solid 2px #f4bb33;
+}
+
 
 
 

@@ -47,7 +47,7 @@
         </div>
     
     <div class="headpart">
-        <image src="../logo_nobg.png" id="mainlogo" class="logo" title="INELEC logo"></image>
+        <image src="../assets/images/inelec_white.png" id="mainlogo" class="logo" title="INELEC logo"></image>
         <ul id="menu" class="menu">
             <div class="home it" id="home">Home</div>
             <div id="news" class="it">News</div>
@@ -74,6 +74,7 @@
         <button><i class="gg-search"></i></button>
         </div>
         <h1 class="maintitle">L3 Grade Calculator</h1>
+        <div class="ad" id="ad"></div>
         <div class="semester">
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
@@ -165,9 +166,98 @@
 
         </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+        <table id="s2" class="s2">
+            <thead>
+            <tr>
+                <td>Modules</td>
+                <td>Control Mark</td>
+                <td>Exam Mark</td>
+                <td>Average</td>
+                <td>Coefficient</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td title="Communication Principles">Communication Principles</td>
+                    <td><input id="comc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="come" max="20" class="s1input" type="number"></input></td>
+                    <td id="comavg"></td>
+                    <td id="comcoeff" class="coeff">3</td>
+                </tr>
+
+                <tr>
+                    <td title="Linear Control Systems">Linear Control Systems</td>
+                    <td><input id="lcsc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="lcse" max="20" class="s1input" type="number"></input></td>
+                    <td id="lcsavg"></td>
+                    <td id="lcscoeff" class="coeff">3</td>
+                </tr>
+                <tr>
+                    <td title="Z80 Architecture">MicroProcessor Architecture</td>
+                    <td><input id="z80c" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="z80e" max="20" class="s1input" type="number"></input></td>
+                    <td id="z80avg"></td>
+                    <td id="z80coeff" class="coeff">2</td>
+                </tr>
+                <tr>
+                    <td title="Energy Systems">Energy Systems</td>
+                    <td><input id="enc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ene" max="20" class="s1input" type="number"></input></td>
+                    <td id="enavg"></td>
+                    <td id="encoeff" class="coeff">2</td>
+                </tr>
+                <tr>
+                    <td title="Entrepreneurship and Management">Entrepreneurship and Management</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="mane" max="20" class="s1input"  type="number"></input></td>
+                    <td id="manavg"></td>
+                    <td id="mancoeff" class="coeff">1</td>
+                </tr>
+                
+                <tr>
+                    <td title="Z80 Lab">Z80 Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="z80lab" max="20" class="s1input" type="number"></input></td>
+                    <td id="z80labavg"></td>
+                    <td id="z80labcoeff" class="coeff">1</td>
+                </tr>
+                <tr>
+                    <td title="Linear Control Systems Lab">Control Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="lcslab" max="20" class="s1input" type="number"></input></td>
+                    <td id="lcslabavg"></td>
+                    <td id="lcslabcoeff" class="coeff">1</td>
+                </tr>
+                <tr>
+                    <td title="Communication Principles Lab">Communication Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="comlab" max="20" class="s1input" type="number"></input></td>
+                    <td id="comlabavg"></td>
+                    <td id="comlabcoeff" class="coeff">1</td>
+                </tr>
+                <tr>
+                    <td class="project" title="Mini Project">Mini Project</td>
+                    <td style="background-color:#057e93;"></td>
+                    <td class="project"><input id="proje" max="20" class="s1input project" type="number"></input></td>
+                    <td class="project" id="projavg"></td>
+                    <td id="projcoeff" class="coeff project">3</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+
+        </table>
+        <!-- <div class="grade-visualization">
+            <div class="grade-bars">
+            </div>
+          </div> -->
 
         <div class="upfooter">
 

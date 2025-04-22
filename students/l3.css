@@ -471,6 +471,7 @@
 
     .s2{
         display: none;
+        width: fit-content;
     }
 
     .s2 p{
@@ -482,6 +483,37 @@
         font-family: Poppins;
         letter-spacing: 2px;
         margin: 30px;
+    }
+    .project{
+        background-color: #6bdaff;
+    }
+
+    /* .grade-bar {
+        display: flex;
+        align-items: center;
+        margin: 5px 100px;
+      }
+      .subject {
+        width: 150px;
+      }
+      .bar-container {
+        flex-grow: 1;
+        height: 20px;
+        background: #eee;
+        margin: 0 10px;
+      }
+      .bar {
+        height: 100%;
+      }
+      .grade {
+        width: 50px;
+        text-align: right;} */
+
+    .ad{
+        width: fit-content;
+        margin: 20px auto;
+        border: solid 2px #f4bb33;
+        box-shadow: #000 0px 0px 5px 1px;
     }
 
     .upfooter{

@@ -645,6 +645,19 @@ ul.menu .it:hover {
     border: 3px gold solid;
     text-decoration: underline white;
 }
+.ad{
+    width: fit-content;
+    display: block;
+    background-color: #022c56;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border: solid 2px #f4bb34;
+}
+.adgif{
+    width: 500px;
+}
 
 .Students{
     margin-top: 30px;
@@ -961,7 +974,9 @@ ul.menu .it:hover {
     .clubcard p{
         font-size: 15px;
     }
-
+    .adgif{
+        width: 300px;
+    }
 }
 
 .performance{
