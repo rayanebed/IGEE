@@ -1150,7 +1150,26 @@ projectexam.addEventListener('input', () => {
 })
 
 
+// Tips box
 
+const tips = [
+  "Don’t forget to validate both semesters 😉",
+  "Lab grades boost your average more than you think!",
+  "Take breaks, your brain needs it 🧠",
+  "Energy Systems won’t bite you… but it might bite your average !",
+  "CTRL + C and CTRL + V are your real friends during lab reports",
+  "Your average can’t drop if you don’t check it :)",
+  "When in doubt, blame the prof’s handwriting :)",
+  "English students in Bloc C be chillin’ while you're calculating Fourier transforms",
+  "When teachers say 'this won’t be on the exam,' it’s 100% the first question",
+  "Grades matter, but learning lasts longer",
+  "Don’t underestimate past exams. They reveal what really matters.",
+  "Don’t compare your pace to others. Everyone’s path is different.",
+  "Your average doesn’t define your worth, your effort and growth do.",
+  "Downloading everything from the Drive even if you’ll never open it? A tradition."
+];
+
+document.getElementById("tipbox").innerText = tips[Math.floor(Math.random() * tips.length)];
 
 // grade visualization
 

@@ -1292,6 +1292,27 @@ s2average.innerHTML = Number(avg(s2sum,s2coeffs));
 
 })
 
+// Tips box
+
+const tips = [
+  "Don’t forget to validate both semesters 😉",
+  "Lab grades boost your average more than you think!",
+  "CTRL + C and CTRL + V are your real friends during lab reports",
+  "Your average can’t drop if you don’t check it:)",
+  "When in doubt, blame the prof’s handwriting :)",
+  "Don’t be afraid to speak in LS, mistakes are how you improve.",
+  "When teachers say 'this won’t be on the exam,' it’s 100% the first question",
+  "Grades matter, but learning lasts longer",
+  "Don’t underestimate past exams. They reveal what really matters.",
+  "Reading more helps your writing, even if it's Reddit.",
+  "Units matter. Forgetting them in physics is like coding with no logic.",
+  "Code works on your laptop but fails on the lab PC. Classic INELEC horror",
+  "Group projects teach one valuable lesson: trust issues.",
+  "Being an INELECer means you don’t sleep, you just temporarily shut down."
+];
+
+document.getElementById("tipbox").innerText = tips[Math.floor(Math.random() * tips.length)];
+
 
 // functions
 

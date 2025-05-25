@@ -1231,6 +1231,24 @@ emlab[0].addEventListener("input", function(){
 });
 
 
+// Tips box
+
+const tips = [
+  "Don’t forget to validate both semesters 😉",
+  "Lab grades boost your average more than you think!",
+  "CTRL + C and CTRL + V are your real friends during lab reports",
+  "Your average can’t drop if you don’t check it:)",
+  "When in doubt, blame the prof’s handwriting :)",
+  "If you survive L2 S1 then you will survive any other semester in INELEC",
+  "When teachers say 'this won’t be on the exam,' it’s 100% the first question",
+  "Grades matter, but learning lasts longer",
+  "Don’t underestimate past exams. They reveal what really matters.",
+  "Group projects teach one valuable lesson: trust issues.",
+  "Never underestimate the power of last-minute panic. It fuels miracles."
+];
+
+document.getElementById("tipbox").innerText = tips[Math.floor(Math.random() * tips.length)];
+
 
 
 

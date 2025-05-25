@@ -493,6 +493,24 @@
         border-bottom: solid 2px #f4bb33;
     }
 
+    .tip{
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+        animation-delay: 0.3s;
+        background: linear-gradient(135deg, #f8cc65, #ffffff);
+        border-radius: 10px;
+        padding: 16px 20px;
+        width: 85%;
+        max-width: 580px;
+        margin: 20px auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        font-size: 14px;
+        font-family: Poppins;
+        font-weight: bold;
+    }
+
     .ad{
         width: fit-content;
         margin: 20px auto;
@@ -857,6 +875,11 @@
     100%{
         rotate: 40deg;
     }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 @keyframes appear{
     0%{
