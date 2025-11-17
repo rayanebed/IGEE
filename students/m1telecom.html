@@ -81,9 +81,112 @@
         <div id="invalid" class="invalid">
             You have entered an invalid value ! The grades should be between 0 and 20.
         </div>
-        <div class="s1" id="s1">
-            <p>Coming Soon</p>
-        </div>
+        <table class="s1" id="s1">
+            <thead>
+            <tr>
+                <td>Modules</td>
+                <td>Control Mark</td>
+                <td>Exam Mark</td>
+                <td>Average</td>
+                <td>Coefficient</td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- we refer to advanced com with ls -->
+                <tr>
+                    <td title="Advanced Communications">Advanced Communications</td>
+                    <td><input id="ls2c" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ls2e" max="20" class="s1input" type="number"></input></td>
+                    <td id="ls2avg"></td>
+                    <td id="ls2coeff" class="coeff">3</td>
+                </tr>
+
+                <!-- em refers to System modelling -->
+                <tr>
+                    <td title="Advanced Electromagnetic Field Theory">Advanced EMF</td>
+                    <td><input id="emc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="eme" max="20" class="s1input" type="number"></input></td>
+                    <td id="emavg"></td>
+                    <td id="emcoeff" class="coeff">3</td>
+                </tr>
+                <!-- we refer to microwave engineering by ca -->
+                <tr>
+                    <td title="Microwave Engineering">Microwave Engineering</td>
+                    <td><input id="cac" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="cae" max="20" class="s1input" type="number"></input></td>
+                    <td id="caavg"></td>
+                    <td id="cacoeff" class="coeff">2</td>
+                </tr>
+                <tr>
+                    <td title="Communications Circuits">Communications Circuits</td>
+                    <td><input id="dspc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="dspe" max="20" class="s1input" type="number"></input></td>
+                    <td id="dspavg"></td>
+                    <td id="dspcoeff" class="coeff">2</td>
+                </tr>
+                <!-- we refer to radiowave prop by pe -->
+                <tr>
+                    <td title="Radio Wave Propagation">Radio Wave Propagation</td>
+                    <td><input id="pec" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="pee" max="20" class="s1input" type="number"></input></td>
+                    <td id="peavg"></td>
+                    <td id="pecoeff" class="coeff">2</td>
+                </tr>
+
+                <tr>
+                    <td title="Networks and Protocols">Networks and Protocols</td>
+                    <td><input id="netc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="nete" max="20" class="s1input" type="number"></input></td>
+                    <td id="netavg"></td>
+                    <td id="netcoeff" class="coeff">2</td>
+                </tr>
+
+                <tr>
+                    <td title="Information Security">Information Security</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="prolab" max="20" class="s1input"  type="number"></input></td>
+                    <td id="prolabavg"></td>
+                    <td id="prolabcoeff" class="coeff">1</td>
+                </tr>
+                
+
+                <!-- we refer to microwave eng lab by pelab -->
+                <tr>
+                    <td title="Microwave Engineering Lab">Microwave Engineering Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
+                    <td id="pelabavg"></td>
+                    <td id="pelabcoeff" class="coeff">1</td>
+                </tr>
+
+                <tr>
+                    <td title="Communication Circuits Lab">Communication Circuits Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="dsplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="dsplabavg"></td>
+                    <td id="dsplabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- we refer to net and protocols lab by mplab -->
+
+                <tr>
+                    <td title="Networks and Protocols Lab">Networks and Protocols Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="mplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="mplabavg"></td>
+                    <td id="mplabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S1 Grade:</td>
+                    <td id="s1avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
 
         <div id="s2" class="s2">
             <p>Coming Soon</p>
