@@ -177,6 +177,12 @@ var prolabcoeff = document.getElementById('prolabcoeff');
 var mplab = document.getElementById('mplab');
 var mplabavg = document.getElementById('mplabavg');
 var mplabcoeff = document.getElementById('mplabcoeff');
+var optlab = document.getElementById('optlab');
+var optlabavg = document.getElementById('optlabavg');
+var optlabcoeff = document.getElementById('optlabcoeff');
+var dsplab = document.getElementById('dsplab');
+var dsplabavg = document.getElementById('dsplabavg');
+var dsplabcoeff = document.getElementById('dsplabcoeff');
 var s1average = document.getElementById('s1avg');
 
 if (isNaN(Number(s1average.innerText)) || s1average.innerText ==''){
@@ -187,16 +193,16 @@ s1average.innerHTML = '0.00';
 let invalid = document.getElementById('invalid');
 
 
-let s1coeffs = parseInt(Number(ls2coeff.innerText) + Number(emcoeff.innerText) + Number(cacoeff.innerText) + Number(pecoeff.innerText) + Number(pelabcoeff.innerText) + Number(mplabcoeff.innerText)) ;
-let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText));
+let s1coeffs = parseInt(Number(ls2coeff.innerText) + Number(emcoeff.innerText) + Number(cacoeff.innerText) + Number(pecoeff.innerText) + Number(pelabcoeff.innerText) + Number(mplabcoeff.innerText) + Number(optlabcoeff.innerText) + Number(dsplabcoeff.innerText)) ;
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 ls2control.addEventListener('input', function(){
 
 ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -207,7 +213,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 if(Number(avg(s1sum,s1coeffs))<10){
   s1average.style.color = 'red';
 }
@@ -226,8 +232,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -240,7 +246,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 if(Number(avg(s1sum,s1coeffs))<10){
   s1average.style.color = 'red';
@@ -273,7 +279,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -298,8 +304,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -311,7 +317,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -334,13 +340,13 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(cacontrol.value) < 0 || Number(cacontrol.value)>20){
@@ -370,8 +376,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -383,7 +389,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -407,8 +413,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -420,7 +426,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -445,8 +451,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -458,7 +464,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -484,8 +490,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -497,7 +503,7 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
@@ -533,7 +539,7 @@ pelabexam.addEventListener('input', function(){
     invalid.style.opacity = '0';
   }
   
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+  let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
   
   
   if(Number(avg(s1sum,s1coeffs))<10){
@@ -556,8 +562,8 @@ ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-
-
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
 mplabavg.innerHTML = Number(mplab.value);
 pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
 
@@ -569,7 +575,77 @@ else{
   invalid.style.opacity = '0';
 }
 
-s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText)  +  Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(mplabavg.innerText * mplabcoeff.innerText));
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
+
+
+if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.style.color = 'red';
+}
+if(Number(avg(s1sum,s1coeffs))>=10){
+  s1average.style.color = 'green';
+}
+if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  s1average.style.color = 'black';
+}
+
+s1average.innerHTML = Number(avg(s1sum,s1coeffs));
+
+})
+
+optlab.addEventListener('input', function(){
+ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
+emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
+caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
+peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
+mplabavg.innerHTML = Number(mplab.value);
+pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
+
+
+if(Number(optlab.value) < 0 || Number(optlab.value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
+
+
+if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.style.color = 'red';
+}
+if(Number(avg(s1sum,s1coeffs))>=10){
+  s1average.style.color = 'green';
+}
+if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  s1average.style.color = 'black';
+}
+
+s1average.innerHTML = Number(avg(s1sum,s1coeffs));
+
+})
+
+dsplab.addEventListener('input', function(){
+ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
+emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
+caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
+peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
+optlabavg.innerHTML = Number(optlab.value);
+dsplabavg.innerHTML = Number(dsplab.value);
+mplabavg.innerHTML = Number(mplab.value);
+pelabavg.innerHTML = Number(calcAvg(pelabcontrol.value,pelabexam.value));
+
+
+if(Number(dsplab.value) < 0 || Number(dsplab.value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText) + Number(optlabavg.innerText * optlabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText));
 
 
 if(Number(avg(s1sum,s1coeffs))<10){
