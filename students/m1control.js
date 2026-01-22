@@ -175,6 +175,7 @@ var prolabcoeff = document.getElementById('prolabcoeff');
 var dsplab = document.getElementById('dsplab');
 var dsplabavg = document.getElementById('dsplabavg');
 var dsplabcoeff = document.getElementById('dsplabcoeff');
+var mplabcontrol = document.getElementById('mplabc');
 var mplab = document.getElementById('mplab');
 var mplabavg = document.getElementById('mplabavg');
 var mplabcoeff = document.getElementById('mplabcoeff');
@@ -642,6 +643,41 @@ s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
 
+mplabcontrol.addEventListener('input', function(){
+ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
+emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
+caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
+peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
+dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
+dsplabavg.innerHTML = Number(dsplab.value);
+prolabavg.innerHTML = Number(prolab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
+pelabavg.innerHTML = Number(pelab.value);
+
+
+if(Number(mplabcontrol.value) < 0 || Number(mplabcontrol.value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(dspavg.innerText * dspcoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) +  Number(pelabavg.innerText * pelabcoeff.innerText) + Number(prolabavg.innerText * prolabcoeff.innerText) + Number(dsplabavg.innerText * dsplabcoeff.innerText) + Number(mplabavg.innerText));
+
+if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.style.color = 'red';
+}
+if(Number(avg(s1sum,s1coeffs))>=10){
+  s1average.style.color = 'green';
+}
+if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  s1average.style.color = 'black';
+}
+
+s1average.innerHTML = Number(avg(s1sum,s1coeffs));
+
+})
+
 mplab.addEventListener('input', function(){
 ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
 emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
@@ -650,7 +686,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
