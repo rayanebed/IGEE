@@ -200,7 +200,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(ls2control.value) < 0 || Number(ls2control.value)>20){
@@ -231,7 +231,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -264,7 +264,7 @@ emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
 caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
 peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -302,7 +302,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -338,7 +338,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -374,7 +374,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -411,7 +411,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(dspcontrol.value) < 0 || Number(dspcontrol.value)>20){
@@ -443,7 +443,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(dspexam.value) < 0 || Number(dspexam.value)>20){
@@ -474,7 +474,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -512,7 +512,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -551,7 +551,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 
@@ -588,7 +588,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(dsplab.value) < 0 || Number(dsplab.value)>20){
@@ -620,7 +620,7 @@ peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
 dspavg.innerHTML = Number(calcAvg(dspcontrol.value,dspexam.value));
 dsplabavg.innerHTML = Number(dsplab.value);
 prolabavg.innerHTML = Number(prolab.value);
-mplabavg.innerHTML = Number(mplab.value);
+mplabavg.innerHTML = Number(calcAvg(mplabcontrol.value,mplab.value));
 pelabavg.innerHTML = Number(pelab.value);
 
 if(Number(prolab.value) < 0 || Number(prolab.value)>20){
