@@ -181,8 +181,118 @@
 
         </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
+        
+        <table id="s2" class="s1">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- DCS refers to Digital Control Systems -->
+                <tr>
+                    <td title="Digital Control Systems">Digital Control Systems</td>
+                    <td><input id="dcsc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="dcse" max="20" class="s1input" type="number"></input></td>
+                    <td id="dcsavg"></td>
+                    <td id="dcscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- ncs refers to Nonlinear Control Systems -->
+                <tr>
+                    <td title="Nonlinear Control Systems">Nonlinear Control Systems</td>
+                    <td><input id="ncsc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ncse" max="20" class="s1input" type="number"></input></td>
+                    <td id="ncsavg"></td>
+                    <td id="ncscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- act refers to Advanced Control Techniques I -->
+                <tr>
+                    <td title="Advanced Control Techniques I">Advanced Control Techniques I</td>
+                    <td><input id="actc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="acte" max="20" class="s1input" type="number"></input></td>
+                    <td id="actavg"></td>
+                    <td id="actcoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- ai refers to Artificial Intelligence -->
+                <tr>
+                    <td title="Artificial Intelligence">Artificial Intelligence</td>
+                    <td><input id="aic" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="aie" max="20" class="s1input" type="number"></input></td>
+                    <td id="aiavg"></td>
+                    <td id="aicoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- ia refers to Industrial Automation -->
+                <tr>
+                    <td title="Industrial Automation">Industrial Automation</td>
+                    <td><input id="iac" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="iae" max="20" class="s1input" type="number"></input></td>
+                    <td id="iaavg"></td>
+                    <td id="iacoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- re refers to Elective Course: Renewable Energies -->
+                <tr>
+                    <td title="Elective Course (Renewable Energies)">Elective Course</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ree" max="20" class="s1input" type="number"></input></td>
+                    <td id="reavg"></td>
+                    <td id="recoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- dcslab refers to Digital Control Systems Lab -->
+                <tr>
+                    <td title="Digital Control Systems Lab">DCS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="dcslabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="dcslabavg"></td>
+                    <td id="dcslabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- ailab refers to Artificial Intelligence Lab -->
+                <tr>
+                    <td title="Artificial Intelligence Lab">AI Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ailabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="ailabavg"></td>
+                    <td id="ailabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- ialab refers to Industrial Automation Lab -->
+                <tr>
+                    <td title="Industrial Automation Lab">Industrial Automation Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ialabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="ialabavg"></td>
+                    <td id="ialabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- actlab refers to Advanced Control Techniques I Lab -->
+                <tr>
+                    <td title="Advanced Control Techniques I Lab">Adv. Control Tech. I Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="actlabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="actlabavg"></td>
+                    <td id="actlabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
         </div>
 
         <div class="upfooter">

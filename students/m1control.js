@@ -68,6 +68,7 @@ let menu = document.getElementById('menu');
     let s2 = document.getElementById('s2');
     
     s1.style.display = 'none';
+    s2.style.display = 'none';
     s1select.addEventListener('click',function(){
       if((s1.style.display) === 'none'){
         s1.style.display = '';
@@ -714,7 +715,116 @@ s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 })
 
 
+// S2 Calculator
 
+// ── S2 Module Definitions ──────────────────────────────────────────────────────
+// controlId: null means the module has no control mark (exam only)
+const s2modules = [
+  { controlId: 'dcsc',    examId: 'dcse',    avgId: 'dcsavg',    coeffId: 'dcscoeff'    },
+  { controlId: 'ncsc',    examId: 'ncse',    avgId: 'ncsavg',    coeffId: 'ncscoeff'    },
+  { controlId: 'actc',    examId: 'acte',    avgId: 'actavg',    coeffId: 'actcoeff'    },
+  { controlId: 'aic',     examId: 'aie',     avgId: 'aiavg',     coeffId: 'aicoeff'     },
+  { controlId: 'iac',     examId: 'iae',     avgId: 'iaavg',     coeffId: 'iacoeff'     },
+  { controlId: null,      examId: 'ree',     avgId: 'reavg',     coeffId: 'recoeff'     },
+  { controlId: null,      examId: 'dcslabe', avgId: 'dcslabavg', coeffId: 'dcslabcoeff' },
+  { controlId: null,      examId: 'ailabe',  avgId: 'ailabavg',  coeffId: 'ailabcoeff'  },
+  { controlId: null,      examId: 'ialabe',  avgId: 'ialabavg',  coeffId: 'ialabcoeff'  },
+  { controlId: null,      examId: 'actlabe', avgId: 'actlabavg', coeffId: 'actlabcoeff' },
+];
+
+// ── Resolve all DOM elements once at page load ─────────────────────────────────
+// Instead of calling getElementById() every time a key is pressed,
+// we do it once here and store the results in the s2els array.
+// Each item in s2els corresponds to the same index in s2modules.
+const s2els = s2modules.map(m => ({
+  control : m.controlId ? document.getElementById(m.controlId) : null,
+  exam    : document.getElementById(m.examId),
+  avg     : document.getElementById(m.avgId),
+  coeff   : document.getElementById(m.coeffId),
+}));
+
+const s2average = document.getElementById('s2avg');
+
+// Sum all coefficients once (3+3+3+2+2+1+1+1+1+1 = 18)
+const s2coeffsTotal = s2els.reduce((sum, m) => sum + Number(m.coeff.innerText), 0);
+
+
+// ── Main recalculation function ────────────────────────────────────────────────
+// This runs every time ANY input in the S2 table changes.
+function recalcS2() {
+  let s2sum = 0;
+  let inputError = false;
+
+  s2els.forEach(m => {
+    const examVal    = m.exam.value !== '' ? Number(m.exam.value) : null;
+    const controlVal = (m.control && m.control.value !== '') ? Number(m.control.value) : null;
+
+    // ── Validation: flag values outside 0–20 ──
+    if (examVal !== null && (examVal < 0 || examVal > 20))       inputError = true;
+    if (controlVal !== null && (controlVal < 0 || controlVal > 20)) inputError = true;
+
+    // ── Calculate module average ───────────────────────────────────────────────
+    // Rule 1: module has both control and exam filled → control*0.4 + exam*0.6
+    // Rule 2: module has only control filled          → control*0.4 (exam missing, partial)
+    // Rule 3: module has only exam filled             → exam*0.6 (control missing, partial)
+    //         OR module is exam-only (no control cell) → average = exam grade directly
+    // Rule 4: nothing filled yet                      → show nothing
+    let moduleAvg = null;
+
+    if (m.control === null) {
+      // Exam-only module (labs + elective): average is simply the exam grade
+      if (examVal !== null) moduleAvg = examVal;
+
+    } else {
+      // Module has a control cell
+      if (controlVal !== null && examVal !== null) {
+        // Both filled: full formula
+        moduleAvg = controlVal * 0.4 + examVal * 0.6;
+      } else if (controlVal !== null && examVal === null) {
+        // Only control filled: show partial (control contribution only)
+        moduleAvg = controlVal * 0.4;
+      } else if (controlVal === null && examVal !== null) {
+        // Only exam filled: show partial (exam contribution only)
+        moduleAvg = examVal * 0.6;
+      }
+      // Both empty: moduleAvg stays null → show nothing
+    }
+
+    // Display the module average in its table cell, or clear it if nothing entered
+    m.avg.innerHTML = moduleAvg !== null ? moduleAvg.toFixed(2) : '';
+
+    // Add this module's weighted contribution to the semester sum
+    // If moduleAvg is null (nothing entered), treat it as 0
+    s2sum += (moduleAvg ?? 0) * Number(m.coeff.innerText);
+  });
+
+  // ── Show or hide the validation warning ───────────────────────────────────────
+  invalid.style.opacity = inputError ? '1' : '0';
+
+  // ── Compute and display the final semester average ────────────────────────────
+  const semAvg = s2coeffsTotal > 0 ? s2sum / s2coeffsTotal : 0;
+
+  // Color: red if failing, green if passing, black if out of range / empty
+  if (semAvg <= 0 || semAvg > 20) {
+    s2average.style.color = 'black';
+  } else if (semAvg < 10) {
+    s2average.style.color = 'red';
+  } else {
+    s2average.style.color = 'green';
+  }
+
+  s2average.innerHTML = semAvg > 0 ? semAvg.toFixed(2) : '0.00';
+}
+
+
+// ── Attach event listeners ─────────────────────────────────────────────────────
+// Instead of writing addEventListener for every single input manually (like S1),
+// we loop through s2els and attach the same recalcS2 function to each input.
+// This means any input change — in any field — triggers a full recalculation.
+s2els.forEach(m => {
+  if (m.control) m.control.addEventListener('input', recalcS2);
+  m.exam.addEventListener('input', recalcS2);
+});
 
 
 

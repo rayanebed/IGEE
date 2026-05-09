@@ -469,21 +469,7 @@
         opacity: 0;
     }
 
-    .s2{
-        display: none;
-    }
-
-    .s2 p{
-        font-size: 25px;
-        font-weight: bolder;
-        color: #fff;
-        text-align: center;
-        text-transform: uppercase;
-        font-family: Poppins;
-        letter-spacing: 2px;
-        margin: 30px;
-    }
-
+    
     .upfooter{
         content: '';
         width: 100vw;
@@ -818,7 +804,11 @@
     text-decoration: underline solid 1px #a4a4a4;
 }
 
-
+@media screen and (min-width: 820px){
+    table{
+        width: max-content;
+    }
+}
 
 
 
