@@ -188,9 +188,117 @@
             </tfoot>
         </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+    <table class="s2" id="s2">
+        <thead>
+        <tr>
+            <td>Modules</td>
+            <td>Control Mark</td>
+            <td>Exam Mark</td>
+            <td>Average</td>
+            <td>Coefficient</td>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- Antennas -->
+            <tr>
+                <td title="Antennas">Antennas</td>
+                <td><input id="antc" max="20" class="s2input" type="number"></td>
+                <td><input id="ante" max="20" class="s2input" type="number"></td>
+                <td id="antavg"></td>
+                <td id="antcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Electrical Networks Analysis and Design -->
+            <tr>
+                <td title="Electrical Networks Analysis and Design">Electrical Networks A&D</td>
+                <td><input id="enadc" max="20" class="s2input" type="number"></td>
+                <td><input id="enade" max="20" class="s2input" type="number"></td>
+                <td id="enadavg"></td>
+                <td id="enadcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Image Processing -->
+            <tr>
+                <td title="Image Processing">Image Processing</td>
+                <td><input id="ipc" max="20" class="s2input" type="number"></td>
+                <td><input id="ipe" max="20" class="s2input" type="number"></td>
+                <td id="ipavg"></td>
+                <td id="ipcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Discrete-time Signal Processing -->
+            <tr>
+                <td title="Discrete-time Signal Processing">Discrete-time Signal Processing</td>
+                <td><input id="dtspс" max="20" class="s2input" type="number"></td>
+                <td><input id="dtspe" max="20" class="s2input" type="number"></td>
+                <td id="dtspavg"></td>
+                <td id="dtspcoeff" class="coeff">3</td>
+            </tr>
+
+            <!-- Information Theory and Coding -->
+            <tr>
+                <td title="Information Theory and Coding">Information Theory and Coding</td>
+                <td><input id="itcc" max="20" class="s2input" type="number"></td>
+                <td><input id="itce" max="20" class="s2input" type="number"></td>
+                <td id="itcavg"></td>
+                <td id="itccoeff" class="coeff">3</td>
+            </tr>
+
+            <!-- Antennas Lab -->
+            <tr>
+                <td title="Antennas Lab">Antennas Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="antlab" max="20" class="s2input" type="number"></td>
+                <td id="antlabavg"></td>
+                <td id="antlabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Electrical Networks Lab -->
+            <tr>
+                <td title="Electrical Networks Analysis and Design Lab">Electrical Networks A&D Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="enadlab" max="20" class="s2input" type="number"></td>
+                <td id="enadlabavg"></td>
+                <td id="enadlabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Image Processing Lab -->
+            <tr>
+                <td title="Image Processing Lab">Image Processing Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="iplab" max="20" class="s2input" type="number"></td>
+                <td id="iplabavg"></td>
+                <td id="iplabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Discrete-time Signal Processing Lab -->
+            <tr>
+                <td title="Discrete-time Signal Processing Lab">Discrete-time SP Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="dtsplab" max="20" class="s2input" type="number"></td>
+                <td id="dtsplabavg"></td>
+                <td id="dtsplabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Electromagnetic Compatibility — exam only -->
+            <tr>
+                <td title="Electromagnetic Compatibility">Electromagnetic Compatibility</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="emce" max="20" class="s2input" type="number"></td>
+                <td id="emcavg"></td>
+                <td id="emccoeff" class="coeff">1</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Your S2 Grade:</td>
+                <td id="s2avg" class="avg"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
 
         <div class="upfooter">
 

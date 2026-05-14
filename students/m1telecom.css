@@ -822,7 +822,11 @@
     text-decoration: underline solid 1px #a4a4a4;
 }
 
-
+@media screen and (min-width: 820px){
+    table{
+        width: max-content;
+    }
+}
 
 
 

@@ -73,6 +73,7 @@ window.addEventListener('scroll', function(){
       let s2 = document.getElementById('s2');
       
       s1.style.display = 'none';
+      s2.style.display = 'none';
       s1select.addEventListener('click',function(){
         if((s1.style.display) === 'none'){
           s1.style.display = '';
@@ -802,7 +803,128 @@ s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
 
+// S2 Calculator
 
+// GRADE CALCULATOR FOR S2
+
+
+var antcontrol = document.getElementById('antc');
+var antexam = document.getElementById('ante');
+var antavg = document.getElementById('antavg');
+var antcoeff = document.getElementById('antcoeff');
+
+var enadcontrol = document.getElementById('enadc');
+var enadexam = document.getElementById('enade');
+var enadavg = document.getElementById('enadavg');
+var enadcoeff = document.getElementById('enadcoeff');
+
+var ipcontrol = document.getElementById('ipc');
+var ipexam = document.getElementById('ipe');
+var ipavg = document.getElementById('ipavg');
+var ipcoeff = document.getElementById('ipcoeff');
+
+var dtspcontrol = document.getElementById('dtspс'); // note: Cyrillic 'с' used as workaround — change to 'dtspc' if you rename the id above
+var dtspexam = document.getElementById('dtspe');
+var dtspavg = document.getElementById('dtspavg');
+var dtspcoeff = document.getElementById('dtspcoeff');
+
+var itccontrol = document.getElementById('itcc');
+var itcexam = document.getElementById('itce');
+var itcavg = document.getElementById('itcavg');
+var itccoeff = document.getElementById('itccoeff');
+
+var antlab = document.getElementById('antlab');
+var antlabavg = document.getElementById('antlabavg');
+var antlabcoeff = document.getElementById('antlabcoeff');
+
+var enadlab = document.getElementById('enadlab');
+var enadlabavg = document.getElementById('enadlabavg');
+var enadlabcoeff = document.getElementById('enadlabcoeff');
+
+var iplab = document.getElementById('iplab');
+var iplabavg = document.getElementById('iplabavg');
+var iplabcoeff = document.getElementById('iplabcoeff');
+
+var dtsplab = document.getElementById('dtsplab');
+var dtsplabavg = document.getElementById('dtsplabavg');
+var dtsplabcoeff = document.getElementById('dtsplabcoeff');
+
+var emcexam = document.getElementById('emce');
+var emcavg = document.getElementById('emcavg');
+var emccoeff = document.getElementById('emccoeff');
+
+var s2average = document.getElementById('s2avg');
+
+if (isNaN(Number(s2average.innerText)) || s2average.innerText === '') {
+    s2average.innerHTML = '0.00';
+}
+
+// Total coefficient: 2+2+2+3+3+1+1+1+1+1 = 17
+let s2coeffs = parseInt(
+    Number(antcoeff.innerText) + Number(enadcoeff.innerText) +
+    Number(ipcoeff.innerText) + Number(dtspcoeff.innerText) +
+    Number(itccoeff.innerText) + Number(antlabcoeff.innerText) +
+    Number(enadlabcoeff.innerText) + Number(iplabcoeff.innerText) +
+    Number(dtsplabcoeff.innerText) + Number(emccoeff.innerText)
+);
+
+function recalcS2Averages() {
+    antavg.innerHTML = Number(calcAvg(antcontrol.value, antexam.value));
+    enadavg.innerHTML = Number(calcAvg(enadcontrol.value, enadexam.value));
+    ipavg.innerHTML = Number(calcAvg(ipcontrol.value, ipexam.value));
+    dtspavg.innerHTML = Number(calcAvg(dtspcontrol.value, dtspexam.value));
+    itcavg.innerHTML = Number(calcAvg(itccontrol.value, itcexam.value));
+    antlabavg.innerHTML = Number(antlab.value) || 0;
+    enadlabavg.innerHTML = Number(enadlab.value) || 0;
+    iplabavg.innerHTML = Number(iplab.value) || 0;
+    dtsplabavg.innerHTML = Number(dtsplab.value) || 0;
+    emcavg.innerHTML = Number(emcexam.value) || 0;
+}
+
+function recalcS2Sum() {
+    return Number(
+        Number(antavg.innerText) * Number(antcoeff.innerText) +
+        Number(enadavg.innerText) * Number(enadcoeff.innerText) +
+        Number(ipavg.innerText) * Number(ipcoeff.innerText) +
+        Number(dtspavg.innerText) * Number(dtspcoeff.innerText) +
+        Number(itcavg.innerText) * Number(itccoeff.innerText) +
+        Number(antlabavg.innerText) * Number(antlabcoeff.innerText) +
+        Number(enadlabavg.innerText) * Number(enadlabcoeff.innerText) +
+        Number(iplabavg.innerText) * Number(iplabcoeff.innerText) +
+        Number(dtsplabavg.innerText) * Number(dtsplabcoeff.innerText) +
+        Number(emcavg.innerText) * Number(emccoeff.innerText)
+    );
+}
+
+function updateS2Color(value) {
+    let v = Number(value);
+    if (v < 10) s2average.style.color = 'red';
+    else if (v >= 10) s2average.style.color = 'green';
+    if (v > 20 || v <= 0) s2average.style.color = 'black';
+}
+
+function validateAndUpdate(inputElement) {
+    let val = Number(inputElement.value);
+    if (val < 0 || val > 20) {
+        invalid.style.opacity = '1';
+    } else {
+        invalid.style.opacity = '0';
+    }
+    recalcS2Averages();
+    let s2sum = recalcS2Sum();
+    let result = avg(s2sum, s2coeffs);
+    updateS2Color(result);
+    s2average.innerHTML = result;
+}
+
+// Attach listeners to all S2 inputs
+[antcontrol, antexam, enadcontrol, enadexam, ipcontrol, ipexam,
+ dtspcontrol, dtspexam, itccontrol, itcexam,
+ antlab, enadlab, iplab, dtsplab, emcexam].forEach(function(input) {
+    input.addEventListener('input', function() {
+        validateAndUpdate(input);
+    });
+});
 
 
 
