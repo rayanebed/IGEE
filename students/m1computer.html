@@ -196,9 +196,108 @@
 
         </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+        <table class="s2" id="s2">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Operating Systems -->
+                <tr>
+                    <td title="Operating Systems">Operating Systems</td>
+                    <td><input id="osc" max="20" class="s2input" type="number"></td>
+                    <td><input id="ose" max="20" class="s2input" type="number"></td>
+                    <td id="osavg"></td>
+                    <td id="oscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- SoPC -->
+                <tr>
+                    <td title="System-on-Programmable Chip">SoPC</td>
+                    <td><input id="sopcc" max="20" class="s2input" type="number"></td>
+                    <td><input id="sopce" max="20" class="s2input" type="number"></td>
+                    <td id="sopcavg"></td>
+                    <td id="sopccoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Computer-Controlled Systems -->
+                <tr>
+                    <td title="Computer-Controlled Systems">Computer-Controlled Systems</td>
+                    <td><input id="dcsc" max="20" class="s2input" type="number"></td>
+                    <td><input id="dcse" max="20" class="s2input" type="number"></td>
+                    <td id="dcsavg"></td>
+                    <td id="dcscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Advanced Programming -->
+                <tr>
+                    <td title="Advanced Programming">Advanced Programming</td>
+                    <td><input id="benc" max="20" class="s2input" type="number"></td>
+                    <td><input id="bene" max="20" class="s2input" type="number"></td>
+                    <td id="benavg"></td>
+                    <td id="bencoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Computer Vision — exam only -->
+                <tr>
+                    <td title="Computer Vision (Elective Course)">Computer Vision</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="elece" max="20" class="s2input" type="number"></td>
+                    <td id="elecavg"></td>
+                    <td id="eleccoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- SoPC Lab — exam only -->
+                <tr>
+                    <td title="SoPC Lab">SoPC Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="sopclab" max="20" class="s2input" type="number"></td>
+                    <td id="sopclabavg"></td>
+                    <td id="sopclabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- CCS Lab — exam only -->
+                <tr>
+                    <td title="Computer-controlled Systems Lab">CCS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="dcslab" max="20" class="s2input" type="number"></td>
+                    <td id="dcslabavg"></td>
+                    <td id="dcslabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- Advanced Programming Lab — exam only -->
+                <tr>
+                    <td title="Advanced Programming Lab">Advanced Programming Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="benlab" max="20" class="s2input" type="number"></td>
+                    <td id="benlabavg"></td>
+                    <td id="benlabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- OS Lab — exam only -->
+                <tr>
+                    <td title="Operating Systems Lab">OS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="oslab" max="20" class="s2input" type="number"></td>
+                    <td id="oslabavg"></td>
+                    <td id="oslabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
 
         <div class="upfooter">
 

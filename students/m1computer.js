@@ -73,6 +73,7 @@ window.addEventListener('scroll', function(){
       let s2 = document.getElementById('s2');
       
       s1.style.display = 'none';
+      s2.style.display = 'none';
       s1select.addEventListener('click',function(){
         if((s1.style.display) === 'none'){
           s1.style.display = '';
@@ -651,6 +652,129 @@ optlab.addEventListener('input', function(){
   s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
+
+// S2 Calcualtor
+
+
+var oscontrol      = document.getElementById('osc');
+var osexam         = document.getElementById('ose');
+var osavg          = document.getElementById('osavg');
+var oscoeff        = document.getElementById('oscoeff');
+
+var sopccontrol    = document.getElementById('sopcc');
+var sopcexam       = document.getElementById('sopce');
+var sopcavg        = document.getElementById('sopcavg');
+var sopccoeff      = document.getElementById('sopccoeff');
+
+var dcscontrol     = document.getElementById('dcsc');
+var dcsexam        = document.getElementById('dcse');
+var dcsavg         = document.getElementById('dcsavg');
+var dcscoeff       = document.getElementById('dcscoeff');
+
+var bencontrol     = document.getElementById('benc');
+var benexam        = document.getElementById('bene');
+var benavg         = document.getElementById('benavg');
+var bencoeff       = document.getElementById('bencoeff');
+
+var elecexam       = document.getElementById('elece');
+var elecavg        = document.getElementById('elecavg');
+var eleccoeff      = document.getElementById('eleccoeff');
+
+var sopclab        = document.getElementById('sopclab');
+var sopclabavg     = document.getElementById('sopclabavg');
+var sopclabcoeff   = document.getElementById('sopclabcoeff');
+
+var dcslab         = document.getElementById('dcslab');
+var dcslabavg      = document.getElementById('dcslabavg');
+var dcslabcoeff    = document.getElementById('dcslabcoeff');
+
+var benlab         = document.getElementById('benlab');
+var benlabavg      = document.getElementById('benlabavg');
+var benlabcoeff    = document.getElementById('benlabcoeff');
+
+var oslab          = document.getElementById('oslab');
+var oslabavg       = document.getElementById('oslabavg');
+var oslabcoeff     = document.getElementById('oslabcoeff');
+
+var s2average      = document.getElementById('s2avg');
+
+// Init display
+if (isNaN(Number(s2average.innerText)) || s2average.innerText === '') {
+    s2average.innerHTML = '0.00';
+}
+
+// Total coefficients: 3+3+3+3+1+1+1+1+1 = 17
+var s2coeffs = parseInt(
+    Number(oscoeff.innerText)      + Number(sopccoeff.innerText)    +
+    Number(dcscoeff.innerText)     + Number(bencoeff.innerText)     +
+    Number(eleccoeff.innerText)    + Number(sopclabcoeff.innerText) +
+    Number(dcslabcoeff.innerText)  + Number(benlabcoeff.innerText)  +
+    Number(oslabcoeff.innerText)
+);
+
+// Recalculate all module averages
+function recalcS2Averages() {
+    osavg.innerHTML       = Number(calcAvg(oscontrol.value,   osexam.value));
+    sopcavg.innerHTML     = Number(calcAvg(sopccontrol.value, sopcexam.value));
+    dcsavg.innerHTML      = Number(calcAvg(dcscontrol.value,  dcsexam.value));
+    benavg.innerHTML      = Number(calcAvg(bencontrol.value,  benexam.value));
+    elecavg.innerHTML     = Number(elecexam.value)  || 0;
+    sopclabavg.innerHTML  = Number(sopclab.value)   || 0;
+    dcslabavg.innerHTML   = Number(dcslab.value)    || 0;
+    benlabavg.innerHTML   = Number(benlab.value)    || 0;
+    oslabavg.innerHTML    = Number(oslab.value)     || 0;
+}
+
+// Compute weighted sum
+function recalcS2Sum() {
+    return (
+        Number(osavg.innerText)      * Number(oscoeff.innerText)      +
+        Number(sopcavg.innerText)    * Number(sopccoeff.innerText)    +
+        Number(dcsavg.innerText)     * Number(dcscoeff.innerText)     +
+        Number(benavg.innerText)     * Number(bencoeff.innerText)     +
+        Number(elecavg.innerText)    * Number(eleccoeff.innerText)    +
+        Number(sopclabavg.innerText) * Number(sopclabcoeff.innerText) +
+        Number(dcslabavg.innerText)  * Number(dcslabcoeff.innerText)  +
+        Number(benlabavg.innerText)  * Number(benlabcoeff.innerText)  +
+        Number(oslabavg.innerText)   * Number(oslabcoeff.innerText)
+    );
+}
+
+// Update final average color
+function updateS2Color(value) {
+    let v = Number(value);
+    if (v > 0 && v < 10)       s2average.style.color = 'red';
+    else if (v >= 10 && v <= 20) s2average.style.color = 'green';
+    else                         s2average.style.color = 'black';
+}
+
+// Validate input range and trigger full recalculation
+function validateAndUpdate(inputElement) {
+    let val = Number(inputElement.value);
+    if (inputElement.value !== '' && (val < 0 || val > 20)) {
+        invalid.style.opacity = '1';
+    } else {
+        invalid.style.opacity = '0';
+    }
+    recalcS2Averages();
+    let result = avg(recalcS2Sum(), s2coeffs);
+    updateS2Color(result);
+    s2average.innerHTML = result;
+}
+
+// Attach listeners to all S2 inputs
+[
+    oscontrol, osexam,
+    sopccontrol, sopcexam,
+    dcscontrol, dcsexam,
+    bencontrol, benexam,
+    elecexam,
+    sopclab, dcslab, benlab, oslab
+].forEach(function(input) {
+    input.addEventListener('input', function() {
+        validateAndUpdate(input);
+    });
+});
 
 
 
