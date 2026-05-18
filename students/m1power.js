@@ -73,6 +73,7 @@ window.addEventListener('scroll', function(){
       let s2 = document.getElementById('s2');
       
       s1.style.display = 'none';
+      s2.style.display = 'none';
       s1select.addEventListener('click',function(){
         if((s1.style.display) === 'none'){
           s1.style.display = '';
@@ -663,7 +664,131 @@ s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 })
 
 
+// GRADE CALCULATOR FOR POWER OPTION S2
 
+var aicontrol = document.getElementById('aic');
+var aiexam = document.getElementById('aie');
+var aiavg = document.getElementById('aiavg');
+var aicoeff = document.getElementById('aicoeff');
+
+var pscontrol = document.getElementById('psc');
+var psexam = document.getElementById('pse');
+var psavg = document.getElementById('psavg');
+var pscoeff = document.getElementById('pscoeff');
+
+var ramscontrol = document.getElementById('ramsc');
+var ramsexam = document.getElementById('ramse');
+var ramsavg = document.getElementById('ramsavg');
+var ramscoeff = document.getElementById('ramscoeff');
+
+var mdcontrol = document.getElementById('mdc');
+var mdexam = document.getElementById('mde');
+var mdavg = document.getElementById('mdavg');
+var mdcoeff = document.getElementById('mdcoeff');
+
+var apecontrol = document.getElementById('apec');
+var apeexam = document.getElementById('apee');
+var apeavg = document.getElementById('apeavg');
+var apecoeff = document.getElementById('apecoeff');
+
+var renexam = document.getElementById('rene');
+var renavg = document.getElementById('renavg');
+var rencoeff = document.getElementById('rencoeff');
+
+var apelab = document.getElementById('apelab');
+var apelabavg = document.getElementById('apelabavg');
+var apelabcoeff = document.getElementById('apelabcoeff');
+
+var pslab = document.getElementById('pslab');
+var pslabavg = document.getElementById('pslabavg');
+var pslabcoeff = document.getElementById('pslabcoeff');
+
+var mdlab = document.getElementById('mdlab');
+var mdlabavg = document.getElementById('mdlabavg');
+var mdlabcoeff = document.getElementById('mdlabcoeff');
+
+var s2average = document.getElementById('s2avg');
+
+if (isNaN(Number(s2average.innerText)) || s2average.innerText === '') {
+    s2average.innerHTML = '0.00';
+}
+
+let s2coeffs = parseInt(
+    Number(aicoeff.innerText) +
+    Number(pscoeff.innerText) +
+    Number(ramscoeff.innerText) +
+    Number(mdcoeff.innerText) +
+    Number(apecoeff.innerText) +
+    Number(rencoeff.innerText) +
+    Number(apelabcoeff.innerText) +
+    Number(pslabcoeff.innerText) +
+    Number(mdlabcoeff.innerText)
+);
+
+function recalcS2Averages() {
+    aiavg.innerHTML = Number(calcAvg(aicontrol.value, aiexam.value));
+    psavg.innerHTML = Number(calcAvg(pscontrol.value, psexam.value));
+    ramsavg.innerHTML = Number(calcAvg(ramscontrol.value, ramsexam.value));
+    mdavg.innerHTML = Number(calcAvg(mdcontrol.value, mdexam.value));
+    apeavg.innerHTML = Number(calcAvg(apecontrol.value, apeexam.value));
+    renavg.innerHTML = Number(renexam.value) || 0;
+    apelabavg.innerHTML = Number(apelab.value) || 0;
+    pslabavg.innerHTML = Number(pslab.value) || 0;
+    mdlabavg.innerHTML = Number(mdlab.value) || 0;
+}
+
+function recalcS2Sum() {
+    return Number(
+        Number(aiavg.innerText) * Number(aicoeff.innerText) +
+        Number(psavg.innerText) * Number(pscoeff.innerText) +
+        Number(ramsavg.innerText) * Number(ramscoeff.innerText) +
+        Number(mdavg.innerText) * Number(mdcoeff.innerText) +
+        Number(apeavg.innerText) * Number(apecoeff.innerText) +
+        Number(renavg.innerText) * Number(rencoeff.innerText) +
+        Number(apelabavg.innerText) * Number(apelabcoeff.innerText) +
+        Number(pslabavg.innerText) * Number(pslabcoeff.innerText) +
+        Number(mdlabavg.innerText) * Number(mdlabcoeff.innerText)
+    );
+}
+
+function updateS2Color(value) {
+    let v = Number(value);
+    if (v > 0 && v < 10) {
+        s2average.style.color = 'red';
+    } else if (v >= 10 && v <= 20) {
+        s2average.style.color = 'green';
+    } else {
+        s2average.style.color = 'black';
+    }
+}
+
+function validateAndUpdate(inputElement) {
+    let val = Number(inputElement.value);
+    if (inputElement.value !== '' && (val < 0 || val > 20)) {
+        invalid.style.opacity = '1';
+    } else {
+        invalid.style.opacity = '0';
+    }
+
+    recalcS2Averages();
+    let result = avg(recalcS2Sum(), s2coeffs);
+    updateS2Color(result);
+    s2average.innerHTML = result;
+}
+
+[
+    aicontrol, aiexam,
+    pscontrol, psexam,
+    ramscontrol, ramsexam,
+    mdcontrol, mdexam,
+    apecontrol, apeexam,
+    renexam,
+    apelab, pslab, mdlab
+].forEach(function(input) {
+    input.addEventListener('input', function() {
+        validateAndUpdate(input);
+    });
+});
 
 
 

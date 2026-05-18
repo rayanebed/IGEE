@@ -665,14 +665,14 @@
     }
 
     .table{
-        width: 95dvw;
+        width: 96dvw;
     }
     tfoot td{
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .avg{
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .invalid{
@@ -822,7 +822,11 @@
     text-decoration: underline solid 1px #a4a4a4;
 }
 
-
+@media screen and (min-width: 800px) {
+    table{
+        max-width: max-content;
+    }
+}
 
 
 

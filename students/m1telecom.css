@@ -432,6 +432,7 @@
         max-width: 95vw;
         margin: auto;
         margin-bottom: 20px;
+        table-layout: fixed;
     }
     table td{
         font-size: 14px;

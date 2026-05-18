@@ -187,9 +187,108 @@
     
             </table>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+        <table class="s2" id="s2">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Artificial Intelligence -->
+                <tr>
+                    <td title="Artificial Intelligence">Artificial Intelligence</td>
+                    <td><input id="aic" max="20" class="s2input" type="number"></td>
+                    <td><input id="aie" max="20" class="s2input" type="number"></td>
+                    <td id="aiavg"></td>
+                    <td id="aicoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- Power System Analysis -->
+                <tr>
+                    <td title="Power System Analysis">Power System Analysis</td>
+                    <td><input id="psc" max="20" class="s2input" type="number"></td>
+                    <td><input id="pse" max="20" class="s2input" type="number"></td>
+                    <td id="psavg"></td>
+                    <td id="pscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- RAMS -->
+                <tr>
+                    <td title="RAMS">RAMS</td>
+                    <td><input id="ramsc" max="20" class="s2input" type="number"></td>
+                    <td><input id="ramse" max="20" class="s2input" type="number"></td>
+                    <td id="ramsavg"></td>
+                    <td id="ramscoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- Machines and Drives -->
+                <tr>
+                    <td title="Machines and Drives">Machines and Drives</td>
+                    <td><input id="mdc" max="20" class="s2input" type="number"></td>
+                    <td><input id="mde" max="20" class="s2input" type="number"></td>
+                    <td id="mdavg"></td>
+                    <td id="mdcoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Advanced Power Electronics -->
+                <tr>
+                    <td title="Advanced Power Electronics">Advanced Power Electronics</td>
+                    <td><input id="apec" max="20" class="s2input" type="number"></td>
+                    <td><input id="apee" max="20" class="s2input" type="number"></td>
+                    <td id="apeavg"></td>
+                    <td id="apecoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Renewable Energies -->
+                <tr>
+                    <td title="Renewable Energies">Renewable Energies</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="rene" max="20" class="s2input" type="number"></td>
+                    <td id="renavg"></td>
+                    <td id="rencoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- Advanced Power Electronics Lab -->
+                <tr>
+                    <td title="Advanced Power Electronics Lab">Advanced Power Electronics Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="apelab" max="20" class="s2input" type="number"></td>
+                    <td id="apelabavg"></td>
+                    <td id="apelabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- Power System Lab -->
+                <tr>
+                    <td title="Power System Lab">Power System Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="pslab" max="20" class="s2input" type="number"></td>
+                    <td id="pslabavg"></td>
+                    <td id="pslabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- Machines and Drives Lab -->
+                <tr>
+                    <td title="Machines and Drives Lab">Machines and Drives Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="mdlab" max="20" class="s2input" type="number"></td>
+                    <td id="mdlabavg"></td>
+                    <td id="mdlabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
 
         <div class="upfooter">
 
