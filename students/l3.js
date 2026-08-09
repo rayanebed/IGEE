@@ -55,11 +55,16 @@ window.addEventListener('scroll', function(){
           menu.style.borderBottom = 'solid 2px darkblue';
       }})
   
-      let betabutton = document.getElementById('buttonbeta');
-      betabutton.addEventListener('click', function(){
-        let beta = document.getElementById('beta');
-        beta.style.display = 'none';
-      })
+      let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
 
 
       let s1 = document.getElementById('s1');
@@ -92,7 +97,7 @@ window.addEventListener('scroll', function(){
         }
         else{
           s2.style.display = 'none';
-          invalid.style.display = 'none';
+          invalid.style.opacity = '0';
         }
       })
 
@@ -142,6 +147,37 @@ window.addEventListener('scroll', function(){
 }
 
 
+// the ad
+const ads = [
+  {
+      gif: "../assets/gifs/ivolunteer-ad.gif",
+      url: "https://instagram.com/i.volunteer.dz/",
+      alt: "I Volunteer"
+  },
+  {
+      gif: "../assets/gifs/iscraft-ad.gif",
+      url: "https://iscraft.site/",
+      alt: "ISCraft"
+  },
+  {
+      gif: "../assets/gifs/onlinebazardz-ad.gif",
+      url: "https://instagram.com/online_bazar_dz/",
+      alt: "Online Bazar DZ"
+  }
+]
+const ad = document.getElementById("ad");
+const adImg = document.getElementById("adimg");
+const adText = document.getElementById("adtext");
+const adLink = document.getElementById("adlink");
+
+function showGif(){
+  const randomIndex = Math.floor(Math.random() * ads.length);
+  ad.innerHTML = `<a href="${ads[randomIndex].url}" target="_blank"><img src="${ads[randomIndex].gif}" alt="${ads[randomIndex].alt}"></a>`;
+}
+
+
+window.addEventListener('DOMContentLoaded', showGif());
+
 
 // GRADE CALCULATOR FOR S1
 
@@ -165,7 +201,6 @@ var procontrol = document.getElementById('proc');
 var proexam = document.getElementById('proe');
 var proavg = document.getElementById('proavg');
 var procoeff = document.getElementById('procoeff');
-var mpcontrol = document.getElementById('mpc');
 var mpexam = document.getElementById('mpe');
 var mpavg = document.getElementById('mpavg');
 var mpcoeff = document.getElementById('mpcoeff');
@@ -175,11 +210,8 @@ var pelabcoeff = document.getElementById('pelabcoeff');
 var prolab= document.getElementById('prolab');
 var prolabavg = document.getElementById('prolabavg');
 var prolabcoeff = document.getElementById('prolabcoeff');
-var mplab = document.getElementById('mplab');
-var mplabavg = document.getElementById('mplabavg');
-var mplabcoeff = document.getElementById('mplabcoeff');
-var s1average = document.getElementById('s1avg');
 
+var s1average = document.getElementById('s1avg');
 if (isNaN(Number(s1average.innerText)) || s1average.innerText ==''){
   s1average.innerHTML = '0.00';
 }
@@ -188,8 +220,8 @@ if (isNaN(Number(s1average.innerText)) || s1average.innerText ==''){
 let invalid = document.getElementById('invalid');
 
 
-let s1coeffs = parseInt(Number(ls2coeff.innerText) + Number(emcoeff.innerText) + Number(cacoeff.innerText) + Number(pecoeff.innerText) + Number(mpcoeff.innerText) + Number(procoeff.innerText) + Number(prolabcoeff.innerText) + Number(pelabcoeff.innerText) + Number(mplabcoeff.innerText)) ;
-let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText));
+let s1coeffs = parseInt(Number(ls2coeff.innerText) + Number(emcoeff.innerText) + Number(cacoeff.innerText) + Number(pecoeff.innerText) + Number(mpcoeff.innerText) + Number(procoeff.innerText) + Number(prolabcoeff.innerText) + Number(pelabcoeff.innerText)) ;
+let s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
 ls2control.addEventListener('input', function(){
 
   ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
@@ -197,29 +229,31 @@ ls2control.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(ls2control.value) < 0 || Number(ls2control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
+ 
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
 
@@ -229,33 +263,32 @@ ls2exam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
 
   if(Number(ls2exam.value) < 0 || Number(ls2exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-   s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 emcontrol.addEventListener('input', function(){
@@ -264,34 +297,32 @@ emcontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(emcontrol.value) < 0 || Number(emcontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
-   
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
   
 
 })
@@ -302,34 +333,32 @@ emexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(emexam.value) < 0 || Number(emexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 cacontrol.addEventListener('input', function(){
@@ -338,34 +367,32 @@ cacontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
 
   if(Number(cacontrol.value) < 0 || Number(cacontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 caexam.addEventListener('input', function(){
@@ -374,35 +401,31 @@ caexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(caexam.value) < 0 || Number(caexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
   
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 pecontrol.addEventListener('input', function(){
@@ -411,36 +434,32 @@ pecontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(pecontrol.value) < 0 || Number(pecontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
   
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 peexam.addEventListener('input', function(){
@@ -449,34 +468,32 @@ peexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(peexam.value) < 0 || Number(peexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
   
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
 
 })
 
@@ -486,34 +503,32 @@ procontrol.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(procontrol.value) < 0 || Number(procontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
   
   
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 proexam.addEventListener('input', function(){
@@ -522,110 +537,67 @@ proexam.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(proexam.value) < 0 || Number(proexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
   
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
-
-
-mpcontrol.addEventListener('input', function(){
-
-  ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
-  emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
-  caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
-  peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
-  pelabavg.innerHTML = Number(pelab.value);
-  prolabavg.innerHTML = Number(prolab.value);
-
-  if(Number(mpcontrol.value) < 0 || Number(mpcontrol.value)>20){
-    invalid.style.display = 'block';
-  }
-  else{
-    invalid.style.display = 'none';
-  }
-
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
-  
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 mpexam.addEventListener('input', function(){
-
-
-  if(Number(mpexam.value) < 0 || Number(mpexam.value)>20){
-    invalid.style.display = 'block';
-  }
-  else{
-    invalid.style.display = 'none';
-  }
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
-
-  
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-
   ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
   emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
 
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
+  if(Number(mpexam.value) < 0 || Number(mpexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
 
+  
+
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
+    s1average.style.color = 'red';
+  }
+  if(Number(s1average.innerHTML) >=10){
+    s1average.style.color = 'green';
+  }
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
+    s1average.style.color = 'black';
+  }
 })
 
 
@@ -635,34 +607,32 @@ prolab.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
+  
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(prolab.value) < 0 || Number(prolab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
-
-  
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
 })
 
 pelab.addEventListener('input', function(){
@@ -671,72 +641,567 @@ pelab.addEventListener('input', function(){
   caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
   peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
   proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
+  mpavg.innerHTML = Number(mpexam.value);
   pelabavg.innerHTML = Number(pelab.value);
   prolabavg.innerHTML = Number(prolab.value);
 
   if(Number(pelab.value) < 0 || Number(pelab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText));
  
 
-  if(Number(avg(s1sum,s1coeffs))<10){
+  s1average.innerHTML = (Number(s1sum/s1coeffs).toFixed(2));
+
+  if(Number(s1average.innerHTML) <10){
     s1average.style.color = 'red';
   }
-  if(Number(avg(s1sum,s1coeffs))>=10){
+  if(Number(s1average.innerHTML) >=10){
     s1average.style.color = 'green';
   }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
+  if(Number(s1average.innerHTML)>20 || Number(s1average.innerHTML)<=0){
     s1average.style.color = 'black';
   }
+})
 
- 
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
+
+
+// Grade calculator for S2
+
+let comcontrol = document.getElementById('comc');
+let comexam = document.getElementById("come");
+let comaverage = document.getElementById("comavg");
+let comcoeff = document.getElementById("comcoeff");
+let lcscontrol = document.getElementById("lcsc");
+let lcsexam = document.getElementById("lcse");
+let lcsaverage = document.getElementById("lcsavg");
+let lcscoeff = document.getElementById("lcscoeff");
+let z80control = document.getElementById("z80c");
+let z80exam = document.getElementById("z80e");
+let z80average = document.getElementById("z80avg");
+let z80coeff = document.getElementById("z80coeff");
+let encontrol = document.getElementById("enc");
+let enexam = document.getElementById("ene");
+let enaverage = document.getElementById("enavg");
+let encoeff = document.getElementById("encoeff");
+let manexam = document.getElementById("mane");
+let manaverage = document.getElementById("manavg");
+let mancoeff = document.getElementById("mancoeff");
+let z80lab = document.getElementById("z80lab");
+let z80labaverage = document.getElementById("z80labavg");
+let z80labcoeff = document.getElementById("z80labcoeff");
+let lcslab = document.getElementById("lcslab");
+let lcslabaverage = document.getElementById("lcslabavg");
+let lcslabcoeff = document.getElementById("lcslabcoeff");
+let comlab = document.getElementById("comlab");
+let comlabaverage = document.getElementById("comlabavg");
+let comlabcoeff = document.getElementById("comlabcoeff");
+let projectcontrol = document.getElementById("projc");
+let projectexam = document.getElementById("proje");
+let projectaverage = document.getElementById("projavg");
+let projectcoeff = document.getElementById("projcoeff");
+let s2sum;
+let s2coeffs;
+
+let s2average = document.getElementById("s2avg");
+if (isNaN(Number(s2average.innerText)) || s2average.innerText ==''){
+  s2average.innerHTML = '0.00';
+}
+
+if(!s2average.textContent.trim()){
+  s2average.textContent = '0.00';
+}
+
+s2coeffs = parseInt(Number(comcoeff.innerText) + Number(lcscoeff.innerText) + Number(z80coeff.innerText) + Number(encoeff.innerText) + Number(mancoeff.innerText) + Number(projectcoeff.innerText) + Number(comlabcoeff.innerText) + Number(lcslabcoeff.innerText) + Number(z80labcoeff.innerText));
+comcontrol.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML= Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(comcontrol.value) < 0 || Number(comcontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
 
 })
 
-mplab.addEventListener('input', function(){
-  ls2avg.innerHTML = Number(calcAvg(ls2control.value,ls2exam.value));
-  emavg.innerHTML = Number(calcAvg(emcontrol.value,emexam.value));
-  caavg.innerHTML = Number(calcAvg(cacontrol.value,caexam.value));
-  peavg.innerHTML = Number(calcAvg(pecontrol.value,peexam.value));
-  proavg.innerHTML = Number(calcAvg(procontrol.value,proexam.value));
-  mpavg.innerHTML = Number(calcAvg(mpcontrol.value,mpexam.value));
-  mplabavg.innerHTML = Number(mplab.value);
-  pelabavg.innerHTML = Number(pelab.value);
-  prolabavg.innerHTML = Number(prolab.value);
+comexam.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
 
-  if(Number(mplab.value) < 0 || Number(mplab.value)>20){
-    invalid.style.display = 'block';
+  if(Number(comexam.value) < 0 || Number(comexam.value)>20){
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(ls2avg.innerText * ls2coeff.innerText) + Number(emavg.innerText * emcoeff.innerText) + Number(caavg.innerText * cacoeff.innerText) + Number(peavg.innerText * pecoeff.innerText) + Number(mpavg.innerText * mpcoeff.innerText) + Number(proavg.innerText * procoeff.innerText) + Number(pelabavg.innerText * pelabcoeff.innerText)+ Number(prolabavg.innerText * prolabcoeff.innerText) + Number(mplabavg.innerText * mplabcoeff.innerText));
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+
+})
+
+lcscontrol.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcscontrol.value) < 0 || Number(lcscontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+
+})
+
+lcsexam.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcsexam.value) < 0 || Number(lcsexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80control.addEventListener('input', function(){
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80control.value) < 0 || Number(z80control.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80exam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80exam.value) < 0 || Number(z80exam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+encontrol.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(encontrol.value) < 0 || Number(encontrol.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+enexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(enexam.value) < 0 || Number(enexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+manexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(manexam.value) < 0 || Number(manexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+z80lab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(z80lab.value) < 0 || Number(z80lab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+comlab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(comlab.value) < 0 || Number(comlab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+lcslab.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(lcslab.value) < 0 || Number(lcslab.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+
+projectexam.addEventListener('input', () => {
+  comaverage.innerHTML = Number(calcAvg(comcontrol.value, comexam.value));
+  enaverage.innerHTML = Number(calcAvg(encontrol.value, enexam.value));
+  lcsaverage.innerHTML = Number(calcAvg(lcscontrol.value, lcsexam.value));
+  z80average.innerHTML = Number(calcAvg(z80control.value, z80exam.value));
+  projectaverage.innerHTML = Number(projectexam.value);
+  manaverage.innerHTML = Number(manexam.value);
+  z80labaverage.innerHTML = Number(z80lab.value);
+  lcslabaverage.innerHTML = Number(lcslab.value);
+  comlabaverage.innerHTML = Number(comlab.value);
+
+  if(Number(projectexam.value) < 0 || Number(projectexam.value)>20){
+    invalid.style.opacity = '1';
+  }
+  else{
+    invalid.style.opacity = '0';
+  }
+
+  s2sum = Number(Number(comaverage.innerText * comcoeff.innerText) + Number(lcsaverage.innerText * lcscoeff.innerText) + Number(z80average.innerText * z80coeff.innerText) + Number(enaverage.innerText * encoeff.innerText) + Number(manaverage.innerText * mancoeff.innerText) + Number(projectaverage.innerText * projectcoeff.innerText) + Number(comlabaverage.innerText * comlabcoeff.innerText) + Number(lcslabaverage.innerText * lcslabcoeff.innerText) + Number(z80labaverage.innerText * z80labcoeff.innerText));
+
+  s2average.innerHTML = avg(s2sum, s2coeffs);
+
+  if(Number(avg(s2sum,s2coeffs))<10){
+    s2average.style.color = 'red';
+  }
+  if(Number(avg(s2sum,s2coeffs))>=10){
+    s2average.style.color = 'green';
+  }
+  if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+    s2average.style.color = 'black';
+  }
+})
+
+
+// Tips box
+
+const tips = [
+  "Don’t forget to validate both semesters 😉",
+  "Lab grades boost your average more than you think!",
+  "Take breaks, your brain needs it 🧠",
+  "Energy Systems won’t bite you… but it might bite your average !",
+  "CTRL + C and CTRL + V are your real friends during lab reports",
+  "Your average can’t drop if you don’t check it :)",
+  "When in doubt, blame the prof’s handwriting :)",
+  "English students in Bloc C be chillin’ while you're calculating Fourier transforms",
+  "When teachers say 'this won’t be on the exam,' it’s 100% the first question",
+  "Grades matter, but learning lasts longer",
+  "Don’t underestimate past exams. They reveal what really matters.",
+  "Don’t compare your pace to others. Everyone’s path is different.",
+  "Your average doesn’t define your worth, your effort and growth do.",
+  "Downloading everything from the Drive even if you’ll never open it? A tradition."
+];
+
+document.getElementById("tipbox").innerText = tips[Math.floor(Math.random() * tips.length)];
+
+// grade visualization
+
+  // function updateVisualization() {
+  //   const container = document.querySelector('.grade-bars');
+  //   container.innerHTML = '';
+    
+  //   const subjects = {
+  //     'Communication': Number(comaverage.innerHTML),
+  //     'Control Systems': Number(lcsaverage.innerHTML),
+  //     'Z80': Number(z80average.innerHTML),
+  //     'English': Number(enaverage.innerHTML),
+  //     'Project': Number(projectaverage.innerHTML),
+  //     'Management': Number(manaverage.innerHTML),
+
+  //   };
+    
+  //   for (const [subject, grade] of Object.entries(subjects)) {
+  //     const bar = document.createElement('div');
+  //     bar.className = 'grade-bar';
+  //     bar.innerHTML = `
+  //       <div class="subject">${subject}</div>
+  //       <div class="bar-container">
+  //         <div class="bar" style="width: ${grade * 5}%; background: ${grade >= 10 ? '#4CAF50' : '#F44336'}"></div>
+  //       </div>
+  //       <div class="grade">${grade.toFixed(2)}</div>
+  //     `;
+  //     container.appendChild(bar);
+  //   }
+  // }
   
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
-
-
+  // updateVisualization();
 
 
 
@@ -750,6 +1215,6 @@ function calcAvg(control,exam){
     return result.toFixed(2);
 }
 function avg(a,b){
-    average = a/b;
-    return Number(average.toFixed(2));
+    s1average = a/b;
+    return Number(s1average.toFixed(2));
 }

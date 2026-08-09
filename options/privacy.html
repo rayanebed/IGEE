@@ -8,9 +8,10 @@
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>IGEE</title>
+    <title>Privacy</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="privacy.css">
+    <meta name="description" content="Explore the privacy commitment of the Institute of Electrical and Electronic Engineering (IGEE). Our website prioritizes the protection and accuracy of confidential information. We do not actively share personal data, and the site operates independently from official institute ties. Learn about the information collected, our analytics partners, responsibility for external sites, and revisions to our privacy statement. Contact the developer at beddrayane@gmail.com for any issues or suggestions. Last updated on December 16th, 2023.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -62,14 +63,14 @@
             <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
             <a href="../error.html">Scientific Clubs</a>
             <a href="../students/grade.html">Grade Calculator</a>
-            <a href="../error.html">Guide</a>
+            <a href="../students/guide.html">Guide</a>
             </div>
         </div>
         <div id="contact" class="it">Contact</div>
         <div id="about" class="it">About</div>
     </ul>
     <span class="spann">      </span>
-    <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+    <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
     <div class="search">
         <input class="searchbar" placeholder="Search on IGEE"></input>
         <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -83,7 +84,7 @@
 <h1 class="maintitle">Privacy</h1>
 
 <div class="container">
-    <p class="intro">The institute of Electronics and Electrical Engineering IGEE is committed to protecting the privacy and accuracy of confidential information to the extent possible. Other than as required by laws that guarantee public access to certain types of information, or in response to other legal instruments that authorize access, personal information is not actively shared. In particular, we do not re-distribute or sell personal information collected on our web servers.<br> In addition, and <strong>up to this moment</strong>, this website <strong>operates independently from any official ties with the institute. It is a personal (individual) project and not recognized as the official institute website.</strong></p>
+    <p class="intro">The Institute of Electrical and Electronic Engineering IGEE is committed to protecting the privacy and accuracy of confidential information to the extent possible. Other than as required by laws that guarantee public access to certain types of information, or in response to other legal instruments that authorize access, personal information is not actively shared. In particular, we do not re-distribute or sell personal information collected on our web servers.<br> In addition, and <strong>up to this moment</strong>, this website <strong>operates independently from any official ties with the institute. It is a personal (individual) project and not recognized as the official institute website.</strong></p>
     <h1>Information Collected:</h1>
     <p>Our web servers log the following information:
         <br>
@@ -117,7 +118,6 @@
     <div class="imgcontainer">
         <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
         <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-        <p class="adress">contact@univ-boumerdes.dz</p>
         <div class="social">
             <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
             <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -129,32 +129,44 @@
         </div>
     </div>
     <div class="footoptions">
-        <div class="optionsleft">
-            <a href="../error.html"><p>Current Students</p></a>
-            <a href="../error.html"><p>Faculty and Staff</p></a>
-            <a href="../error.html"><p>Libraries</p></a>
-            <a href="../error.html"><p>News and Media</p></a>
-        </div>
-        <div class="optionsmiddle">
-            <a href="../error.html"><p>Programs of Study</p></a>
-            <a href="../error.html"><p>A to Z Directory</p></a>
-            <a href="../error.html"><p>Visitors</p></a>
-            <a href="../map.html"><p>Map</p></a>
-        </div>
-        <div class="optionsright">
-            <a href="../contact/contact.html"><p>Contact</p></a>
-            <a href="feedback.html"><p>Feedback</p></a>
-            <a href="../error.html"><p>Accessibility</p></a>
-            <a href="privacy.html"><p>Privacy</p></a>
-        </div>
+        <a href="../error.html"><p>Current Students</p></a>
+        <a href="../error.html"><p>Programs of Study</p></a>
+        <a href="../contact/contact.html"><p>Contact</p></a>
+        <a href="../error.html"><p>Faculty and Staff</p></a>
+        <a href="../error.html"><p>A to Z Directory</p></a>
+        <a href="feedback.html"><p>Feedback</p></a>
+        <a href="../error.html"><p>Libraries</p></a>
+        <a href="../error.html"><p>Visitors</p></a>
+        <a href="../error.html"><p>Accessibility</p></a>
+        <a href="../error.html"><p>News and Media</p></a>
+        <a href="../map.html"><p>Map</p></a>
+        <a href="privacy.html"><p>Privacy</p></a>
     </div>
     <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
         of harassment and discrimination.</p>
     <p class="credits">Website fully developed by Rayane Beddou</p>
-    <p class="rights">Copyright © 2023. All Rights Reserved</p>
+    <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
 </div>
 
 <script src="privacy.js"></script>
+
+<script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
 
 </body>
 

@@ -8,6 +8,7 @@
     <title>M1 Control</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="m1control.css">
+    <meta name="description" content="Calculate your Master 1 Control (M1 Control) grades with precision using the Grade Calculator tool at the Institute of Electrical and Electronic Engineering (IGEE). Streamline the assessment process, plan your academic journey, and keep track of your performance in Master 1 Control Option program. Explore this valuable resource on the IGEE website to enhance your academic experience.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -55,14 +56,14 @@
                     <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
                     <a href="../error.html">Scientific Clubs</a>
                     <a href="grade.html">Grade Calculator</a>
-                    <a href="../error.html">Guide</a>
+                    <a href="../students/guide.html">Guide</a>
                 </div>
             </div>
             <div id="contact" class="it">Contact</div>
             <div id="about" class="it">About</div>
         </ul>
         <span class="spann">      </span>
-        <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+        <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
             <div class="search">
                 <input class="searchbar" placeholder="Search on IGEE"></input>
                 <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -77,6 +78,9 @@
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
         </div>
+        <div id="invalid" class="invalid">
+            You have entered an invalid value ! The grades should be between 0 and 20.
+        </div>
         <table id="s1" class="s1">
             <thead>
             <tr>
@@ -88,73 +92,81 @@
             </tr>
             </thead>
             <tbody>
-                <!-- we refer to probability with ls -->
+                <!-- we refer to advanced math with ls -->
                 <tr>
-                    <td title="Probability and Stochastic Processes">Probability and Stochastic Processes</td>
+                    <td title="Advanced Mathematics">Advanced Mathematics</td>
                     <td><input id="ls2c" max="20" class="s1input" type="number"></input></td>
                     <td><input id="ls2e" max="20" class="s1input" type="number"></input></td>
                     <td id="ls2avg"></td>
-                    <td id="ls2coeff" class="coeff">4</td>
+                    <td id="ls2coeff" class="coeff">3</td>
                 </tr>
 
-                <!-- em refers to Advanced mathematics -->
+                <!-- em refers to System modelling -->
                 <tr>
-                    <td title="Advanced Mathematics">Advanced Mathematics</td>
+                    <td title="System Modelling and Identification">System Modelling and Identification</td>
                     <td><input id="emc" max="20" class="s1input" type="number"></input></td>
                     <td><input id="eme" max="20" class="s1input" type="number"></input></td>
                     <td id="emavg"></td>
-                    <td id="emcoeff" class="coeff">4</td>
+                    <td id="emcoeff" class="coeff">3</td>
                 </tr>
-                <!-- we refer to complex variables by ca -->
+                <!-- we refer to applid opt by ca -->
                 <tr>
-                    <td title="Complex Variables">Complex Variables</td>
+                    <td title="Applied Optimization">Applied Optimization</td>
                     <td><input id="cac" max="20" class="s1input" type="number"></input></td>
                     <td><input id="cae" max="20" class="s1input" type="number"></input></td>
                     <td id="caavg"></td>
-                    <td id="cacoeff" class="coeff">4</td>
+                    <td id="cacoeff" class="coeff">3</td>
                 </tr>
-                <!-- we refer to digital control systems by pe -->
                 <tr>
-                    <td title="Digital Control Systems">Digital Control Systems</td>
+                    <td title="Digital Signal Processing">Dig. Signal Processing</td>
+                    <td><input id="dspc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="dspe" max="20" class="s1input" type="number"></input></td>
+                    <td id="dspavg"></td>
+                    <td id="dspcoeff" class="coeff">2</td>
+                </tr>
+                <!-- we refer to Sensors and actuators by pe -->
+                <tr>
+                    <td title="Sensors and Actuators">Sensors and Actuators</td>
                     <td><input id="pec" max="20" class="s1input" type="number"></input></td>
                     <td><input id="pee" max="20" class="s1input" type="number"></input></td>
                     <td id="peavg"></td>
-                    <td id="pecoeff" class="coeff">4</td>
+                    <td id="pecoeff" class="coeff">2</td>
                 </tr>
 
-                <!-- <tr>
-                    <td title="Process Control and Instrumentation">Process Control and Instrumentation</td>
-                    <td><input id="proc" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="proe" max="20" class="s1input"  type="number"></input></td>
-                    <td id="proavg"></td>
-                    <td id="procoeff" class="coeff">3</td>
-                </tr> -->
+                <tr>
+                    <td title="System Modelling and Identification Lab">System Modelling Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="prolab" max="20" class="s1input"  type="number"></input></td>
+                    <td id="prolabavg"></td>
+                    <td id="prolabcoeff" class="coeff">1</td>
+                </tr>
                 
-                <!-- <tr>
-                    <td title="Micro Processor System Design">Micro Processor</td>
-                    <td><input id="mpc" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="mpe" max="20" class="s1input" type="number"></input></td>
-                    <td id="mpavg"></td>
-                    <td id="mpcoeff" class="coeff">3</td>
-                </tr> -->
 
                 <!-- we refer to digital controllers implementations by pelab -->
                 <tr>
-                    <td title="Digital Controllers Implementations">Digital Controllers Implementations</td>
+                    <td title="Applied Optimization Lab">Optimization Lab</td>
                     <td style="background-color:#a7a7a7;"></td>
                     <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
                     <td id="pelabavg"></td>
-                    <td id="pelabcoeff" class="coeff">2</td>
+                    <td id="pelabcoeff" class="coeff">1</td>
+                </tr>
+
+                <tr>
+                    <td title="Digital Signal Processing Lab">Digital Signal Processing Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="dsplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="dsplabavg"></td>
+                    <td id="dsplabcoeff" class="coeff">1</td>
                 </tr>
 
                 <!-- we refer to scientific computing by mplab -->
 
                 <tr>
-                    <td title="Introduction to Scientific Computing Using Matlab">Introduction to Sci. Comp. using MATLAB</td>
-                    <td style="background-color: #a7a7a7;"></td>
+                    <td title="Introduction to Scientific Computing Using Matlab">Intro to Sci. Comp. using MATLAB</td>
+                    <td><input max="20" id="mplabc" class="s1input" type="number"></input></td>
                     <td><input id="mplab" max="20" class="s1input" type="number"></input></td>
                     <td id="mplabavg"></td>
-                    <td id="mplabcoeff" class="coeff">2</td>
+                    <td id="mplabcoeff" class="coeff">1</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -169,12 +181,118 @@
 
         </table>
 
-        <div id="invalid" class="invalid">
-            You have entered an invalid value ! The grades should be between 0 and 20.
-        </div>
+        
+        <table id="s2" class="s1">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- DCS refers to Digital Control Systems -->
+                <tr>
+                    <td title="Digital Control Systems">Digital Control Systems</td>
+                    <td><input id="dcsc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="dcse" max="20" class="s1input" type="number"></input></td>
+                    <td id="dcsavg"></td>
+                    <td id="dcscoeff" class="coeff">3</td>
+                </tr>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
+                <!-- ncs refers to Nonlinear Control Systems -->
+                <tr>
+                    <td title="Nonlinear Control Systems">Nonlinear Control Systems</td>
+                    <td><input id="ncsc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ncse" max="20" class="s1input" type="number"></input></td>
+                    <td id="ncsavg"></td>
+                    <td id="ncscoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- act refers to Advanced Control Techniques I -->
+                <tr>
+                    <td title="Advanced Control Techniques I">Advanced Control Techniques I</td>
+                    <td><input id="actc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="acte" max="20" class="s1input" type="number"></input></td>
+                    <td id="actavg"></td>
+                    <td id="actcoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- ai refers to Artificial Intelligence -->
+                <tr>
+                    <td title="Artificial Intelligence">Artificial Intelligence</td>
+                    <td><input id="aic" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="aie" max="20" class="s1input" type="number"></input></td>
+                    <td id="aiavg"></td>
+                    <td id="aicoeff" class="coeff">2</td>
+                </tr>
+
+                <!-- ia refers to Industrial Automation -->
+                <tr>
+                    <td title="Industrial Automation">Industrial Automation</td>
+                    <td><input id="iac" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="iae" max="20" class="s1input" type="number"></input></td>
+                    <td id="iaavg"></td>
+                    <td id="iacoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- re refers to Elective Course: Renewable Energies -->
+                <tr>
+                    <td title="Elective Course (Renewable Energies)">Elective Course</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ree" max="20" class="s1input" type="number"></input></td>
+                    <td id="reavg"></td>
+                    <td id="recoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- dcslab refers to Digital Control Systems Lab -->
+                <tr>
+                    <td title="Digital Control Systems Lab">DCS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="dcslabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="dcslabavg"></td>
+                    <td id="dcslabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- ailab refers to Artificial Intelligence Lab -->
+                <tr>
+                    <td title="Artificial Intelligence Lab">AI Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ailabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="ailabavg"></td>
+                    <td id="ailabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- ialab refers to Industrial Automation Lab -->
+                <tr>
+                    <td title="Industrial Automation Lab">Industrial Automation Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ialabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="ialabavg"></td>
+                    <td id="ialabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- actlab refers to Advanced Control Techniques I Lab -->
+                <tr>
+                    <td title="Advanced Control Techniques I Lab">Adv. Control Tech. I Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="actlabe" max="20" class="s1input" type="number"></input></td>
+                    <td id="actlabavg"></td>
+                    <td id="actlabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
         </div>
 
         <div class="upfooter">
@@ -190,7 +308,6 @@
             <div class="imgcontainer">
                 <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
                 <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-                <p class="adress">contact@univ-boumerdes.dz</p>
                 <div class="social">
                     <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
                     <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -202,34 +319,46 @@
                 </div>
             </div>
             <div class="footoptions">
-                <div class="optionsleft">
-                    <a href="../error.html"><p>Current Students</p></a>
-                    <a href="../error.html"><p>Faculty and Staff</p></a>
-                    <a href="../error.html"><p>Libraries</p></a>
-                    <a href="../error.html"><p>News and Media</p></a>
-                </div>
-                <div class="optionsmiddle">
-                    <a href="../error.html"><p>Programs of Study</p></a>
-                    <a href="../error.html"><p>A to Z Directory</p></a>
-                    <a href="../error.html"><p>Visitors</p></a>
-                    <a href="../map.html"><p>Map</p></a>
-                </div>
-                <div class="optionsright">
-                    <a href="../contact/contact.html"><p>Contact</p></a>
-                    <a href="../options/feedback.html"><p>Feedback</p></a>
-                    <a href="../error.html"><p>Accessibility</p></a>
-                    <a href="../options/privacy.html"><p>Privacy</p></a>
-                </div>
+                <a href="../error.html"><p>Current Students</p></a>
+            <a href="../error.html"><p>Programs of Study</p></a>
+            <a href="../contact/contact.html"><p>Contact</p></a>
+            <a href="../error.html"><p>Faculty and Staff</p></a>
+            <a href="../error.html"><p>A to Z Directory</p></a>
+            <a href="../options/feedback.html"><p>Feedback</p></a>
+            <a href="../error.html"><p>Libraries</p></a>
+            <a href="../error.html"><p>Visitors</p></a>
+            <a href="../error.html"><p>Accessibility</p></a>
+            <a href="../error.html"><p>News and Media</p></a>
+            <a href="../map.html"><p>Map</p></a>
+            <a href="../options/privacy.html"><p>Privacy</p></a>
             </div>
             <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
                 of harassment and discrimination.</p>
             <p class="credits">Website fully developed by Rayane Beddou</p>
-            <p class="rights">Copyright © 2023. All Rights Reserved</p>
+            <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
         </div>
     
     
         <script src="m1control.js"></script>
-    </body>
+    <script>
+        let betta = document.getElementById('beta');
+        if(sessionStorage.getItem('beta')=='done'){
+        betta.style.display = 'none';
+        }
+        let betabutton = document.getElementById('buttonbeta');
+        betabutton.addEventListener('click', function(){
+        let beta = document.getElementById('beta');
+        beta.style.display = 'none';
+        sessionStorage.setItem('beta', 'done');
+        })
+    </script>
+
+</body>
 
 
 

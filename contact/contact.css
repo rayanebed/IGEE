@@ -465,6 +465,57 @@ ul.menu .it:hover {
     text-align: center;
 }
 
+.teacherscontact form{
+    width: 30%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.teacherscontact form input{
+    height: 30px;
+    width: 80%;
+    font-size: 16px;
+    font-family: Poppins;
+    outline: none;
+    border: #d2a100 solid 2px;
+    background-color: #e2e2e2;
+    border-radius: 2px;
+    transition: 0.2s ease-in-out all;
+}
+.teacherscontact form input:focus{
+    outline: #f4bb33 2px solid;
+    border: #000 solid 2px;
+    background-color: #dadada;
+}
+
+.alert{
+    width: 85%;
+    margin: auto;
+    padding: 20px;
+    min-width: 200px;
+    background-color: #d52d0fc4;
+    border-radius: 10px;
+}
+.alert h3{
+    color: #fff;
+    font-size: 20px;
+}
+.alert p{
+    color: #fff;
+    font-size: 16px;
+    font-family: Poppins;
+}
+
+.ad{
+    width: fit-content;
+    margin: 35px auto;
+    display: block;
+    background-color: #03213e;
+    border: solid 2px #f4bb33;
+}
+
 
 
 
@@ -504,6 +555,11 @@ ul.menu .it:hover {
     border-radius: 5px;
     margin: 10px;
     border: solid transparent 1px;
+}
+@media screen and (max-width: 500px) {
+    .ineleclogo{
+        width: 200px;
+    }
 }
 .ineleclogo:hover{
     cursor: pointer;
@@ -565,13 +621,17 @@ ul.menu .it:hover {
 }
 
 .footoptions{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .footoptions p{
     text-align: center;
     color: #d6d1d1;
-    margin: 30px;
+    margin: 15px;
     font-family: sans-serif;
 }
 .footoptions p:hover{
@@ -579,8 +639,11 @@ ul.menu .it:hover {
     color: #ffffff;
     text-decoration: underline solid #fff;
 }
+
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;
@@ -691,16 +754,22 @@ ul.menu .it:hover {
     }
 
     .teacherscontact td{
-        font-size: 0.6rem;
+        font-size: 0.55rem;
     }
     .contactschool table{
         width: 90%;
     }
     .contactschool td{
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
     .teacherscontact table{
         width: 95%;
+    }
+    .teacherscontact form{
+        width: 70%;
+    }
+    .teacherscontact form input{
+        width: 70%;
     }
 }
 

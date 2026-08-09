@@ -8,6 +8,7 @@
     <title>L1</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="l1.css">
+    <meta name="description" content="Calculate your License 1 (L1) grades with precision using the Grade Calculator tool at the Institute of Electrical and Electronic Engineering (IGEE). Streamline the assessment process, plan your academic journey, and keep track of your performance in the License 1 program. Explore this valuable resource on the IGEE website to enhance your academic experience.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -55,14 +56,14 @@
                     <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
                     <a href="../error.html">Scientific Clubs</a>
                     <a href="grade.html">Grade Calculator</a>
-                    <a href="../error.html">Guide</a>
+                    <a href="../students/guide.html">Guide</a>
                 </div>
             </div>
             <div id="contact" class="it">Contact</div>
             <div id="about" class="it">About</div>
         </ul>
         <span class="spann">      </span>
-        <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+        <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
             <div class="search">
                 <input class="searchbar" placeholder="Search on IGEE"></input>
                 <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -76,6 +77,10 @@
         <div class="semester">
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
+        </div>
+        <div class="ad" id="ad"></div>
+        <div id="invalid" class="invalid">
+            You have entered an invalid value ! The grades should be between 0 and 20.
         </div>
         <table id="s1" class="s1">
             <thead>
@@ -100,10 +105,10 @@
                     <td><input id="chem1c" max="20" class="s1input" type="number"></input></td>
                     <td><input id="chem1e" max="20" class="s1input" type="number"></input></td>
                     <td id="chem1avg"></td>
-                    <td id="chem1coeff" class="coeff">3</td>
+                    <td id="chem1coeff" class="coeff">2</td>
                 </tr>
                 <tr>
-                    <td title="Calculus I">Calculus I</td>
+                    <td title="Maths I (Calculus I)">Maths I</td>
                     <td><input id="calc1c" max="20" class="s1input" type="number"></input></td>
                     <td><input id="calc1e" max="20" class="s1input" type="number"></input></td>
                     <td id="calc1avg"></td>
@@ -117,28 +122,21 @@
                     <td id="algocoeff" class="coeff">2</td>
                 </tr>
                 <tr>
-                    <td title="Listening and Speaking">LS</td>
+                    <td title="Listening and Speaking">English I</td>
                     <td><input id="lsc" max="20" class="s1input" type="number"></input></td>
                     <td><input id="lse" max="20" class="s1input"  type="number"></input></td>
                     <td id="lsavg"></td>
-                    <td id="lscoeff" class="coeff">1</td>
+                    <td id="lscoeff" class="coeff">2</td>
                 </tr>
                 <tr>
-                    <td title="English of Science and Technology">EST</td>
-                    <td><input id="estc" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="este" max="20" class="s1input"  type="number"></input></td>
-                    <td id="estavg"></td>
-                    <td id="estcoeff" class="coeff">1</td>
-                </tr>
-                <tr>
-                    <td title="Reading and Writing">RW</td>
+                    <td title="Writing Methods and Ethics and Deontology">Writing Methods</td>
                     <td><input id="rwc" max="20" class="s1input" type="number"></input></td>
                     <td><input id="rwe" max="20" class="s1input"  type="number"></input></td>
                     <td id="rwavg"></td>
                     <td id="rwcoeff" class="coeff">2</td>
                 </tr>
                 <tr>
-                    <td title="Ethics and Deontology">Ethics</td>
+                    <td title="Free and open-source Software">FOSS</td>
                     <td style="background-color: #a7a7a7;"></td>
                     <td><input id="ethicse" max="20" class="s1input" type="number"></input></td>
                     <td id="ethicsavg"></td>
@@ -149,7 +147,7 @@
                     <td style="background-color: #a7a7a7;"></td>
                     <td><input id="phy1lab" max="20" class="s1input" type="number"></input></td>
                     <td id="phy1labavg"></td>
-                    <td id="phy1labcoeff" class="coeff">1</td>
+                    <td id="phy1labcoeff" class="coeff">2</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -164,14 +162,102 @@
 
         </table>
 
-        <div id="invalid" class="invalid">
-            You have entered an invalid value ! The grades should be between 0 and 20.
+        <table id="s2" class="s2">
+                <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td title="Physics II">Physics II</td>
+                        <td><input max="20" class="s1input phy2" type="number"></input></td>
+                        <td><input max="20" class="s1input phy2" type="number"></input></td>
+                        <td class="phy2"></td>
+                        <td class="phy2 coeff">3</td>
+                    </tr>
+                    <tr>
+                        <td title="Chemistry II">Chemistry II</td>
+                        <td><input max="20" class="s1input chem2" type="number"></input></td>
+                        <td><input max="20" class="s1input chem2" type="number"></input></td>
+                        <td class="chem2"></td>
+                        <td class="coeff chem2">2</td>
+                    </tr>
+                    <tr>
+                        <td title="Calculus II">Maths II</td>
+                        <td><input max="20" class="s1input calc2" type="number"></input></td>
+                        <td><input max="20" class="s1input calc2" type="number"></input></td>
+                        <td class="calc2"></td>
+                        <td class="coeff calc2">2</td>
+                    </tr>
+                    <tr>
+                        <td title="Linear Algebra I">Maths III</td>
+                        <td><input max="20" class="s1input alg" type="number"></input></td>
+                        <td><input max="20" class="s1input alg" type="number"></input></td>
+                        <td class="alg"></td>
+                        <td class="coeff alg">2</td>
+                    </tr>
+                    <tr>
+                        <td title="Electrical Engineering I">Electrical Engineering I</td>
+                        <td><input max="20" class="s1input ee" type="number"></input></td>
+                        <td><input max="20" class="s1input ee" type="number"></input></td>
+                        <td class="ee"></td>
+                        <td class="coeff ee">2</td>
+                    </tr>
+                    <tr>
+                        <td title="C Prograaming">C Programming</td>
+                        <td><input max="20" class="s1input c" type="number"></input></td>
+                        <td><input max="20" class="s1input c" type="number"></input></td>
+                        <td class="c"></td>
+                        <td class="coeff c">2</td>
+                    </tr>
+                    <tr>
+                        <td title="Presentation Methodology (LS)">Presentation Methodology</td>
+                        <td><input max="20" class="s1input ls" type="number"></input></td>
+                        <td><input max="20" class="s1input ls"  type="number"></input></td>
+                        <td class="ls"></td>
+                        <td class="coeff ls">1</td>
+                    </tr>
+                    <tr>
+                        <td title="English II(RW)">English II</td>
+                        <td><input max="20" class="s1input rw" type="number"></input></td>
+                        <td><input max="20" class="s1input rw"  type="number"></input></td>
+                        <td class="rw"></td>
+                        <td class="coeff rw">1</td>
+                    </tr>
+                    <tr>
+                        <td title="Electrical Engineering I Lab">EE I Lab</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input ee1lab" type="number"></input></td>
+                        <td class="ee1lab"></td>
+                        <td class="coeff ee1lab">1</td>
+                    </tr>
+                    <tr>
+                        <td title="Physics Lab II">Physics Lab II</td>
+                        <td style="background-color: #a7a7a7;"></td>
+                        <td><input max="20" class="s1input phy2lab" type="number"></input></td>
+                        <td class="phy2lab"></td>
+                        <td class="coeff phy2lab">1</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Your S2 Grade:</td>
+                        <td id="s2avg" class="avg"></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+    
+            </table>
         </div>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
-
+        <div class="tip" id="tipbox"></div>
         <div class="upfooter">
 
         </div>
@@ -185,7 +271,6 @@
             <div class="imgcontainer">
                 <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
                 <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-                <p class="adress">contact@univ-boumerdes.dz</p>
                 <div class="social">
                     <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
                     <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -197,31 +282,43 @@
                 </div>
             </div>
             <div class="footoptions">
-                <div class="optionsleft">
-                    <a href="../error.html"><p>Current Students</p></a>
-                    <a href="../error.html"><p>Faculty and Staff</p></a>
-                    <a href="../error.html"><p>Libraries</p></a>
-                    <a href="../error.html"><p>News and Media</p></a>
-                </div>
-                <div class="optionsmiddle">
-                    <a href="../error.html"><p>Programs of Study</p></a>
-                    <a href="../error.html"><p>A to Z Directory</p></a>
-                    <a href="../error.html"><p>Visitors</p></a>
-                    <a href="../map.html"><p>Map</p></a>
-                </div>
-                <div class="optionsright">
-                    <a href="../contact/conatct.html"><p>Contact</p></a>
-                    <a href="../options/feedback.html"><p>Feedback</p></a>
-                    <a href="../error.html"><p>Accessibility</p></a>
-                    <a href="../options/privacy.html"><p>Privacy</p></a>
-                </div>
+                <a href="../error.html"><p>Current Students</p></a>
+                <a href="../error.html"><p>Programs of Study</p></a>
+                <a href="../contact/contact.html"><p>Contact</p></a>
+                <a href="../error.html"><p>Faculty and Staff</p></a>
+                <a href="../error.html"><p>A to Z Directory</p></a>
+                <a href="../options/feedback.html"><p>Feedback</p></a>
+                <a href="../error.html"><p>Libraries</p></a>
+                <a href="../error.html"><p>Visitors</p></a>
+                <a href="../error.html"><p>Accessibility</p></a>
+                <a href="../error.html"><p>News and Media</p></a>
+                <a href="../map.html"><p>Map</p></a>
+                <a href="../options/privacy.html"><p>Privacy</p></a>
             </div>
             <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
                 of harassment and discrimination.</p>
             <p class="credits">Website fully developed by Rayane Beddou</p>
-            <p class="rights">Copyright © 2023. All Rights Reserved</p>
+            <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
         </div>
     
     
         <script src="l1.js"></script>
-    </body>
+    <script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
+
+</body>

@@ -472,14 +472,14 @@
 
     .invalid{
         width: 60%;
-        margin: 20px auto;
+        margin: 10px auto;
         padding: 15px;
         background-color: #f00b0b;
         color: #fff;
         font-family: sans-serif;
         outline: solid 1px #c1c1c1;
         border-radius: 4px;
-        display: none;
+        opacity: 0;
     }
 
     .s2{
@@ -704,6 +704,11 @@
     margin: 10px;
     border: solid transparent 1px;
 }
+@media screen and (max-width: 500px) {
+    .ineleclogo{
+        width: 200px;
+    }
+}
 .ineleclogo:hover{
     cursor: pointer;
     border: white solid 1px;
@@ -764,13 +769,17 @@
 }
 
 .footoptions{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .footoptions p{
     text-align: center;
     color: #d6d1d1;
-    margin: 30px;
+    margin: 15px;
     font-family: sans-serif;
 }
 .footoptions p:hover{
@@ -780,6 +789,8 @@
 }
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;

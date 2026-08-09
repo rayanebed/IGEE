@@ -8,6 +8,7 @@
     <title>M2 Control</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="m2control.css">
+    <meta name="description" content="Calculate your Master 2 Control Option (M2 Control) grades with precision using the Grade Calculator tool at the Institute of Electrical and Electronic Engineering (IGEE). Streamline the assessment process, plan your academic journey, and keep track of your performance in Master 2 Control option program. Explore this valuable resource on the IGEE website to enhance your academic experience.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -55,14 +56,14 @@
                     <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
                     <a href="../error.html">Scientific Clubs</a>
                     <a href="grade.html">Grade Calculator</a>
-                    <a href="../error.html">Guide</a>
+                    <a href="../students/guide.html">Guide</a>
                 </div>
             </div>
             <div id="contact" class="it">Contact</div>
             <div id="about" class="it">About</div>
         </ul>
         <span class="spann">      </span>
-        <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+        <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
             <div class="search">
                 <input class="searchbar" placeholder="Search on IGEE"></input>
                 <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -76,6 +77,9 @@
         <div class="semester">
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
+        </div>
+        <div id="invalid" class="invalid">
+            You have entered an invalid value ! The grades should be between 0 and 20.
         </div>
         <table id="s1" class="s1">
             <thead>
@@ -122,39 +126,23 @@
                     <td id="pecoeff" class="coeff">4</td>
                 </tr>
 
-                <!-- <tr>
-                    <td title="Process Control and Instrumentation">Process Control and Instrumentation</td>
-                    <td><input id="proc" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="proe" max="20" class="s1input"  type="number"></input></td>
-                    <td id="proavg"></td>
-                    <td id="procoeff" class="coeff">3</td>
-                </tr> -->
-                
-                <!-- <tr>
-                    <td title="Micro Processor System Design">Micro Processor</td>
-                    <td><input id="mpc" max="20" class="s1input" type="number"></input></td>
-                    <td><input id="mpe" max="20" class="s1input" type="number"></input></td>
-                    <td id="mpavg"></td>
-                    <td id="mpcoeff" class="coeff">3</td>
-                </tr> -->
-
                 <!-- we refer to Industrial Instrmentation Lab by pelab -->
                 <tr>
                     <td title="Industrial Instrmentation Lab">Industrial Instrmentation Lab</td>
                     <td style="background-color:#a7a7a7;"></td>
                     <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
                     <td id="pelabavg"></td>
-                    <td id="pelabcoeff" class="coeff">2</td>
+                    <td id="pelabcoeff" class="coeff">1.5</td>
                 </tr>
 
                 <!-- we refer to Introduction to Fault Detection and Isolation by mplab -->
 
                 <tr>
-                    <td title="Introduction to Introduction to Fault Detection and Isolation">Introduction to Fault Detection and Isolation</td>
+                    <td title="Introduction to Fault Detection and Isolation">Introduction to Fault Detection and Isolation</td>
                     <td><input id="mplabc" max="20" class="s1input" type="number"></input></td>
                     <td><input id="mplabe" max="20" class="s1input" type="number"></input></td>
                     <td id="mplabavg"></td>
-                    <td id="mplabcoeff" class="coeff">3</td>
+                    <td id="mplabcoeff" class="coeff">1.5</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -168,10 +156,6 @@
             </tfoot>
 
         </table>
-
-        <div id="invalid" class="invalid">
-            You have entered an invalid value ! The grades should be between 0 and 20.
-        </div>
 
         <div id="s2" class="s2">
             <p>Coming Soon</p>
@@ -190,7 +174,6 @@
             <div class="imgcontainer">
                 <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
                 <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-                <p class="adress">contact@univ-boumerdes.dz</p>
                 <div class="social">
                     <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
                     <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -202,34 +185,46 @@
                 </div>
             </div>
             <div class="footoptions">
-                <div class="optionsleft">
-                    <a href="../error.html"><p>Current Students</p></a>
-                    <a href="../error.html"><p>Faculty and Staff</p></a>
-                    <a href="../error.html"><p>Libraries</p></a>
-                    <a href="../error.html"><p>News and Media</p></a>
-                </div>
-                <div class="optionsmiddle">
-                    <a href="../error.html"><p>Programs of Study</p></a>
-                    <a href="../error.html"><p>A to Z Directory</p></a>
-                    <a href="../error.html"><p>Visitors</p></a>
-                    <a href="../map.html"><p>Map</p></a>
-                </div>
-                <div class="optionsright">
-                    <a href="../contact/contact.html"><p>Contact</p></a>
-                    <a href="../options/feedback.html"><p>Feedback</p></a>
-                    <a href="../error.html"><p>Accessibility</p></a>
-                    <a href="../options/privacy.html"><p>Privacy</p></a>
-                </div>
+                <a href="../error.html"><p>Current Students</p></a>
+            <a href="../error.html"><p>Programs of Study</p></a>
+            <a href="../contact/contact.html"><p>Contact</p></a>
+            <a href="../error.html"><p>Faculty and Staff</p></a>
+            <a href="../error.html"><p>A to Z Directory</p></a>
+            <a href="../options/feedback.html"><p>Feedback</p></a>
+            <a href="../error.html"><p>Libraries</p></a>
+            <a href="../error.html"><p>Visitors</p></a>
+            <a href="../error.html"><p>Accessibility</p></a>
+            <a href="../error.html"><p>News and Media</p></a>
+            <a href="../map.html"><p>Map</p></a>
+            <a href="../options/privacy.html"><p>Privacy</p></a>
             </div>
             <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
                 of harassment and discrimination.</p>
             <p class="credits">Website fully developed by Rayane Beddou</p>
-            <p class="rights">Copyright © 2023. All Rights Reserved</p>
+            <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
         </div>
     
     
         <script src="m2control.js"></script>
-    </body>
+    <script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
+
+</body>
 
 
 

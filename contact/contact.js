@@ -55,11 +55,16 @@ window.addEventListener('scroll', function(){
           menu.style.borderBottom = 'solid 2px darkblue';
       }})
   
-      let betabutton = document.getElementById('buttonbeta');
-      betabutton.addEventListener('click', function(){
-        let beta = document.getElementById('beta');
-        beta.style.display = 'none';
-      })
+      let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
 
 
       
@@ -107,4 +112,24 @@ window.addEventListener('scroll', function(){
         searchbar.style.animation = 'appear 1s forwards';
       }
     })
+}
+
+function search(){
+  let table = document.getElementById('teacherstable');
+  let columns = table.getElementsByTagName('tr');
+  let inputraw = document.getElementById('srchcontactvalue');
+  let input = inputraw.value.toUpperCase();
+  let i =0;
+  let reference1, reference2;
+  for(i = 0;i< columns.length; i++){
+    reference1 = columns[i].getElementsByTagName('td')[0];
+    // reference2 = columns[i].getElementsByTagName('td')[1];
+    if(reference1.innerText.toUpperCase().indexOf(input) > -1){
+      columns[i].style.display = 'table-row';
+    }else{
+      columns[i].style.display = 'none';
+    }
+  }
+
+
 }

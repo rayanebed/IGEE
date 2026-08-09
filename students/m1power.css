@@ -472,14 +472,14 @@
 
     .invalid{
         width: 60%;
-        margin: 20px auto;
+        margin: 10px auto;
         padding: 15px;
         background-color: #f00b0b;
         color: #fff;
         font-family: sans-serif;
         outline: solid 1px #c1c1c1;
         border-radius: 4px;
-        display: none;
+        opacity: 0;
     }
 
     .s2{
@@ -665,14 +665,14 @@
     }
 
     .table{
-        width: 95dvw;
+        width: 96dvw;
     }
     tfoot td{
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .avg{
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .invalid{
@@ -703,6 +703,11 @@
     border-radius: 5px;
     margin: 10px;
     border: solid transparent 1px;
+}
+@media screen and (max-width: 500px) {
+    .ineleclogo{
+        width: 200px;
+    }
 }
 .ineleclogo:hover{
     cursor: pointer;
@@ -764,13 +769,17 @@
 }
 
 .footoptions{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .footoptions p{
     text-align: center;
     color: #d6d1d1;
-    margin: 30px;
+    margin: 15px;
     font-family: sans-serif;
 }
 .footoptions p:hover{
@@ -780,6 +789,8 @@
 }
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;
@@ -811,7 +822,11 @@
     text-decoration: underline solid 1px #a4a4a4;
 }
 
-
+@media screen and (min-width: 800px) {
+    table{
+        max-width: max-content;
+    }
+}
 
 
 

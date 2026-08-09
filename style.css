@@ -645,6 +645,19 @@ ul.menu .it:hover {
     border: 3px gold solid;
     text-decoration: underline white;
 }
+.ad{
+    width: fit-content;
+    display: block;
+    background-color: #022c56;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border: solid 2px #f4bb34;
+}
+.adgif{
+    width: 500px;
+}
 
 .Students{
     margin-top: 30px;
@@ -961,7 +974,15 @@ ul.menu .it:hover {
     .clubcard p{
         font-size: 15px;
     }
+    .adgif{
+        width: 300px;
+    }
+}
 
+@media screen and (max-width: 320px) {
+    .ad img{
+        width: 250px;
+    }
 }
 
 .performance{
@@ -1025,6 +1046,11 @@ ul.menu .it:hover {
     margin: 10px;
     border: solid transparent 1px;
 }
+@media screen and (max-width: 500px) {
+    .ineleclogo{
+        width: 200px;
+    }
+}
 .ineleclogo:hover{
     cursor: pointer;
     border: white solid 1px;
@@ -1085,13 +1111,17 @@ ul.menu .it:hover {
 }
 
 .footoptions{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .footoptions p{
     text-align: center;
     color: #d6d1d1;
-    margin: 30px;
+    margin: 15px;
     font-family: sans-serif;
 }
 .footoptions p:hover{
@@ -1101,6 +1131,8 @@ ul.menu .it:hover {
 }
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;

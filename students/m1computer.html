@@ -8,6 +8,7 @@
     <title>M1 Computer Engineering</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="m1computer.css">
+    <meta name="description" content="Calculate your Master 1 Computer Engineering (M1 Computer) grades with precision using the Grade Calculator tool at the Institute of Electrical and Electronic Engineering (IGEE). Streamline the assessment process, plan your academic journey, and keep track of your performance in Master 1 computer engineering program. Explore this valuable resource on the IGEE website to enhance your academic experience.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -55,14 +56,14 @@
                     <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
                     <a href="../error.html">Scientific Clubs</a>
                     <a href="grade.html">Grade Calculator</a>
-                    <a href="../error.html">Guide</a>
+                    <a href="../students/guide.html">Guide</a>
                 </div>
             </div>
             <div id="contact" class="it">Contact</div>
             <div id="about" class="it">About</div>
         </ul>
         <span class="spann">      </span>
-        <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+        <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
             <div class="search">
                 <input class="searchbar" placeholder="Search on IGEE"></input>
                 <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -77,6 +78,9 @@
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
         </div>
+        <div id="invalid" class="invalid">
+            You have entered an invalid value ! The grades should be between 0 and 20.
+        </div>
         <table id="s1" class="s1">
             <thead>
             <tr>
@@ -88,38 +92,38 @@
             </tr>
             </thead>
             <tbody>
-                <!-- we refer to probability with ls -->
+                <!-- we refer to digital systems with ls -->
                 <tr>
-                    <td title="Probability and Statistics">Probability and Statistics</td>
+                    <td title="Advanced Digital Systems with VHDL">Advanced Digital Systems</td>
                     <td><input id="ls2c" max="20" class="s1input" type="number"></input></td>
                     <td><input id="ls2e" max="20" class="s1input" type="number"></input></td>
                     <td id="ls2avg"></td>
-                    <td id="ls2coeff" class="coeff">4</td>
+                    <td id="ls2coeff" class="coeff">3</td>
                 </tr>
 
-                <!-- em refers to Advanced Mathematics -->
+                <!-- em refers to DSA -->
                 <tr>
-                    <td title="Advanced Mathematics">Advanced Mathematics</td>
+                    <td title="Data Structures and Algorithms">Data Structures and Algorithms</td>
                     <td><input id="emc" max="20" class="s1input" type="number"></input></td>
                     <td><input id="eme" max="20" class="s1input" type="number"></input></td>
                     <td id="emavg"></td>
-                    <td id="emcoeff" class="coeff">4</td>
+                    <td id="emcoeff" class="coeff">3</td>
                 </tr>
-                <!-- we refer to Advanced Programming by ca -->
+                <!-- we refer to python by ca -->
                 <tr>
-                    <td title="Advanced Programming">Advanced Programming</td>
+                    <td title="Artificial Intelligence and Machine Learning using Python">AI and Machine Learning</td>
                     <td><input id="cac" max="20" class="s1input" type="number"></input></td>
                     <td><input id="cae" max="20" class="s1input" type="number"></input></td>
                     <td id="caavg"></td>
-                    <td id="cacoeff" class="coeff">4</td>
+                    <td id="cacoeff" class="coeff">3</td>
                 </tr>
-                <!-- we refer to Advanced Digital Systems by pe -->
+                <!-- we refer to Applied Optimization by pe -->
                 <tr>
-                    <td title="Advanced Digital Systems">Advanced Digital Systems</td>
+                    <td title="Applied Optimization">Applied Optimization</td>
                     <td><input id="pec" max="20" class="s1input" type="number"></input></td>
                     <td><input id="pee" max="20" class="s1input" type="number"></input></td>
                     <td id="peavg"></td>
-                    <td id="pecoeff" class="coeff">4</td>
+                    <td id="pecoeff" class="coeff">3</td>
                 </tr>
 
                 <!-- <tr>
@@ -137,14 +141,30 @@
                     <td id="mpavg"></td>
                     <td id="mpcoeff" class="coeff">3</td>
                 </tr> -->
-
-                <!-- we refer to Advanced Programming Lab by pelab -->
+                <!-- we refer to database by db -->
                 <tr>
-                    <td title="Advanced Programming Lab">Advanced Programming Lab</td>
+                    <td title="Database">Database</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="db" max="20" class="s1input" type="number"></input></td>
+                    <td id="dbavg"></td>
+                    <td id="dbcoeff" class="coeff">1</td>
+
+                </tr>
+
+                <tr>
+                    <td title="Artificial Intelligence and Machine Learning Lab">AI and ML Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="ailab" max="20" class="s1input" type="number"></input></td>
+                    <td id="ailabavg"></td>
+                    <td id="ailabcoeff" class="coeff">1</td>
+                </tr>
+                <!-- we refer to DSA Lab by pelab -->
+                <tr>
+                    <td title="Data Structure and Algorithms Lab">Data Structure and Algorithms Lab</td>
                     <td style="background-color:#a7a7a7;"></td>
                     <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
                     <td id="pelabavg"></td>
-                    <td id="pelabcoeff" class="coeff">2</td>
+                    <td id="pelabcoeff" class="coeff">1</td>
                 </tr>
 
                 <!-- we refer to Adv. Digital Systems Lab by mplab -->
@@ -154,7 +174,14 @@
                     <td style="background-color: #a7a7a7;"></td>
                     <td><input id="mplab" max="20" class="s1input" type="number"></input></td>
                     <td id="mplabavg"></td>
-                    <td id="mplabcoeff" class="coeff">2</td>
+                    <td id="mplabcoeff" class="coeff">1</td>
+                </tr>
+                <tr>
+                    <td title="Applied Optimization Lab">Applied Optimization Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="optlab" max="20" class="s1input" type="number"></input></td>
+                    <td id="optlabavg"></td>
+                    <td id="optlabcoeff" class="coeff">1</td>
                 </tr>
             </tbody>
             <tfoot>
@@ -169,13 +196,108 @@
 
         </table>
 
-        <div id="invalid" class="invalid">
-            You have entered an invalid value ! The grades should be between 0 and 20.
-        </div>
+        <table class="s2" id="s2">
+            <thead>
+                <tr>
+                    <td>Modules</td>
+                    <td>Control Mark</td>
+                    <td>Exam Mark</td>
+                    <td>Average</td>
+                    <td>Coefficient</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Operating Systems -->
+                <tr>
+                    <td title="Operating Systems">Operating Systems</td>
+                    <td><input id="osc" max="20" class="s2input" type="number"></td>
+                    <td><input id="ose" max="20" class="s2input" type="number"></td>
+                    <td id="osavg"></td>
+                    <td id="oscoeff" class="coeff">3</td>
+                </tr>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+                <!-- SoPC -->
+                <tr>
+                    <td title="System-on-Programmable Chip">SoPC</td>
+                    <td><input id="sopcc" max="20" class="s2input" type="number"></td>
+                    <td><input id="sopce" max="20" class="s2input" type="number"></td>
+                    <td id="sopcavg"></td>
+                    <td id="sopccoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Computer-Controlled Systems -->
+                <tr>
+                    <td title="Computer-Controlled Systems">Computer-Controlled Systems</td>
+                    <td><input id="dcsc" max="20" class="s2input" type="number"></td>
+                    <td><input id="dcse" max="20" class="s2input" type="number"></td>
+                    <td id="dcsavg"></td>
+                    <td id="dcscoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Advanced Programming -->
+                <tr>
+                    <td title="Advanced Programming">Advanced Programming</td>
+                    <td><input id="benc" max="20" class="s2input" type="number"></td>
+                    <td><input id="bene" max="20" class="s2input" type="number"></td>
+                    <td id="benavg"></td>
+                    <td id="bencoeff" class="coeff">3</td>
+                </tr>
+
+                <!-- Computer Vision — exam only -->
+                <tr>
+                    <td title="Computer Vision (Elective Course)">Computer Vision</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="elece" max="20" class="s2input" type="number"></td>
+                    <td id="elecavg"></td>
+                    <td id="eleccoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- SoPC Lab — exam only -->
+                <tr>
+                    <td title="SoPC Lab">SoPC Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="sopclab" max="20" class="s2input" type="number"></td>
+                    <td id="sopclabavg"></td>
+                    <td id="sopclabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- CCS Lab — exam only -->
+                <tr>
+                    <td title="Computer-controlled Systems Lab">CCS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="dcslab" max="20" class="s2input" type="number"></td>
+                    <td id="dcslabavg"></td>
+                    <td id="dcslabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- Advanced Programming Lab — exam only -->
+                <tr>
+                    <td title="Advanced Programming Lab">Advanced Programming Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="benlab" max="20" class="s2input" type="number"></td>
+                    <td id="benlabavg"></td>
+                    <td id="benlabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- OS Lab — exam only -->
+                <tr>
+                    <td title="Operating Systems Lab">OS Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="oslab" max="20" class="s2input" type="number"></td>
+                    <td id="oslabavg"></td>
+                    <td id="oslabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S2 Grade:</td>
+                    <td id="s2avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
 
         <div class="upfooter">
 
@@ -190,7 +312,6 @@
             <div class="imgcontainer">
                 <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
                 <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-                <p class="adress">contact@univ-boumerdes.dz</p>
                 <div class="social">
                     <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
                     <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -202,34 +323,46 @@
                 </div>
             </div>
             <div class="footoptions">
-                <div class="optionsleft">
-                    <a href="../error.html"><p>Current Students</p></a>
-                    <a href="../error.html"><p>Faculty and Staff</p></a>
-                    <a href="../error.html"><p>Libraries</p></a>
-                    <a href="../error.html"><p>News and Media</p></a>
-                </div>
-                <div class="optionsmiddle">
-                    <a href="../error.html"><p>Programs of Study</p></a>
-                    <a href="../error.html"><p>A to Z Directory</p></a>
-                    <a href="../error.html"><p>Visitors</p></a>
-                    <a href="../map.html"><p>Map</p></a>
-                </div>
-                <div class="optionsright">
-                    <a href="../contact/contact.html"><p>Contact</p></a>
-                    <a href="../options/feedback.html"><p>Feedback</p></a>
-                    <a href="../error.html"><p>Accessibility</p></a>
-                    <a href="../options/privacy.html"><p>Privacy</p></a>
-                </div>
+                <a href="../error.html"><p>Current Students</p></a>
+            <a href="../error.html"><p>Programs of Study</p></a>
+            <a href="../contact/contact.html"><p>Contact</p></a>
+            <a href="../error.html"><p>Faculty and Staff</p></a>
+            <a href="../error.html"><p>A to Z Directory</p></a>
+            <a href="../options/feedback.html"><p>Feedback</p></a>
+            <a href="../error.html"><p>Libraries</p></a>
+            <a href="../error.html"><p>Visitors</p></a>
+            <a href="../error.html"><p>Accessibility</p></a>
+            <a href="../error.html"><p>News and Media</p></a>
+            <a href="../map.html"><p>Map</p></a>
+            <a href="../options/privacy.html"><p>Privacy</p></a>
             </div>
             <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
                 of harassment and discrimination.</p>
             <p class="credits">Website fully developed by Rayane Beddou</p>
-            <p class="rights">Copyright © 2023. All Rights Reserved</p>
+            <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
         </div>
     
     
         <script src="m1computer.js"></script>
-    </body>
+    <script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
+
+</body>
 
 
 

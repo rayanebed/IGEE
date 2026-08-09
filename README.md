@@ -1,7 +1,7 @@
 # IGEE
 IGEE is a website fully created and developped by Rayane Beddou. All logos used in the website as 'IGEE logo' are made and designed by Rayane Beddou.
 
-The website of the Institute of Electronics and Electrical Engineering (IGEE) is a vibrant platform crafted to mirror the dedication of this academic institution to excellence, innovation, and progress within the realms of electronics and electrical engineering. Inspired from the exemplary practices found in top university websites. Our project aims to create a user-centric, informative, and visually appealing digital space for students, faculty, researchers, and the wider community.
+The website of the Institute of Electrical and Electronic Engineering (IGEE) is a vibrant platform crafted to mirror the dedication of this academic institution to excellence, innovation, and progress within the realms of electronics and electrical engineering. Inspired from the exemplary practices found in top university websites. Our project aims to create a user-centric, informative, and visually appealing digital space for students, faculty, researchers, and the wider community.
 
 # Key Features:
 - Intuitive Navigation:

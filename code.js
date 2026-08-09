@@ -3,6 +3,8 @@ window.onload = function(){
 };
 
 
+
+
 window.addEventListener('scroll', function(){
   let y = window.scrollY;
   var toop = document.querySelector('.top');
@@ -60,11 +62,16 @@ let menu = document.getElementById('menu');
         menu.style.width = 'auto';
         menu.style.borderBottom = 'solid 2px darkblue';
     }})
-
+    
+    let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
     let betabutton = document.getElementById('buttonbeta');
     betabutton.addEventListener('click', function(){
       let beta = document.getElementById('beta');
       beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
     })
 
 
@@ -115,7 +122,7 @@ var news2 = document.getElementById('news2');
 var news3 = document.getElementById('news3');
 
 news1.addEventListener('click', function(){
-  window.location.href = 'error.html';
+  window.location.href = 'news/L3-demands.html';
 })
 
 news2.addEventListener('click', function(){
@@ -165,7 +172,7 @@ const swiper = new Swiper('.swiper', {
     0: {
       slidesPerView: 1,
     },
-    700: {
+    500: {
       slidesPerView: 2,
     },
   }

@@ -459,18 +459,19 @@
 
     .invalid{
         width: 60%;
-        margin: 20px auto;
+        margin: 10px auto;
         padding: 15px;
         background-color: #f00b0b;
         color: #fff;
         font-family: sans-serif;
         outline: solid 1px #c1c1c1;
         border-radius: 4px;
-        display: none;
+        opacity: 0;
     }
 
     .s2{
         display: none;
+        width: fit-content;
     }
 
     .s2 p{
@@ -482,6 +483,55 @@
         font-family: Poppins;
         letter-spacing: 2px;
         margin: 30px;
+    }
+    .project{
+        background-color: #6bdaff;
+    }
+
+    .tip{
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+        animation-delay: 0.3s;
+        background: linear-gradient(135deg, #f8cc65, #ffffff);
+        border-radius: 10px;
+        padding: 16px 20px;
+        width: 85%;
+        max-width: 580px;
+        margin: 50px auto;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        font-size: 14px;
+        font-family: Poppins;
+        font-weight: bold;
+    }
+
+    /* .grade-bar {
+        display: flex;
+        align-items: center;
+        margin: 5px 100px;
+      }
+      .subject {
+        width: 150px;
+      }
+      .bar-container {
+        flex-grow: 1;
+        height: 20px;
+        background: #eee;
+        margin: 0 10px;
+      }
+      .bar {
+        height: 100%;
+      }
+      .grade {
+        width: 50px;
+        text-align: right;} */
+
+    .ad{
+        width: fit-content;
+        margin: 20px auto;
+        border: solid 2px #f4bb33;
+        box-shadow: #000 0px 0px 5px 1px;
     }
 
     .upfooter{
@@ -660,11 +710,14 @@
         width: 70%;
     }
 
-    .table{
+    table{
         width: 95dvw;
     }
+    table td{
+        font-size: 10px;
+    }
     tfoot td{
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     .avg{
@@ -696,6 +749,17 @@
     border-radius: 5px;
     margin: 10px;
     border: solid transparent 1px;
+}
+@media screen and (max-width: 500px) {
+    .ineleclogo{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .ad img{
+        width: 180px;
+    }
 }
 .ineleclogo:hover{
     cursor: pointer;
@@ -757,13 +821,17 @@
 }
 
 .footoptions{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .footoptions p{
     text-align: center;
     color: #d6d1d1;
-    margin: 30px;
+    margin: 15px;
     font-family: sans-serif;
 }
 .footoptions p:hover{
@@ -773,6 +841,8 @@
 }
 .footoptions a{
     text-decoration: none;
+    width: fit-content;
+    margin: auto;
 }
 .infofooter{
     text-align: center;
@@ -825,6 +895,11 @@
     100%{
         rotate: 40deg;
     }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 @keyframes appear{
     0%{

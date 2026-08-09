@@ -8,6 +8,7 @@
     <title>M1 Telecommunications</title>
     <link rel="icon" href="../logo_nobg.png">
     <link rel="stylesheet" href="m1telecom.css">
+    <meta name="description" content="Calculate your Master 1 Telecommunications option (M1 Telecom) grades with precision using the Grade Calculator tool at the Institute of Electrical and Electronic Engineering (IGEE). Streamline the assessment process, plan your academic journey, and keep track of your performance in Master 1 Telecommunications option program. Explore this valuable resource on the IGEE website to enhance your academic experience.">
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/home-alt.css' rel='stylesheet'>
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/enter.css' rel='stylesheet'>
@@ -55,14 +56,14 @@
                     <a href="https://elearning.univ-boumerdes.dz/course/index.php?categoryid=9">E-Learning</a>
                     <a href="../error.html">Scientific Clubs</a>
                     <a href="grade.html">Grade Calculator</a>
-                    <a href="../error.html">Guide</a>
+                    <a href="../students/guide.html">Guide</a>
                 </div>
             </div>
             <div id="contact" class="it">Contact</div>
             <div id="about" class="it">About</div>
         </ul>
         <span class="spann">      </span>
-        <span id="title" class="tiitle">Institute of Electronics and Electrical Engineering</span>
+        <span id="title" class="tiitle">Institute of Electrical and Electronic Engineering</span>
             <div class="search">
                 <input class="searchbar" placeholder="Search on IGEE"></input>
                 <button id="sbtn" class="searchbtn"><i class="gg-search"></i></button>
@@ -77,13 +78,227 @@
             <p id="s1choose">S1</p>
             <p id="s2choose">S2</p>
         </div>
-        <div class="s1" id="s1">
-            <p>Coming Soon</p>
+        <div id="invalid" class="invalid">
+            You have entered an invalid value ! The grades should be between 0 and 20.
         </div>
+        <table class="s1" id="s1">
+            <thead>
+            <tr>
+                <td>Modules</td>
+                <td>Control Mark</td>
+                <td>Exam Mark</td>
+                <td>Average</td>
+                <td>Coefficient</td>
+            </tr>
+            </thead>
+            <tbody>
+                <!-- we refer to advanced com with ls -->
+                <tr>
+                    <td title="Advanced Communications">Advanced Communications</td>
+                    <td><input id="ls2c" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="ls2e" max="20" class="s1input" type="number"></input></td>
+                    <td id="ls2avg"></td>
+                    <td id="ls2coeff" class="coeff">3</td>
+                </tr>
 
-        <div id="s2" class="s2">
-            <p>Coming Soon</p>
-        </div>
+                <!-- em refers to System modelling -->
+                <tr>
+                    <td title="Advanced Electromagnetic Field Theory">Advanced EMF</td>
+                    <td><input id="emc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="eme" max="20" class="s1input" type="number"></input></td>
+                    <td id="emavg"></td>
+                    <td id="emcoeff" class="coeff">3</td>
+                </tr>
+                <!-- we refer to microwave engineering by ca -->
+                <tr>
+                    <td title="Microwave Engineering">Microwave Engineering</td>
+                    <td><input id="cac" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="cae" max="20" class="s1input" type="number"></input></td>
+                    <td id="caavg"></td>
+                    <td id="cacoeff" class="coeff">2</td>
+                </tr>
+                <tr>
+                    <td title="Communications Circuits">Communications Circuits</td>
+                    <td><input id="dspc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="dspe" max="20" class="s1input" type="number"></input></td>
+                    <td id="dspavg"></td>
+                    <td id="dspcoeff" class="coeff">2</td>
+                </tr>
+                <!-- we refer to radiowave prop by pe -->
+                <tr>
+                    <td title="Radio Wave Propagation">Radio Wave Propagation</td>
+                    <td><input id="pec" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="pee" max="20" class="s1input" type="number"></input></td>
+                    <td id="peavg"></td>
+                    <td id="pecoeff" class="coeff">2</td>
+                </tr>
+
+                <tr>
+                    <td title="Networks and Protocols">Networks and Protocols</td>
+                    <td><input id="netc" max="20" class="s1input" type="number"></input></td>
+                    <td><input id="nete" max="20" class="s1input" type="number"></input></td>
+                    <td id="netavg"></td>
+                    <td id="netcoeff" class="coeff">1</td>
+                </tr>
+
+                <tr>
+                    <td title="Information Security">Information Security</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="prolab" max="20" class="s1input"  type="number"></input></td>
+                    <td id="prolabavg"></td>
+                    <td id="prolabcoeff" class="coeff">1</td>
+                </tr>
+                
+
+                <!-- we refer to microwave eng lab by pelab -->
+                <tr>
+                    <td title="Microwave Engineering Lab">Microwave Engineering Lab</td>
+                    <td style="background-color:#a7a7a7;"></td>
+                    <td><input id="pelab" max="20" class="s1input" type="number"></input></td>
+                    <td id="pelabavg"></td>
+                    <td id="pelabcoeff" class="coeff">1</td>
+                </tr>
+
+                <tr>
+                    <td title="Communication Circuits Lab">Communication Circuits Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="dsplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="dsplabavg"></td>
+                    <td id="dsplabcoeff" class="coeff">1</td>
+                </tr>
+
+                <!-- we refer to net and protocols lab by mplab -->
+
+                <tr>
+                    <td title="Networks and Protocols Lab">Networks and Protocols Lab</td>
+                    <td style="background-color: #a7a7a7;"></td>
+                    <td><input id="mplab" max="20" class="s1input" type="number"></input></td>
+                    <td id="mplabavg"></td>
+                    <td id="mplabcoeff" class="coeff">1</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Your S1 Grade:</td>
+                    <td id="s1avg" class="avg"></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+
+    <table class="s2" id="s2">
+        <thead>
+        <tr>
+            <td>Modules</td>
+            <td>Control Mark</td>
+            <td>Exam Mark</td>
+            <td>Average</td>
+            <td>Coefficient</td>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- Antennas -->
+            <tr>
+                <td title="Antennas">Antennas</td>
+                <td><input id="antc" max="20" class="s2input" type="number"></td>
+                <td><input id="ante" max="20" class="s2input" type="number"></td>
+                <td id="antavg"></td>
+                <td id="antcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Electrical Networks Analysis and Design -->
+            <tr>
+                <td title="Electrical Networks Analysis and Design">Electrical Networks A&D</td>
+                <td><input id="enadc" max="20" class="s2input" type="number"></td>
+                <td><input id="enade" max="20" class="s2input" type="number"></td>
+                <td id="enadavg"></td>
+                <td id="enadcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Image Processing -->
+            <tr>
+                <td title="Image Processing">Image Processing</td>
+                <td><input id="ipc" max="20" class="s2input" type="number"></td>
+                <td><input id="ipe" max="20" class="s2input" type="number"></td>
+                <td id="ipavg"></td>
+                <td id="ipcoeff" class="coeff">2</td>
+            </tr>
+
+            <!-- Discrete-time Signal Processing -->
+            <tr>
+                <td title="Discrete-time Signal Processing">Discrete-time Signal Processing</td>
+                <td><input id="dtspс" max="20" class="s2input" type="number"></td>
+                <td><input id="dtspe" max="20" class="s2input" type="number"></td>
+                <td id="dtspavg"></td>
+                <td id="dtspcoeff" class="coeff">3</td>
+            </tr>
+
+            <!-- Information Theory and Coding -->
+            <tr>
+                <td title="Information Theory and Coding">Information Theory and Coding</td>
+                <td><input id="itcc" max="20" class="s2input" type="number"></td>
+                <td><input id="itce" max="20" class="s2input" type="number"></td>
+                <td id="itcavg"></td>
+                <td id="itccoeff" class="coeff">3</td>
+            </tr>
+
+            <!-- Antennas Lab -->
+            <tr>
+                <td title="Antennas Lab">Antennas Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="antlab" max="20" class="s2input" type="number"></td>
+                <td id="antlabavg"></td>
+                <td id="antlabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Electrical Networks Lab -->
+            <tr>
+                <td title="Electrical Networks Analysis and Design Lab">Electrical Networks A&D Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="enadlab" max="20" class="s2input" type="number"></td>
+                <td id="enadlabavg"></td>
+                <td id="enadlabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Image Processing Lab -->
+            <tr>
+                <td title="Image Processing Lab">Image Processing Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="iplab" max="20" class="s2input" type="number"></td>
+                <td id="iplabavg"></td>
+                <td id="iplabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Discrete-time Signal Processing Lab -->
+            <tr>
+                <td title="Discrete-time Signal Processing Lab">Discrete-time SP Lab</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="dtsplab" max="20" class="s2input" type="number"></td>
+                <td id="dtsplabavg"></td>
+                <td id="dtsplabcoeff" class="coeff">1</td>
+            </tr>
+
+            <!-- Electromagnetic Compatibility — exam only -->
+            <tr>
+                <td title="Electromagnetic Compatibility">Electromagnetic Compatibility</td>
+                <td style="background-color:#a7a7a7;"></td>
+                <td><input id="emce" max="20" class="s2input" type="number"></td>
+                <td id="emcavg"></td>
+                <td id="emccoeff" class="coeff">1</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Your S2 Grade:</td>
+                <td id="s2avg" class="avg"></td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
 
         <div class="upfooter">
 
@@ -98,7 +313,6 @@
             <div class="imgcontainer">
                 <a href="../index.html"><img class="ineleclogo" src="../inelec white.png" title="INELEC logo"></img></a>
                 <p class="adress">QF5F+G3G, Boumerdes, Algeria</p>
-                <p class="adress">contact@univ-boumerdes.dz</p>
                 <div class="social">
                     <a href="https://facebook.com/umbb.igee/" target="blank"><i class="fa-brands fa-square-facebook fa-2xl" title="INELEC page on Facebook"></i></a>
                     <a href="https://instagram.com/rayane_bed" target="blank"><i class="fa-brands fa-instagram fa-2xl" title="INELEC page on instagram"></i></a>
@@ -110,34 +324,46 @@
                 </div>
             </div>
             <div class="footoptions">
-                <div class="optionsleft">
-                    <a href="../error.html"><p>Current Students</p></a>
-                    <a href="../error.html"><p>Faculty and Staff</p></a>
-                    <a href="../error.html"><p>Libraries</p></a>
-                    <a href="../error.html"><p>News and Media</p></a>
-                </div>
-                <div class="optionsmiddle">
-                    <a href="../error.html"><p>Programs of Study</p></a>
-                    <a href="../error.html"><p>A to Z Directory</p></a>
-                    <a href="../error.html"><p>Visitors</p></a>
-                    <a href="../map.html"><p>Map</p></a>
-                </div>
-                <div class="optionsright">
-                    <a href="../contact/contact.html"><p>Contact</p></a>
-                    <a href="../options/feedback.html"><p>Feedback</p></a>
-                    <a href="../error.html"><p>Accessibility</p></a>
-                    <a href="../options/privacy.html"><p>Privacy</p></a>
-                </div>
+                <a href="../error.html"><p>Current Students</p></a>
+            <a href="../error.html"><p>Programs of Study</p></a>
+            <a href="../contact/contact.html"><p>Contact</p></a>
+            <a href="../error.html"><p>Faculty and Staff</p></a>
+            <a href="../error.html"><p>A to Z Directory</p></a>
+            <a href="../options/feedback.html"><p>Feedback</p></a>
+            <a href="../error.html"><p>Libraries</p></a>
+            <a href="../error.html"><p>Visitors</p></a>
+            <a href="../error.html"><p>Accessibility</p></a>
+            <a href="../error.html"><p>News and Media</p></a>
+            <a href="../map.html"><p>Map</p></a>
+            <a href="../options/privacy.html"><p>Privacy</p></a>
             </div>
             <p class="infofooter">IGEE is committed to an environment that embraces diversity, respects the rights of all individuals, is open and accessible, and is free
                 of harassment and discrimination.</p>
             <p class="credits">Website fully developed by Rayane Beddou</p>
-            <p class="rights">Copyright © 2023. All Rights Reserved</p>
+            <p class="rights">Copyright © 2023-<span id="endcredits"></span>. All Rights Reserved</p>
+    <script>
+        let date = document.getElementById('endcredits');
+        let year = new Date();
+        date.innerHTML = year.getFullYear();
+    </script>
         </div>
     
     
         <script src="m1telecom.js"></script>
-    </body>
+    <script>
+let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
+</script>
+
+</body>
 
 
 

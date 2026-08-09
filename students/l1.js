@@ -55,11 +55,16 @@ window.addEventListener('scroll', function(){
           menu.style.borderBottom = 'solid 2px darkblue';
       }})
   
-      let betabutton = document.getElementById('buttonbeta');
-      betabutton.addEventListener('click', function(){
-        let beta = document.getElementById('beta');
-        beta.style.display = 'none';
-      })
+      let betta = document.getElementById('beta');
+    if(sessionStorage.getItem('beta')=='done'){
+      betta.style.display = 'none';
+    }
+    let betabutton = document.getElementById('buttonbeta');
+    betabutton.addEventListener('click', function(){
+      let beta = document.getElementById('beta');
+      beta.style.display = 'none';
+      sessionStorage.setItem('beta', 'done');
+    })
 
 
       let s1 = document.getElementById('s1');
@@ -92,7 +97,7 @@ window.addEventListener('scroll', function(){
         }
         else{
           s2.style.display = 'none';
-          invalid.style.display = 'none';
+          invalid.style.opacity = '0';
         }
       })
 
@@ -140,6 +145,37 @@ window.addEventListener('scroll', function(){
       }
     })
 }
+
+// the ad
+const ads = [
+  {
+      gif: "../assets/gifs/ivolunteer-ad.gif",
+      url: "https://instagram.com/i.volunteer.dz/",
+      alt: "I Volunteer"
+  },
+  {
+      gif: "../assets/gifs/iscraft-ad.gif",
+      url: "https://iscraft.site/",
+      alt: "ISCraft"
+  },
+  {
+      gif: "../assets/gifs/onlinebazardz-ad.gif",
+      url: "https://instagram.com/online_bazar_dz/",
+      alt: "Online Bazar DZ"
+  }
+]
+const ad = document.getElementById("ad");
+const adImg = document.getElementById("adimg");
+const adText = document.getElementById("adtext");
+const adLink = document.getElementById("adlink");
+
+function showGif(){
+  const randomIndex = Math.floor(Math.random() * ads.length);
+  ad.innerHTML = `<a href="${ads[randomIndex].url}" target="_blank"><img src="${ads[randomIndex].gif}" alt="${ads[randomIndex].alt}"></a>`;
+}
+
+
+window.addEventListener('DOMContentLoaded', showGif());
 
 
 
@@ -189,8 +225,8 @@ if (isNaN(Number(s1average.innerText)) || s1average.innerText ==''){
 let invalid = document.getElementById('invalid');
 
 
-let s1coeffs = parseInt(Number(phy1coeff.innerText) + Number(calc1coeff.innerText) + Number(chem1coeff.innerText) + Number(algocoeff.innerText) + Number(lscoeff.innerText) + Number(rwcoeff.innerText) + Number(estcoeff.innerText) + Number(ethicscoeff.innerText) + Number(phy1labcoeff.innerText)) ;
-let s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+let s1coeffs = parseInt(Number(phy1coeff.innerText) + Number(calc1coeff.innerText) + Number(chem1coeff.innerText) + Number(algocoeff.innerText) + Number(lscoeff.innerText) + Number(rwcoeff.innerText) + Number(ethicscoeff.innerText) + Number(phy1labcoeff.innerText)) ;
+let s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 phy1control.addEventListener('keyup', function(){
   phy1avg.innerHTML = Number(calcAvg(phy1control.value,phy1exam.value));
   calc1avg.innerHTML = Number(calcAvg(calc1control.value,calc1exam.value));
@@ -198,19 +234,19 @@ phy1control.addEventListener('keyup', function(){
   algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
   ethicsavg.innerHTML = Number(ethicsexam.value);
   lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-  estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+  
   rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
   phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(phy1control.value) < 0 || Number(phy1control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -232,19 +268,19 @@ phy1exam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(phy1exam.value) < 0 || Number(phy1exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -266,18 +302,18 @@ calc1control.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(calc1control.value) < 0 || Number(calc1control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -299,18 +335,18 @@ calc1exam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(calc1exam.value) < 0 || Number(calc1exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -331,13 +367,13 @@ chem1control.addEventListener('keyup', function(){
     
 
   if(Number(chem1control.value) < 0 || Number(chem1control.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -357,13 +393,13 @@ chem1exam.addEventListener('keyup', function(){
     chem1avg.innerHTML = Number(calcAvg(chem1control.value,chem1exam.value));
 
   if(Number(chem1exam.value) < 0 || Number(chem1exam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -383,13 +419,13 @@ algocontrol.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
 
   if(Number(algocontrol.value) < 0 || Number(algocontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -409,13 +445,13 @@ algoexam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
 
   if(Number(algoexam.value) < 0 || Number(algoexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -431,71 +467,19 @@ algoexam.addEventListener('keyup', function(){
 })
 
 
-
-estcontrol.addEventListener('keyup', function(){
-  estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
-
-  if(Number(estcontrol.value) < 0 || Number(estcontrol.value)>20){
-    invalid.style.display = 'block';
-  }
-  else{
-    invalid.style.display = 'none';
-  }
-
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
-
-estexam.addEventListener('keyup', function(){
-
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
-    
-
-  if(Number(estexam.value) < 0 || Number(estexam.value)>20){
-    invalid.style.display = 'block';
-  }
-  else{
-    invalid.style.display = 'none';
-  }
-
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
-
-  if(Number(avg(s1sum,s1coeffs))<10){
-    s1average.style.color = 'red';
-  }
-  if(Number(avg(s1sum,s1coeffs))>=10){
-    s1average.style.color = 'green';
-  }
-  if(Number(avg(s1sum,s1coeffs))>20 || Number(avg(s1sum,s1coeffs))<=0){
-    s1average.style.color = 'black';
-  }
-  s1average.innerHTML = Number(avg(s1sum,s1coeffs));
-
-})
 
 lscontrol.addEventListener('keyup', function(){
 
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
     
   if(Number(lscontrol.value) < 0 || Number(lscontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -517,18 +501,18 @@ lsexam.addEventListener('keyup', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(lsexam.value) < 0 || Number(lsexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -550,18 +534,18 @@ rwcontrol.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(rwcontrol.value) < 0 || Number(rwcontrol.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -583,18 +567,18 @@ rwexam.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(rwexam.value) < 0 || Number(rwexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -618,18 +602,18 @@ phy1lab.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(phy1lab.value) < 0 || Number(phy1lab.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -651,18 +635,18 @@ ethicsexam.addEventListener('input', function(){
     algoavg.innerHTML = Number(calcAvg(algocontrol.value,algoexam.value));
     ethicsavg.innerHTML = Number(ethicsexam.value);
     lsavg.innerHTML = Number(calcAvg(lscontrol.value,lsexam.value));
-    estavg.innerHTML = Number(calcAvg(estcontrol.value,estexam.value));
+    
     rwavg.innerHTML = Number(calcAvg(rwcontrol.value,rwexam.value));
     phy1labavg.innerHTML = Number(phy1lab.value);
 
   if(Number(ethicsexam.value) < 0 || Number(ethicsexam.value)>20){
-    invalid.style.display = 'block';
+    invalid.style.opacity = '1';
   }
   else{
-    invalid.style.display = 'none';
+    invalid.style.opacity = '0';
   }
 
-  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(estavg.innerText * estcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
+  s1sum = Number(Number(phy1avg.innerText * phy1coeff.innerText) + Number(calc1avg.innerText * calc1coeff.innerText) + Number(chem1avg.innerText * chem1coeff.innerText) + Number(algoavg.innerText * algocoeff.innerText) + Number(lsavg.innerText * lscoeff.innerText) + Number(rwavg.innerText * rwcoeff.innerText) + Number(ethicsavg.innerText * ethicscoeff.innerText)+ Number(phy1labavg.innerText * phy1labcoeff.innerText));
 
   if(Number(avg(s1sum,s1coeffs))<10){
     s1average.style.color = 'red';
@@ -678,10 +662,656 @@ ethicsexam.addEventListener('input', function(){
 })
 
 
+// S2 Grade calculator
+
+let phy2 = document.querySelectorAll('.phy2');
+let chem2 = document.querySelectorAll('.chem2');
+let calc2 = document.querySelectorAll('.calc2');
+let alg = document.querySelectorAll('.alg');
+let ee = document.querySelectorAll('.ee');
+let c = document.querySelectorAll('.c');
+let ls = document.querySelectorAll('.ls');
+let rw = document.querySelectorAll('.rw');
+let ee1lab = document.querySelectorAll('.ee1lab');
+let phy2lab = document.querySelectorAll('.phy2lab');
+let s2sum = 0;
+let s2average = document.getElementById('s2avg');
+
+let s2coeffs = parseInt(Number(phy2[3].innerText) + Number(calc2[3].innerText) + Number(chem2[3].innerText) + Number(c[3].innerText) + Number(ee[3].innerText) + Number(ls[3].innerText) + Number(rw[3].innerText) + Number(ee1lab[2].innerText) + Number(phy2lab[2].innerText)+ Number(alg[3].innerText));
 
 
+rw[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
 
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
 
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+rw[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+phy2[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+phy2[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+calc2[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+calc2[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+chem2[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+chem2[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+alg[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+alg[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+ee[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+ee[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+ls[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+  ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+ls[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+c[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+c[1].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+ee1lab[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+phy2lab[0].addEventListener('input', function(){
+  phy2[2].innerHTML = Number(calcAvg(phy2[0].value,phy2[1].value));
+  calc2[2].innerHTML = Number(calcAvg(calc2[0].value,calc2[1].value));
+  chem2[2].innerHTML = Number(calcAvg(chem2[0].value,chem2[1].value));
+  c[2].innerHTML = Number(calcAvg(c[0].value,c[1].value));
+  phy2lab[1].innerHTML = Number(phy2lab[0].value);
+  ls[2].innerHTML = Number(calcAvg(ls[0].value,ls[1].value));
+  alg[2].innerHTML = Number(calcAvg(alg[0].value,alg[1].value));
+  rw[2].innerHTML = Number(calcAvg(rw[0].value,rw[1].value));
+  ee1lab[1].innerHTML = Number(ee1lab[0].value);
+ee[2].innerHTML = Number(calcAvg(ee[0].value,ee[1].value));
+
+if(Number(rw[1].value) < 0 || Number(rw[1].value)>20){
+  invalid.style.opacity = '1';
+}
+else{
+  invalid.style.opacity = '0';
+}
+
+s2sum = Number(Number(phy2[2].innerText * phy2[3].innerText) + Number(calc2[2].innerText * calc2[3].innerText) + Number(chem2[2].innerText * chem2[3].innerText) + Number(c[2].innerText * c[3].innerText) + Number(ls[2].innerText * ls[3].innerText) + Number(ee[2].innerText * ee[3].innerText) + Number(rw[2].innerText * rw[3].innerText) + Number(ee1lab[1].innerText * ee1lab[2].innerText) + Number(phy2lab[1].innerText * phy2lab[2].innerText)+ Number(alg[2].innerText * alg[3].innerText));
+
+if(Number(avg(s2sum,s2coeffs))<10){
+  s2average.style.color = 'red';
+}
+if(Number(avg(s2sum,s2coeffs))>=10){
+  s2average.style.color = 'green';
+}
+if(Number(avg(s2sum,s2coeffs))>20 || Number(avg(s2sum,s2coeffs))<=0){
+  s2average.style.color = 'black';
+}
+s2average.innerHTML = Number(avg(s2sum,s2coeffs));
+
+})
+
+// Tips box
+
+const tips = [
+  "Don’t forget to validate both semesters 😉",
+  "Lab grades boost your average more than you think!",
+  "CTRL + C and CTRL + V are your real friends during lab reports",
+  "Your average can’t drop if you don’t check it:)",
+  "When in doubt, blame the prof’s handwriting :)",
+  "Don’t be afraid to speak in LS, mistakes are how you improve.",
+  "When teachers say 'this won’t be on the exam,' it’s 100% the first question",
+  "Grades matter, but learning lasts longer",
+  "Don’t underestimate past exams. They reveal what really matters.",
+  "Reading more helps your writing, even if it's Reddit.",
+  "Units matter. Forgetting them in physics is like coding with no logic.",
+  "Code works on your laptop but fails on the lab PC. Classic INELEC horror",
+  "Group projects teach one valuable lesson: trust issues.",
+  "Being an INELECer means you don’t sleep, you just temporarily shut down."
+];
+
+document.getElementById("tipbox").innerText = tips[Math.floor(Math.random() * tips.length)];
 
 
 // functions
